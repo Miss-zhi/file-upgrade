@@ -40,6 +40,9 @@ public class User {
     /** 头像 URL */
     private String avatar;
 
+    /** 状态（1=启用, 0=禁用） */
+    private Integer status;
+
     /** 创建时间 */
     private LocalDateTime createTime;
 

@@ -1,7 +1,10 @@
 package com.qiwenshare.file.service;
 
 import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qiwenshare.file.api.IUserService;
 import com.qiwenshare.file.config.jwt.JwtUtil;
@@ -60,6 +63,7 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
         user.setPassword(passwordEncoder.encode(password));
         user.setEmail(email);
         user.setNickname(username);
+        user.setStatus(1);  // 默认启用
         user.setCreateTime(LocalDateTime.now());
         user.setUpdateTime(LocalDateTime.now());
 
@@ -69,5 +73,48 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
     @Override
     public User getUserById(String userId) {
         return userMapper.selectById(userId);
+    }
+
+    @Override
+    public IPage<User> listUsers(Integer page, Integer size, String keyword) {
+        Page<User> pageParam = new Page<>(page != null ? page : 1, size != null ? size : 10);
+        LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
+        if (StrUtil.isNotBlank(keyword)) {
+            wrapper.and(w -> w
+                    .like(User::getUsername, keyword)
+                    .or()
+                    .like(User::getEmail, keyword));
+        }
+        wrapper.orderByDesc(User::getCreateTime);
+        return userMapper.selectPage(pageParam, wrapper);
+    }
+
+    @Override
+    @Transactional
+    public void updateUser(String id, String email, String phone, String nickname, String avatar) {
+        User user = userMapper.selectById(id);
+        if (user == null) throw new QiwenException(404, "用户不存在");
+        if (email != null) user.setEmail(email);
+        if (phone != null) user.setPhone(phone);
+        if (nickname != null) user.setNickname(nickname);
+        if (avatar != null) user.setAvatar(avatar);
+        user.setUpdateTime(LocalDateTime.now());
+        userMapper.updateById(user);
+    }
+
+    @Override
+    @Transactional
+    public void deleteUser(String id) {
+        userMapper.deleteById(id);
+    }
+
+    @Override
+    @Transactional
+    public void toggleStatus(String id, boolean enabled) {
+        User user = userMapper.selectById(id);
+        if (user == null) throw new QiwenException(404, "用户不存在");
+        user.setStatus(enabled ? 1 : 0);
+        user.setUpdateTime(LocalDateTime.now());
+        userMapper.updateById(user);
     }
 }

@@ -1,11 +1,17 @@
 import http from './http'
 
-/** 获取用户列表 */
 export async function getUserList(params) {
-  return http.get('/admin/users', { params })
+  return http.post('/admin/user/list', params)
 }
 
-/** 修改用户状态 */
-export async function updateUserStatus(data) {
-  return http.put('/admin/user/status', data)
+export async function updateUser(data) {
+  return http.put('/admin/user', data)
+}
+
+export async function toggleUserStatus(id, enabled) {
+  return http.put(`/admin/user/${id}/status`, null, { params: { enabled } })
+}
+
+export async function deleteUser(id) {
+  return http.delete(`/admin/user/${id}`)
 }
