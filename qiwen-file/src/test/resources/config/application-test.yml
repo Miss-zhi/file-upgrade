@@ -6,8 +6,6 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password:
-
-  # JPA 自动建表
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -15,30 +13,28 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
-
-  # 关闭 Redis
   data:
     redis:
       host: ${REDIS_HOST:localhost}
       port: ${REDIS_PORT:6379}
+  # 禁用 ES 自动配置（测试无 ES）
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.elasticsearch.ElasticsearchRestClientAutoConfiguration
 
-# MyBatis-Plus
 mybatis-plus:
   global-config:
     db-config:
       id-type: ASSIGN_ID
 
-# ES（测试环境跳过）
 elasticsearch:
   host: localhost
   port: 9200
 
-spring:
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.elasticsearch.ElasticsearchRestClientAutoConfiguration
+ufop:
+  local:
+    root-path: ./target/ufop-test
 
-# JWT
 jwt:
   secret: dGVzdC1zZWNyZXQta2V5LWZvci11bml0LXRlc3Rpbmc=
   expiration: 3600
