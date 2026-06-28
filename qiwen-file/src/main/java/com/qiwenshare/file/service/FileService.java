@@ -96,6 +96,13 @@ public class FileService extends ServiceImpl<FileBeanMapper, FileBean> implement
         return fileBeanMapper.selectById(fileId);
     }
 
+    @Override
+    public FileBean getByPath(String filePath) {
+        LambdaQueryWrapper<FileBean> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(FileBean::getFilePath, filePath);
+        return fileBeanMapper.selectOne(wrapper);
+    }
+
     private String getParentPath(String filePath) {
         int idx = filePath.lastIndexOf('/');
         return idx <= 0 ? "/" : filePath.substring(0, idx + 1);

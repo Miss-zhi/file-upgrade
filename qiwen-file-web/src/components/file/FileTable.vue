@@ -21,6 +21,7 @@ const emit = defineEmits<{
   copy: [file: FileItem]
   delete: [file: FileItem]
   download: [file: FileItem]
+  share: [file: FileItem]
 }>()
 
 function formatSize(bytes: number | null): string {
@@ -78,6 +79,7 @@ function onDownload(row: FileItem) { emit('download', row) }
               <el-dropdown-item @click="onRename(row)">重命名</el-dropdown-item>
               <el-dropdown-item @click="onMove(row)">移动到</el-dropdown-item>
               <el-dropdown-item @click="onCopy(row)">复制到</el-dropdown-item>
+              <el-dropdown-item @click="emit('share', row)">分享</el-dropdown-item>
               <el-dropdown-item divided @click="onDelete(row)">
                 <span style="color: #f56c6c">删除</span>
               </el-dropdown-item>

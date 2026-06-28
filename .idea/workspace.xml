@@ -5,11 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="807da718-47d1-4550-9f05-c703305169ff" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/openspec/changes/file-ui/.openspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/file-ui/design.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/file-ui/proposal.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/file-ui/specs/file-ui/spec.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/file-ui/tasks.md" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/openspec/changes/user-management/.openspec.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/openspec/changes/user-management/design.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/openspec/changes/user-management/proposal.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/openspec/changes/user-management/specs/user-management/spec.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/openspec/changes/user-management/tasks.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/qiwen-file-web/src/components/admin/UserEditDialog.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/dto/user/UserQueryDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/dto/user/UserUpdateDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/vo/user/UserAdminVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/file-ui/.openspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/openspec/changes/archive/file-ui/.openspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/file-ui/design.md" beforeDir="false" afterPath="$PROJECT_DIR$/openspec/changes/archive/file-ui/design.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/file-ui/proposal.md" beforeDir="false" afterPath="$PROJECT_DIR$/openspec/changes/archive/file-ui/proposal.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/file-ui/specs/file-ui/spec.md" beforeDir="false" afterPath="$PROJECT_DIR$/openspec/changes/archive/file-ui/specs/file-ui/spec.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/file-ui/tasks.md" beforeDir="false" afterPath="$PROJECT_DIR$/openspec/changes/archive/file-ui/tasks.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file-web/src/api/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file-web/src/api/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file-web/src/views/Admin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file-web/src/views/Admin.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/api/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/api/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/domain/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/domain/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +86,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1782641496053</updated>
-      <workItem from="1782641497510" duration="7565000" />
+      <workItem from="1782641497510" duration="8203000" />
     </task>
     <servers />
   </component>

@@ -22,4 +22,7 @@ public interface IFileService {
 
     /** 根据 ID 获取 */
     FileBean getById(String fileId);
+
+    /** 根据路径获取 */
+    FileBean getByPath(String filePath);
 }

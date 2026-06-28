@@ -3,10 +3,12 @@ import { ref, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useFileListStore } from '@/stores/fileList'
 import { ElMessageBox, ElMessage } from 'element-plus'
+import { createShare } from '_api/share'
 import AsideMenu from '_c/file/AsideMenu.vue'
 import FileTable from '_c/file/FileTable.vue'
 import BreadCrumb from '_c/common/BreadCrumb.vue'
 import UploadDialog from '_c/file/dialog/UploadDialog.vue'
+import ShareDialog from '_c/file/dialog/ShareDialog.vue'
 import RenameDialog from '_c/file/dialog/RenameDialog.vue'
 import MoveDialog from '_c/file/dialog/MoveDialog.vue'
 import CopyDialog from '_c/file/dialog/CopyDialog.vue'
@@ -17,6 +19,7 @@ const { files, currentPath, loading } = storeToRefs(fileListStore)
 
 // 对话框引用
 const uploadRef = ref<InstanceType<typeof UploadDialog>>()
+const shareRef = ref<InstanceType<typeof ShareDialog>>()
 const renameRef = ref<InstanceType<typeof RenameDialog>>()
 const moveRef = ref<InstanceType<typeof MoveDialog>>()
 const copyRef = ref<InstanceType<typeof CopyDialog>>()
@@ -79,6 +82,14 @@ async function handleDeleteConfirm(id: string) {
   fileListStore.fetchFiles(currentPath.value)
 }
 
+function handleShare(file: any) { shareRef.value?.open(file.filePath) }
+async function handleShareConfirm(data: any) {
+  const res: any = await createShare(data)
+  if (res.success) {
+    shareRef.value?.setResult(window.location.origin + res.data.link)
+  }
+}
+
 function handleDownload(file: any) {
   ElMessage.info('下载功能开发中')
 }
@@ -131,11 +142,13 @@ onMounted(() => {
         @copy="handleCopy"
         @delete="handleDelete"
         @download="handleDownload"
+        @share="handleShare"
       />
     </div>
 
     <!-- 对话框层 -->
     <UploadDialog ref="uploadRef" @confirm="handleUploadConfirm" />
+    <ShareDialog ref="shareRef" @confirm="handleShareConfirm" />
     <RenameDialog ref="renameRef" @confirm="handleRenameConfirm" />
     <MoveDialog ref="moveRef" @confirm="handleMoveConfirm" />
     <CopyDialog ref="copyRef" @confirm="handleCopyConfirm" />
