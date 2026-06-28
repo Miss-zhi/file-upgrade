@@ -7,6 +7,7 @@ import com.qiwenshare.file.api.IFileService;
 import com.qiwenshare.file.domain.file.FileBean;
 import com.qiwenshare.file.exception.QiwenException;
 import com.qiwenshare.file.mapper.FileBeanMapper;
+import com.qiwenshare.ufop.UFOPFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,7 @@ public class FileService extends ServiceImpl<FileBeanMapper, FileBean> implement
 
     private final FileBeanMapper fileBeanMapper;
     private final FileSearchService searchService;
+    private final UFOPFactory ufopFactory;
 
     @Override
     public List<FileBean> listByPath(String path, String userId) {
@@ -65,6 +67,8 @@ public class FileService extends ServiceImpl<FileBeanMapper, FileBean> implement
             throw new QiwenException(403, "无权删除此文件");
         }
         fileBeanMapper.deleteById(fileId);
+        // 删物理文件
+        try { ufopFactory.getDeleter().delete(file.getFilePath()); } catch (Exception e) { log.warn("物理文件删除失败: {}", e.getMessage()); }
         // 删 ES 索引
         try { searchService.deleteIndex(fileId); } catch (Exception e) { log.warn("ES 删除索引失败: {}", e.getMessage()); }
     }

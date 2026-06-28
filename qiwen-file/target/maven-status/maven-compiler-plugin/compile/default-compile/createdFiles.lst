@@ -2,6 +2,7 @@ com\qiwenshare\file\dto\user\LoginDTO.class
 com\qiwenshare\ufop\operation\Uploader.class
 com\qiwenshare\file\dto\user\UserUpdateDTO.class
 com\qiwenshare\file\mapper\FileBeanMapper.class
+com\qiwenshare\ufop\operation\LocalStorageRenamer.class
 com\qiwenshare\ufop\operation\Renamer.class
 com\qiwenshare\file\service\SysConfigService.class
 com\qiwenshare\file\config\jwt\JwtProperties.class
@@ -23,6 +24,7 @@ com\qiwenshare\file\dto\user\UserQueryDTO.class
 com\qiwenshare\ufop\constant\StorageType.class
 com\qiwenshare\file\service\ShareFileService.class
 com\qiwenshare\file\vo\file\FileVO.class
+com\qiwenshare\ufop\operation\LocalStorageDeleter.class
 com\qiwenshare\ufop\operation\Reader.class
 com\qiwenshare\ufop\operation\Downloader.class
 com\qiwenshare\file\mapper\SysConfigMapper.class
@@ -38,14 +40,19 @@ com\qiwenshare\file\dto\user\RegisterDTO.class
 com\qiwenshare\file\service\OnlyOfficeService.class
 com\qiwenshare\file\vo\user\UserAdminVO$UserAdminVOBuilder.class
 com\qiwenshare\file\domain\config\SysConfig.class
+com\qiwenshare\ufop\operation\LocalStorageDownloader.class
 com\qiwenshare\file\vo\user\UserAdminVO.class
 com\qiwenshare\ufop\operation\Copier.class
 com\qiwenshare\file\vo\user\UserVO.class
+com\qiwenshare\ufop\operation\LocalStorageWriter.class
 com\qiwenshare\file\api\IShareFileService.class
+com\qiwenshare\ufop\operation\LocalStorageReader.class
 com\qiwenshare\file\domain\share\ShareFile.class
 com\qiwenshare\file\controller\ShareController.class
+com\qiwenshare\ufop\config\UFOPConfigProperties.class
 com\qiwenshare\file\controller\SearchController.class
 com\qiwenshare\file\advice\GlobalExceptionHandlerAdvice.class
+com\qiwenshare\ufop\operation\LocalStorageUploader.class
 com\qiwenshare\file\service\StatsService.class
 com\qiwenshare\file\controller\OnlyOfficeController.class
 com\qiwenshare\file\vo\share\ShareVO.class
@@ -56,6 +63,7 @@ com\qiwenshare\file\api\IFileService.class
 com\qiwenshare\ufop\operation\Deleter.class
 com\qiwenshare\file\dto\file\ListFileDTO.class
 com\qiwenshare\file\mapper\UserMapper.class
+com\qiwenshare\ufop\operation\LocalStorageCopier.class
 com\qiwenshare\file\aop\WebLogAspect.class
 com\qiwenshare\file\controller\AdminController.class
 com\qiwenshare\file\util\DateUtil.class

@@ -3,6 +3,7 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\advice\GlobalExcept
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\UserService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\openapi\OpenApiConfig.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\AdminController.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\LocalStorageUploader.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\dto\user\UserQueryDTO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\SysConfigMapper.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\vo\share\ShareVO.java
@@ -20,6 +21,7 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\SysConfigSe
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\vo\user\UserVO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\util\DateUtil.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\api\IShareFileService.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\LocalStorageDownloader.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\SearchController.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\dto\user\LoginDTO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\vo\user\UserAdminVO.java
@@ -30,6 +32,7 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\jwt\JwtPrope
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\onlyoffice\OnlyOfficeProperties.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\dto\file\ListFileDTO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\dto\file\DeleteFileDTO.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\LocalStorageReader.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\dto\user\RegisterDTO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\FileController.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Renamer.java
@@ -47,6 +50,8 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\domain\config\SysCo
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\UserMapper.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\dto\share\CreateShareDTO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\vo\file\FileVO.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\LocalStorageRenamer.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\config\UFOPConfigProperties.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\api\IUserService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\exception\QiwenException.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\exception\UFOPException.java
@@ -55,8 +60,11 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\FileSearchS
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\ShareController.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\ShareFileMapper.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\jwt\JwtUtil.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\LocalStorageWriter.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\es\ElasticsearchConfig.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\FileService.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\LocalStorageCopier.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\UserController.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\security\SecurityConfig.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\domain\user\User.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\LocalStorageDeleter.java

@@ -5,6 +5,7 @@ import com.qiwenshare.file.aop.MyLog;
 import com.qiwenshare.file.domain.file.FileBean;
 import com.qiwenshare.file.dto.file.DeleteFileDTO;
 import com.qiwenshare.file.dto.file.ListFileDTO;
+import com.qiwenshare.ufop.UFOPFactory;
 import com.qiwenshare.file.util.RestResult;
 import com.qiwenshare.file.vo.file.FileVO;
 import io.swagger.v3.oas.annotations.Operation;
@@ -13,6 +14,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -28,6 +30,7 @@ import java.util.List;
 public class FileController {
 
     private final IFileService fileService;
+    private final UFOPFactory ufopFactory;
 
     @Operation(summary = "文件列表")
     @PostMapping("/list")
@@ -49,6 +52,8 @@ public class FileController {
         FileBean fileBean = fileService.upload(
                 file.getOriginalFilename(), filePath, file.getSize(),
                 file.getContentType(), userId);
+        // 写入物理文件
+        try { ufopFactory.getUploader().upload(filePath, file.getInputStream()); } catch (Exception ignored) {}
         return RestResult.success(FileVO.fromEntity(fileBean));
     }
 
@@ -74,12 +79,15 @@ public class FileController {
 
     @Operation(summary = "下载文件")
     @GetMapping("/download/{id}")
-    public RestResult<FileVO> download(@PathVariable String id) {
+    public ResponseEntity<org.springframework.core.io.Resource> download(@PathVariable String id) {
         FileBean file = fileService.getById(id);
-        if (file == null) {
-            return RestResult.fail("文件不存在");
-        }
-        return RestResult.success(FileVO.fromEntity(file));
+        if (file == null) return ResponseEntity.notFound().build();
+        java.io.InputStream is = ufopFactory.getDownloader().download(file.getFilePath());
+        org.springframework.core.io.InputStreamResource resource = new org.springframework.core.io.InputStreamResource(is);
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFileName() + "\"")
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .body(resource);
     }
 
     private String getCurrentUserId() {
