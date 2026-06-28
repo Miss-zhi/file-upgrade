@@ -1,8 +1,8 @@
 # =============================================================================
-# 奇文网盘 CI/CD 流水线
+# 奇文网盘 CI/CD 流水线（目标技术栈：Java 17 + Vue 3 + Vite）
 # 触发：push 到 main/develop，或 pull request 到 main
 # 两条并行流水线：
-#   前端：lint → build
+#   前端：lint → typecheck → build
 #   后端：compile → test → package
 # 最终由 ci-summary 汇总结果
 # =============================================================================
@@ -15,20 +15,18 @@ on:
   pull_request:
     branches: [main]
 
-# 并发控制：同一分支的新提交自动取消旧的运行
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 env:
-  JAVA_VERSION: '8'
+  JAVA_VERSION: '17'
   JAVA_DIST: 'zulu'
-  NODE_VERSION: '16'
+  NODE_VERSION: '20'
 
 jobs:
-  # ======================== Stage 1: Lint ========================
+  # ======================== 前端流水线 ========================
 
-  # ---------- 前端 Lint ----------
   frontend-lint:
     name: 前端 Lint
     runs-on: ubuntu-latest
@@ -48,11 +46,61 @@ jobs:
         run: npm ci --no-audit
 
       - name: ESLint 检查
-        run: npx vue-cli-service lint --no-fix
+        run: npx eslint src/ --ext .vue,.js,.ts
 
-  # ======================== Stage 2: Compile ========================
+  frontend-typecheck:
+    name: 前端类型检查
+    needs: [frontend-lint]
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: qiwen-file-web
+    steps:
+      - uses: actions/checkout@v4
 
-  # ---------- 后端编译 ----------
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: qiwen-file-web/package-lock.json
+
+      - name: 安装依赖
+        run: npm ci --no-audit
+
+      - name: 类型检查
+        run: npx vue-tsc --noEmit
+
+  frontend-build:
+    name: 前端构建
+    needs: [frontend-typecheck]
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: qiwen-file-web
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: qiwen-file-web/package-lock.json
+
+      - name: 安装依赖
+        run: npm ci --no-audit
+
+      - name: Vite 生产构建
+        run: npx vite build
+
+      - name: 上传构建产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: qiwen-file-web/dist/
+          retention-days: 7
+
+  # ======================== 后端流水线 ========================
+
   backend-compile:
     name: 后端编译
     runs-on: ubuntu-latest
@@ -68,9 +116,6 @@ jobs:
       - name: 编译（跳过测试）
         run: mvn compile -f qiwen-file/pom.xml -B -q -DskipTests
 
-  # ======================== Stage 3: Test ========================
-
-  # ---------- 后端单元测试 ----------
   backend-test:
     name: 后端单元测试
     needs: [backend-compile]
@@ -78,7 +123,7 @@ jobs:
 
     services:
       mysql:
-        image: mysql:5.7
+        image: mysql:8.0
         env:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: file_test
@@ -93,7 +138,7 @@ jobs:
           --health-retries=5
 
       redis:
-        image: redis:6-alpine
+        image: redis:7-alpine
         ports:
           - 6379:6379
         options: >-
@@ -142,7 +187,7 @@ jobs:
           echo "ufop.storage-type=0" >> $PROPS
           echo "" >> $PROPS
           echo "# JWT" >> $PROPS
-          echo "jwt.secret=test-secret-key-for-ci-only" >> $PROPS
+          echo "jwt.secret=test-secret-key-for-ci-only-must-be-long-enough" >> $PROPS
           echo "jwt.expiration=604800" >> $PROPS
           echo "jwt.issuer=qiwen-test" >> $PROPS
           echo "" >> $PROPS
@@ -154,9 +199,7 @@ jobs:
           echo "async.thread-pool.enabled=false" >> $PROPS
 
       - name: 运行测试
-        run: mvn test -f qiwen-file/pom.xml -B -Dspring.profiles.active=test
-        env:
-          SPRING_PROFILES_ACTIVE: test
+        run: mvn test -f qiwen-file/pom.xml -B
 
       - name: 上传测试报告
         if: always()
@@ -166,39 +209,6 @@ jobs:
           path: qiwen-file/target/surefire-reports/
           retention-days: 7
 
-  # ======================== Stage 4: Build ========================
-
-  # ---------- 前端构建 ----------
-  frontend-build:
-    name: 前端构建
-    needs: [frontend-lint]
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: qiwen-file-web
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: npm
-          cache-dependency-path: qiwen-file-web/package-lock.json
-
-      - name: 安装依赖
-        run: npm ci --no-audit
-
-      - name: 生产构建
-        run: npx vue-cli-service build --no-clean
-
-      - name: 上传构建产物
-        uses: actions/upload-artifact@v4
-        with:
-          name: frontend-dist
-          path: qiwen-file-web/dist/
-          retention-days: 7
-
-  # ---------- 后端打包 ----------
   backend-package:
     name: 后端打包
     needs: [backend-test]
@@ -212,7 +222,7 @@ jobs:
           distribution: ${{ env.JAVA_DIST }}
           cache: maven
 
-      - name: 打包（跳过测试和 assembly）
+      - name: 打包
         run: mvn package -f qiwen-file/pom.xml -B -DskipTests -Dmaven.assembly.skip=true
 
       - name: 上传 JAR
@@ -222,29 +232,29 @@ jobs:
           path: qiwen-file/target/*.jar
           retention-days: 7
 
-  # ======================== Stage 5: Summary ========================
+  # ======================== 汇总 ========================
 
   ci-summary:
     name: CI 结果汇总
-    needs: [frontend-lint, backend-compile, backend-test, frontend-build, backend-package]
+    needs: [frontend-lint, frontend-typecheck, frontend-build, backend-compile, backend-test, backend-package]
     runs-on: ubuntu-latest
     if: always()
     steps:
       - name: 检查结果
         run: |
           echo "========== CI 流水线结果 =========="
-          echo "前端 Lint:    ${{ needs.frontend-lint.result || 'skipped' }}"
-          echo "前端构建:     ${{ needs.frontend-build.result }}"
-          echo "后端编译:     ${{ needs.backend-compile.result || 'skipped' }}"
-          echo "后端测试:     ${{ needs.backend-test.result || 'skipped' }}"
-          echo "后端打包:     ${{ needs.backend-package.result }}"
+          echo "前端 Lint:      ${{ needs.frontend-lint.result }}"
+          echo "前端类型检查:   ${{ needs.frontend-typecheck.result }}"
+          echo "前端构建:       ${{ needs.frontend-build.result }}"
+          echo "后端编译:       ${{ needs.backend-compile.result }}"
+          echo "后端测试:       ${{ needs.backend-test.result }}"
+          echo "后端打包:       ${{ needs.backend-package.result }}"
           echo "==================================="
 
-          # 任一关键 job 失败则整体失败
           if [[ "${{ needs.frontend-build.result }}" == "failure" ]] || \
              [[ "${{ needs.backend-package.result }}" == "failure" ]]; then
             echo "::error::CI 流水线存在失败任务"
             exit 1
           fi
 
-          echo "✅ 所有检查通过"
+          echo "All checks passed"
