@@ -1,38 +1,64 @@
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
-import { getFileListByPath } from '_api/file'
+import { ref } from 'vue'
+import { getFileListByPath, uploadFile as uploadApi, deleteFile as deleteApi, createFolder as createFolderApi } from '_api/file'
+import { ElMessage } from 'element-plus'
 
 export const useFileListStore = defineStore('fileList', () => {
-  // ---- state ----
   const files = ref([])
   const currentPath = ref('/')
-  const total = ref(0)
   const loading = ref(false)
 
-  // ---- getters ----
-  const folderList = computed(() =>
-    files.value.filter(f => f.isFolder)
-  )
-
-  const fileList = computed(() =>
-    files.value.filter(f => !f.isFolder)
-  )
-
-  // ---- actions ----
   async function fetchFiles(path) {
     loading.value = true
     currentPath.value = path || '/'
-    const res = await getFileListByPath({ path: currentPath.value })
-    if (res.success) {
-      files.value = res.dataList || res.data || []
-      total.value = Number(res.total) || 0
+    try {
+      const res = await getFileListByPath({ path: currentPath.value })
+      if (res.success) {
+        files.value = res.data || []
+      }
+    } catch {
+      // 错误在拦截器中处理
     }
     loading.value = false
   }
 
-  function setFiles(data) {
-    files.value = data
+  async function uploadFile(file, path) {
+    const formData = new FormData()
+    formData.append('file', file)
+    formData.append('path', path || '/')
+    try {
+      const res = await uploadApi(formData)
+      if (res.success) {
+        ElMessage.success('上传成功')
+        await fetchFiles(currentPath.value)
+      }
+    } catch {
+      // handled
+    }
   }
 
-  return { files, currentPath, total, loading, folderList, fileList, fetchFiles, setFiles }
+  async function deleteFile(id) {
+    try {
+      const res = await deleteApi({ id })
+      if (res.success) {
+        await fetchFiles(currentPath.value)
+      }
+    } catch {
+      // handled
+    }
+  }
+
+  async function createFolder(path, folderName) {
+    try {
+      const res = await createFolderApi(path, folderName)
+      if (res.success) {
+        ElMessage.success('文件夹创建成功')
+        await fetchFiles(currentPath.value)
+      }
+    } catch {
+      // handled
+    }
+  }
+
+  return { files, currentPath, loading, fetchFiles, uploadFile, deleteFile, createFolder }
 })

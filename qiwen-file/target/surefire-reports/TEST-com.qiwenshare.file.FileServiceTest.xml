@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.qiwenshare.file.UserServiceTest" time="2.375" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.qiwenshare.file.FileServiceTest" time="43.201" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -66,145 +66,212 @@
     <property name="java.class.version" value="61.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[qiwen-file] "/>
   </properties>
-  <testcase name="testLoginSuccess" classname="com.qiwenshare.file.UserServiceTest" time="0.968">
-    <system-out><![CDATA[2026-06-28T20:38:40.387+08:00  INFO 14520 --- [qiwen-file] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.qiwenshare.file.UserServiceTest]: UserServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-06-28T20:38:40.394+08:00  INFO 14520 --- [qiwen-file] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.qiwenshare.file.FileApplication for test class com.qiwenshare.file.UserServiceTest
+  <testcase name="testCreateFolder" classname="com.qiwenshare.file.FileServiceTest" time="3.187">
+    <system-out><![CDATA[20:37:57.901 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.qiwenshare.file.FileServiceTest]: FileServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:37:58.380 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.qiwenshare.file.FileApplication for test class com.qiwenshare.file.FileServiceTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-06-28T20:38:00.865+08:00  INFO 14520 --- [qiwen-file] [           main] com.qiwenshare.file.FileServiceTest      : Starting FileServiceTest using Java 17.0.18 with PID 14520 (started by Administrator in E:\file-upgrade\qiwen-file)
+2026-06-28T20:38:00.868+08:00 DEBUG 14520 --- [qiwen-file] [           main] com.qiwenshare.file.FileServiceTest      : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-06-28T20:38:00.871+08:00  INFO 14520 --- [qiwen-file] [           main] com.qiwenshare.file.FileServiceTest      : The following 1 profile is active: "test"
+2026-06-28T20:38:06.919+08:00  INFO 14520 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-28T20:38:06.931+08:00  INFO 14520 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-28T20:38:06.998+08:00  INFO 14520 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41 ms. Found 0 JPA repository interfaces.
+2026-06-28T20:38:07.068+08:00  INFO 14520 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-28T20:38:07.071+08:00  INFO 14520 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-28T20:38:07.305+08:00  INFO 14520 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 189 ms. Found 0 Redis repository interfaces.
+2026-06-28T20:38:11.478+08:00  INFO 14520 --- [qiwen-file] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-28T20:38:11.810+08:00  INFO 14520 --- [qiwen-file] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-06-28T20:38:11.966+08:00  INFO 14520 --- [qiwen-file] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-28T20:38:12.949+08:00  INFO 14520 --- [qiwen-file] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-28T20:38:13.038+08:00  INFO 14520 --- [qiwen-file] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-28T20:38:13.741+08:00  INFO 14520 --- [qiwen-file] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:qiwen_file_test user=SA
+2026-06-28T20:38:13.746+08:00  INFO 14520 --- [qiwen-file] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-28T20:38:13.832+08:00  WARN 14520 --- [qiwen-file] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-28T20:38:16.677+08:00  INFO 14520 --- [qiwen-file] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    drop table if exists file_bean cascade 
+Hibernate: 
+    drop table if exists qiwen_user cascade 
+Hibernate: 
+    create table file_bean (
+        is_folder boolean,
+        create_time timestamp(6),
+        file_size bigint,
+        update_time timestamp(6),
+        file_name varchar(255),
+        file_path varchar(255),
+        file_type varchar(255),
+        id varchar(255) not null,
+        parent_path varchar(255),
+        user_id varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table qiwen_user (
+        create_time timestamp(6),
+        update_time timestamp(6),
+        avatar varchar(255),
+        email varchar(255),
+        id varchar(255) not null,
+        nickname varchar(255),
+        password varchar(255),
+        phone varchar(255),
+        username varchar(255),
+        primary key (id)
+    )
+2026-06-28T20:38:16.778+08:00  INFO 14520 --- [qiwen-file] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl' adapter.
+Use localhost address 
+Get PC202107041543/192.168.33.1 network interface 
+Get network interface info: name:eth2 (VMware Virtual Ethernet Adapter for VMnet8)
+Initialization Sequence datacenterId:0 workerId:0
+ _ _   |_  _ _|_. ___ _ |    _ 
+| | |\/|_)(_| | |_\  |_)||_|_\ 
+     /               |         
+                        3.5.6 
+2026-06-28T20:38:31.332+08:00  INFO 14520 --- [qiwen-file] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@349e166, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4bdec54, org.springframework.security.web.context.SecurityContextHolderFilter@7edb2a4b, org.springframework.security.web.header.HeaderWriterFilter@fbb585e, org.springframework.web.filter.CorsFilter@68fd0fba, org.springframework.security.web.authentication.logout.LogoutFilter@1ff584d7, com.qiwenshare.file.config.security.JwtAuthFilter@535aa7c7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@355e1080, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2aef651, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3f9e38d4, org.springframework.security.web.session.SessionManagementFilter@2d6161b9, org.springframework.security.web.access.ExceptionTranslationFilter@7b0d42b6, org.springframework.security.web.access.intercept.AuthorizationFilter@6351efa6]
+2026-06-28T20:38:36.401+08:00  INFO 14520 --- [qiwen-file] [           main] com.qiwenshare.file.FileServiceTest      : Started FileServiceTest in 37.145 seconds (process running for 41.6)
 Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3713ebe9]
-JDBC Connection [HikariProxyConnection@2134374070 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
-==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,create_time,update_time FROM qiwen_user WHERE (username = ?)
-==> Parameters: loginuser(String)
-<==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3713ebe9]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3713ebe9] from current transaction
-==>  Preparing: INSERT INTO qiwen_user ( id, username, password, email, nickname, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071211680071524352(String), loginuser(String), $2a$10$vzXohVSDSydBN8oFvP6Ef./4UzI9VUdL8alY3/y569d/0UJB1hzVy(String), login@test.com(String), loginuser(String), 2026-06-28T20:38:40.637840100(LocalDateTime), 2026-06-28T20:38:40.637840100(LocalDateTime)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3713ebe9]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3713ebe9] from current transaction
-==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,create_time,update_time FROM qiwen_user WHERE (username = ?)
-==> Parameters: loginuser(String)
-<==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071211680071524352, loginuser, $2a$10$vzXohVSDSydBN8oFvP6Ef./4UzI9VUdL8alY3/y569d/0UJB1hzVy, login@test.com, null, loginuser, null, 2026-06-28 20:38:40.63784, 2026-06-28 20:38:40.63784
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40e28324]
+JDBC Connection [HikariProxyConnection@1855412326 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+==>  Preparing: SELECT COUNT( * ) AS total FROM file_bean WHERE (file_path = ? AND user_id = ?)
+==> Parameters: /documents(String), user001(String)
+<==    Columns: TOTAL
+<==        Row: 0
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3713ebe9]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3713ebe9]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3713ebe9]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40e28324]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40e28324] from current transaction
+==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 2071211676237930496(String), documents(String), /documents(String), 0(Long), (String), true(Boolean), /(String), user001(String), 2026-06-28T20:38:39.524811800(LocalDateTime), 2026-06-28T20:38:39.524811800(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40e28324]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40e28324]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40e28324]
 ]]></system-out>
   </testcase>
-  <testcase name="testLoginUserNotFound" classname="com.qiwenshare.file.UserServiceTest" time="0.031">
+  <testcase name="testListByPath" classname="com.qiwenshare.file.FileServiceTest" time="0.083">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@63c57bde]
-JDBC Connection [HikariProxyConnection@587433505 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
-==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,create_time,update_time FROM qiwen_user WHERE (username = ?)
-==> Parameters: nobody(String)
-<==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@63c57bde]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@63c57bde]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@63c57bde]
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ccb3dd]
+JDBC Connection [HikariProxyConnection@820910648 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+==>  Preparing: SELECT COUNT( * ) AS total FROM file_bean WHERE (file_path = ? AND user_id = ?)
+==> Parameters: /pics(String), user001(String)
+<==    Columns: TOTAL
+<==        Row: 0
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ccb3dd]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ccb3dd] from current transaction
+==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 2071211676808355840(String), pics(String), /pics(String), 0(Long), (String), true(Boolean), /(String), user001(String), 2026-06-28T20:38:39.660449800(LocalDateTime), 2026-06-28T20:38:39.660449800(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ccb3dd]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ccb3dd] from current transaction
+==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 2071211676833521664(String), a.txt(String), /a.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 2026-06-28T20:38:39.666431200(LocalDateTime), 2026-06-28T20:38:39.666431200(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ccb3dd]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ccb3dd] from current transaction
+==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 2071211676867076096(String), b.jpg(String), /b.jpg(String), 200(Long), image/jpeg(String), false(Boolean), /(String), user001(String), 2026-06-28T20:38:39.675408100(LocalDateTime), 2026-06-28T20:38:39.675408100(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ccb3dd]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ccb3dd] from current transaction
+==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,create_time,update_time FROM file_bean WHERE (parent_path = ? AND user_id = ?) ORDER BY is_folder ASC,file_name ASC
+==> Parameters: /(String), user001(String)
+<==    Columns: ID, FILE_NAME, FILE_PATH, FILE_SIZE, FILE_TYPE, IS_FOLDER, PARENT_PATH, USER_ID, CREATE_TIME, UPDATE_TIME
+<==        Row: 2071211676833521664, a.txt, /a.txt, 100, text/plain, FALSE, /, user001, 2026-06-28 20:38:39.666431, 2026-06-28 20:38:39.666431
+<==        Row: 2071211676867076096, b.jpg, /b.jpg, 200, image/jpeg, FALSE, /, user001, 2026-06-28 20:38:39.675408, 2026-06-28 20:38:39.675408
+<==        Row: 2071211676808355840, pics, /pics, 0, , TRUE, /, user001, 2026-06-28 20:38:39.66045, 2026-06-28 20:38:39.66045
+<==      Total: 3
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ccb3dd]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ccb3dd]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ccb3dd]
 ]]></system-out>
   </testcase>
-  <testcase name="testRegisterDuplicate" classname="com.qiwenshare.file.UserServiceTest" time="0.38">
+  <testcase name="testGetById" classname="com.qiwenshare.file.FileServiceTest" time="0.025">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@41862a32]
-JDBC Connection [HikariProxyConnection@367585412 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
-==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,create_time,update_time FROM qiwen_user WHERE (username = ?)
-==> Parameters: duplicate(String)
-<==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@41862a32]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@41862a32] from current transaction
-==>  Preparing: INSERT INTO qiwen_user ( id, username, password, email, nickname, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071211684249051136(String), duplicate(String), $2a$10$U5KYYwT0qAvERN7SDE2ubuDtGcdimrQ3hAvVHWSN.iEDwOBNp5qlK(String), dup@test.com(String), duplicate(String), 2026-06-28T20:38:41.771819(LocalDateTime), 2026-06-28T20:38:41.771819(LocalDateTime)
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34672fb]
+JDBC Connection [HikariProxyConnection@1063860793 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 2071211677202620416(String), findme.txt(String), /findme.txt(String), 99(Long), text/plain(String), false(Boolean), /(String), user001(String), 2026-06-28T20:38:39.754200400(LocalDateTime), 2026-06-28T20:38:39.754200400(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@41862a32]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@41862a32] from current transaction
-==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,create_time,update_time FROM qiwen_user WHERE (username = ?)
-==> Parameters: duplicate(String)
-<==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071211684249051136, duplicate, $2a$10$U5KYYwT0qAvERN7SDE2ubuDtGcdimrQ3hAvVHWSN.iEDwOBNp5qlK, dup@test.com, null, duplicate, null, 2026-06-28 20:38:41.771819, 2026-06-28 20:38:41.771819
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34672fb]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34672fb] from current transaction
+==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,create_time,update_time FROM file_bean WHERE id=?
+==> Parameters: 2071211677202620416(String)
+<==    Columns: ID, FILE_NAME, FILE_PATH, FILE_SIZE, FILE_TYPE, IS_FOLDER, PARENT_PATH, USER_ID, CREATE_TIME, UPDATE_TIME
+<==        Row: 2071211677202620416, findme.txt, /findme.txt, 99, text/plain, FALSE, /, user001, 2026-06-28 20:38:39.7542, 2026-06-28 20:38:39.7542
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@41862a32]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@41862a32]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@41862a32]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34672fb]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34672fb]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34672fb]
 ]]></system-out>
   </testcase>
-  <testcase name="testLoginWrongPassword" classname="com.qiwenshare.file.UserServiceTest" time="0.6">
+  <testcase name="testDeleteOtherUserFile" classname="com.qiwenshare.file.FileServiceTest" time="0.032">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f82dd9a]
-JDBC Connection [HikariProxyConnection@1985787585 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
-==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,create_time,update_time FROM qiwen_user WHERE (username = ?)
-==> Parameters: wrongpw(String)
-<==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f82dd9a]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f82dd9a] from current transaction
-==>  Preparing: INSERT INTO qiwen_user ( id, username, password, email, nickname, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071211685851275264(String), wrongpw(String), $2a$10$4UmuHcWdx.S0UIKEfWOxcOrypnA.xMvoBvgWrrUmuGfsJqRqUhOAK(String), wrong@test.com(String), wrongpw(String), 2026-06-28T20:38:42.172750300(LocalDateTime), 2026-06-28T20:38:42.172750300(LocalDateTime)
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7474bc14]
+JDBC Connection [HikariProxyConnection@35342973 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 2071211677353615360(String), secret.txt(String), /secret.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 2026-06-28T20:38:39.790102300(LocalDateTime), 2026-06-28T20:38:39.790102300(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f82dd9a]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f82dd9a] from current transaction
-==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,create_time,update_time FROM qiwen_user WHERE (username = ?)
-==> Parameters: wrongpw(String)
-<==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071211685851275264, wrongpw, $2a$10$4UmuHcWdx.S0UIKEfWOxcOrypnA.xMvoBvgWrrUmuGfsJqRqUhOAK, wrong@test.com, null, wrongpw, null, 2026-06-28 20:38:42.17275, 2026-06-28 20:38:42.17275
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7474bc14]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7474bc14] from current transaction
+==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,create_time,update_time FROM file_bean WHERE id=?
+==> Parameters: 2071211677353615360(String)
+<==    Columns: ID, FILE_NAME, FILE_PATH, FILE_SIZE, FILE_TYPE, IS_FOLDER, PARENT_PATH, USER_ID, CREATE_TIME, UPDATE_TIME
+<==        Row: 2071211677353615360, secret.txt, /secret.txt, 100, text/plain, FALSE, /, user001, 2026-06-28 20:38:39.790102, 2026-06-28 20:38:39.790102
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f82dd9a]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f82dd9a]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f82dd9a]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7474bc14]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7474bc14]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7474bc14]
 ]]></system-out>
   </testcase>
-  <testcase name="testGetUserById" classname="com.qiwenshare.file.UserServiceTest" time="0.177">
+  <testcase name="testDelete" classname="com.qiwenshare.file.FileServiceTest" time="0.03">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@eb3b4d7]
-JDBC Connection [HikariProxyConnection@1155962484 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
-==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,create_time,update_time FROM qiwen_user WHERE (username = ?)
-==> Parameters: iduser(String)
-<==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@eb3b4d7]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@eb3b4d7] from current transaction
-==>  Preparing: INSERT INTO qiwen_user ( id, username, password, email, nickname, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071211688363663360(String), iduser(String), $2a$10$Aty.fibo.asAzFjfohgoGuWLF8t5Ot59SB0rD828CtDcY.EBUm95.(String), id@test.com(String), iduser(String), 2026-06-28T20:38:42.565702100(LocalDateTime), 2026-06-28T20:38:42.565702100(LocalDateTime)
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37e2873c]
+JDBC Connection [HikariProxyConnection@1745527555 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 2071211677517193216(String), todelete.txt(String), /todelete.txt(String), 50(Long), text/plain(String), false(Boolean), /(String), user001(String), 2026-06-28T20:38:39.829001800(LocalDateTime), 2026-06-28T20:38:39.829001800(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@eb3b4d7]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@eb3b4d7] from current transaction
-==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,create_time,update_time FROM qiwen_user WHERE (username = ?)
-==> Parameters: iduser(String)
-<==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071211688363663360, iduser, $2a$10$Aty.fibo.asAzFjfohgoGuWLF8t5Ot59SB0rD828CtDcY.EBUm95., id@test.com, null, iduser, null, 2026-06-28 20:38:42.565702, 2026-06-28 20:38:42.565702
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37e2873c]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37e2873c] from current transaction
+==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,create_time,update_time FROM file_bean WHERE id=?
+==> Parameters: 2071211677517193216(String)
+<==    Columns: ID, FILE_NAME, FILE_PATH, FILE_SIZE, FILE_TYPE, IS_FOLDER, PARENT_PATH, USER_ID, CREATE_TIME, UPDATE_TIME
+<==        Row: 2071211677517193216, todelete.txt, /todelete.txt, 50, text/plain, FALSE, /, user001, 2026-06-28 20:38:39.829002, 2026-06-28 20:38:39.829002
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@eb3b4d7]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@eb3b4d7] from current transaction
-==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,create_time,update_time FROM qiwen_user WHERE id=?
-==> Parameters: 2071211688363663360(String)
-<==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071211688363663360, iduser, $2a$10$Aty.fibo.asAzFjfohgoGuWLF8t5Ot59SB0rD828CtDcY.EBUm95., id@test.com, null, iduser, null, 2026-06-28 20:38:42.565702, 2026-06-28 20:38:42.565702
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@eb3b4d7]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@eb3b4d7]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@eb3b4d7]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37e2873c]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37e2873c] from current transaction
+==>  Preparing: DELETE FROM file_bean WHERE id=?
+==> Parameters: 2071211677517193216(String)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37e2873c]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37e2873c] from current transaction
+==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,create_time,update_time FROM file_bean WHERE id=?
+==> Parameters: 2071211677517193216(String)
+<==      Total: 0
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37e2873c]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37e2873c]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37e2873c]
 ]]></system-out>
   </testcase>
-  <testcase name="testRegisterSuccess" classname="com.qiwenshare.file.UserServiceTest" time="0.17">
+  <testcase name="testUpload" classname="com.qiwenshare.file.FileServiceTest" time="0.496">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78fb8a66]
-JDBC Connection [HikariProxyConnection@788840947 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
-==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,create_time,update_time FROM qiwen_user WHERE (username = ?)
-==> Parameters: testuser(String)
-<==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78fb8a66]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78fb8a66] from current transaction
-==>  Preparing: INSERT INTO qiwen_user ( id, username, password, email, nickname, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071211689143803904(String), testuser(String), $2a$10$2BG/t.s7Xgghkffr.Jc5hek4B1GWrsw691Ko9ijDi1EVAh0tRR4Oy(String), test@qiwenshare.com(String), testuser(String), 2026-06-28T20:38:42.735249(LocalDateTime), 2026-06-28T20:38:42.735249(LocalDateTime)
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25eadfe6]
+JDBC Connection [HikariProxyConnection@703654209 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 2071211677655605248(String), readme.txt(String), /readme.txt(String), 1024(Long), text/plain(String), false(Boolean), /(String), user001(String), 2026-06-28T20:38:39.862916(LocalDateTime), 2026-06-28T20:38:39.862916(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78fb8a66]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78fb8a66] from current transaction
-==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,create_time,update_time FROM qiwen_user WHERE (username = ?)
-==> Parameters: testuser(String)
-<==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071211689143803904, testuser, $2a$10$2BG/t.s7Xgghkffr.Jc5hek4B1GWrsw691Ko9ijDi1EVAh0tRR4Oy, test@qiwenshare.com, null, testuser, null, 2026-06-28 20:38:42.735249, 2026-06-28 20:38:42.735249
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78fb8a66]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78fb8a66]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78fb8a66]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25eadfe6]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25eadfe6]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25eadfe6]
 ]]></system-out>
   </testcase>
 </testsuite>

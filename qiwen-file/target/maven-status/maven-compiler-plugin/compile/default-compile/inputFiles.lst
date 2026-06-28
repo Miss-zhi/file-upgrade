@@ -3,6 +3,8 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\advice\GlobalExcept
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\UserService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\openapi\OpenApiConfig.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\mybatisplus\MyBatisPlusConfig.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\api\IFileService.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\domain\file\FileBean.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\UFOPFactory.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\threadpool\ThreadPoolConfig.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Uploader.java
@@ -15,6 +17,7 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\FileApplication.jav
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Copier.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\vo\user\UserVO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\UserMapper.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\vo\file\FileVO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\api\IUserService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\util\DateUtil.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\exception\QiwenException.java
@@ -25,10 +28,15 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Deleter.j
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\constant\StorageType.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\aop\MyLog.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\jwt\JwtProperties.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\dto\file\ListFileDTO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\jwt\JwtUtil.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\dto\file\DeleteFileDTO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\dto\user\RegisterDTO.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\FileController.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Renamer.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\es\ElasticsearchConfig.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\FileService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\UserController.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\security\SecurityConfig.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\domain\user\User.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\FileBeanMapper.java

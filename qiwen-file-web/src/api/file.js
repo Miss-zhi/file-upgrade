@@ -1,24 +1,23 @@
 import http from './http'
 
-/** 根据路径获取文件列表 */
 export async function getFileListByPath(params) {
   return http.post('/file/list', params)
 }
 
-/** 上传文件 */
-export async function uploadFile(formData, onProgress) {
+export async function uploadFile(formData) {
   return http.post('/file/upload', formData, {
-    headers: { 'Content-Type': 'multipart/form-data' },
-    onUploadProgress: onProgress
+    headers: { 'Content-Type': 'multipart/form-data' }
   })
 }
 
-/** 删除文件 */
 export async function deleteFile(data) {
   return http.post('/file/delete', data)
 }
 
-/** 创建文件夹 */
-export async function createFolder(data) {
-  return http.post('/file/create-folder', data)
+export async function createFolder(path, folderName) {
+  return http.post('/file/create-folder', null, { params: { path, folderName } })
+}
+
+export async function downloadFile(id) {
+  return http.get(`/file/download/${id}`)
 }
