@@ -1,6 +1,14 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { getFileListByPath, uploadFile as uploadApi, deleteFile as deleteApi, createFolder as createFolderApi } from '_api/file'
+import {
+  getFileListByPath,
+  uploadFile as uploadApi,
+  deleteFile as deleteApi,
+  createFolder as createFolderApi,
+  renameFile as renameApi,
+  moveFile as moveApi,
+  copyFile as copyApi
+} from '_api/file'
 import { ElMessage } from 'element-plus'
 
 export const useFileListStore = defineStore('fileList', () => {
@@ -16,9 +24,7 @@ export const useFileListStore = defineStore('fileList', () => {
       if (res.success) {
         files.value = res.data || []
       }
-    } catch {
-      // 错误在拦截器中处理
-    }
+    } catch { /* handled */ }
     loading.value = false
   }
 
@@ -32,33 +38,35 @@ export const useFileListStore = defineStore('fileList', () => {
         ElMessage.success('上传成功')
         await fetchFiles(currentPath.value)
       }
-    } catch {
-      // handled
-    }
+    } catch { /* handled */ }
   }
 
   async function deleteFile(id) {
-    try {
-      const res = await deleteApi({ id })
-      if (res.success) {
-        await fetchFiles(currentPath.value)
-      }
-    } catch {
-      // handled
+    const res = await deleteApi({ id })
+    if (res.success) {
+      await fetchFiles(currentPath.value)
     }
   }
 
   async function createFolder(path, folderName) {
-    try {
-      const res = await createFolderApi(path, folderName)
-      if (res.success) {
-        ElMessage.success('文件夹创建成功')
-        await fetchFiles(currentPath.value)
-      }
-    } catch {
-      // handled
+    const res = await createFolderApi(path, folderName)
+    if (res.success) {
+      ElMessage.success('文件夹创建成功')
+      await fetchFiles(currentPath.value)
     }
   }
 
-  return { files, currentPath, loading, fetchFiles, uploadFile, deleteFile, createFolder }
+  async function renameFile(id, newName) {
+    await renameApi(id, newName)
+  }
+
+  async function moveFile(id, targetPath) {
+    await moveApi(id, targetPath)
+  }
+
+  async function copyFile(id, targetPath) {
+    await copyApi(id, targetPath)
+  }
+
+  return { files, currentPath, loading, fetchFiles, uploadFile, deleteFile, createFolder, renameFile, moveFile, copyFile }
 })

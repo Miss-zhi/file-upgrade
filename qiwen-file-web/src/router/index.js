@@ -28,7 +28,7 @@ const routes = [
       {
         path: 'file',
         name: 'File',
-        component: () => import('_v/File.vue'),
+        component: () => import('_v/FileManager.vue'),
         meta: { title: '文件管理' }
       },
       {

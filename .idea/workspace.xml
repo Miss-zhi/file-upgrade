@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="807da718-47d1-4550-9f05-c703305169ff" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/openspec/changes/user-auth/.openspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/user-auth/design.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/user-auth/proposal.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/user-auth/specs/user-auth/spec.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/user-auth/tasks.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qiwen-file-web/src/api/file.js" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file-web/src/api/file.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qiwen-file-web/src/stores/fileList.js" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file-web/src/stores/fileList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qiwen-file-web/src/views/File.vue" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file-web/src/views/File.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/file-crud/.openspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/file-crud/design.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/file-crud/proposal.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/file-crud/specs/file-crud/spec.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/file-crud/tasks.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1782641496053</updated>
-      <workItem from="1782641497510" duration="5945000" />
+      <workItem from="1782641497510" duration="6711000" />
     </task>
     <servers />
   </component>

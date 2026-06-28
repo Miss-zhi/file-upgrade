@@ -18,6 +18,18 @@ export async function createFolder(path, folderName) {
   return http.post('/file/create-folder', null, { params: { path, folderName } })
 }
 
+export async function renameFile(id, newName) {
+  return http.post('/file/rename', { id, newName })
+}
+
+export async function moveFile(id, targetPath) {
+  return http.post('/file/move', { id, targetPath })
+}
+
+export async function copyFile(id, targetPath) {
+  return http.post('/file/copy', { id, targetPath })
+}
+
 export async function downloadFile(id) {
   return http.get(`/file/download/${id}`)
 }
