@@ -39,6 +39,7 @@ com\qiwenshare\file\vo\user\UserVO.class
 com\qiwenshare\file\api\IShareFileService.class
 com\qiwenshare\file\domain\share\ShareFile.class
 com\qiwenshare\file\controller\ShareController.class
+com\qiwenshare\file\controller\SearchController.class
 com\qiwenshare\file\advice\GlobalExceptionHandlerAdvice.class
 com\qiwenshare\file\vo\share\ShareVO.class
 com\qiwenshare\file\FileApplication.class
@@ -55,3 +56,4 @@ com\qiwenshare\file\aop\MyLog.class
 com\qiwenshare\file\domain\user\User.class
 com\qiwenshare\file\config\security\JwtAuthFilter.class
 com\qiwenshare\file\api\IUserService.class
+com\qiwenshare\file\service\FileSearchService.class

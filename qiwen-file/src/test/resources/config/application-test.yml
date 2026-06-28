@@ -33,6 +33,11 @@ elasticsearch:
   host: localhost
   port: 9200
 
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.elasticsearch.ElasticsearchRestClientAutoConfiguration
+
 # JWT
 jwt:
   secret: dGVzdC1zZWNyZXQta2V5LWZvci11bml0LXRlc3Rpbmc=

@@ -44,6 +44,12 @@ const routes = [
         meta: { title: '管理后台', admin: true }
       }
     ]
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: () => import('_v/SearchResult.vue'),
+    meta: { title: '搜索结果' }
   }
 ]
 

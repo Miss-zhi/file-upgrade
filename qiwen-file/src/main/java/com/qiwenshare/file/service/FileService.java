@@ -8,6 +8,7 @@ import com.qiwenshare.file.domain.file.FileBean;
 import com.qiwenshare.file.exception.QiwenException;
 import com.qiwenshare.file.mapper.FileBeanMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,11 +18,13 @@ import java.util.List;
 /**
  * 文件服务实现
  */
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class FileService extends ServiceImpl<FileBeanMapper, FileBean> implements IFileService {
 
     private final FileBeanMapper fileBeanMapper;
+    private final FileSearchService searchService;
 
     @Override
     public List<FileBean> listByPath(String path, String userId) {
@@ -49,6 +52,8 @@ public class FileService extends ServiceImpl<FileBeanMapper, FileBean> implement
         file.setUpdateTime(LocalDateTime.now());
 
         fileBeanMapper.insert(file);
+        // 异步建 ES 索引（忽略错误）
+        try { searchService.createIndex(file.getId(), file.getFileName(), file.getFilePath(), file.getFileType(), file.getFileSize(), userId); } catch (Exception e) { log.warn("ES 索引失败: {}", e.getMessage()); }
         return file;
     }
 
@@ -60,6 +65,8 @@ public class FileService extends ServiceImpl<FileBeanMapper, FileBean> implement
             throw new QiwenException(403, "无权删除此文件");
         }
         fileBeanMapper.deleteById(fileId);
+        // 删 ES 索引
+        try { searchService.deleteIndex(fileId); } catch (Exception e) { log.warn("ES 删除索引失败: {}", e.getMessage()); }
     }
 
     @Override
