@@ -5,34 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="807da718-47d1-4550-9f05-c703305169ff" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/qiwen-file/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/FileApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/advice/GlobalExceptionHandlerAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/aop/MyLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/aop/WebLogAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/config/es/ElasticsearchConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/config/jwt/JwtProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/config/jwt/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/config/mybatisplus/MyBatisPlusConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/config/openapi/OpenApiConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/config/security/JwtAuthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/config/security/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/config/threadpool/ThreadPoolConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/exception/QiwenException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/util/DateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/util/RestResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/UFOPFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/constant/StorageType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/exception/UFOPException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/operation/Copier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/operation/Deleter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/operation/Downloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/operation/Reader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/operation/Renamer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/operation/Uploader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/operation/Writer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qiwen-file/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/backend-scaffold/.openspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/backend-scaffold/design.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/backend-scaffold/proposal.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/backend-scaffold/specs/backend-scaffold/spec.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/backend-scaffold/tasks.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +70,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1782641496053</updated>
-      <workItem from="1782641497510" duration="802000" />
+      <workItem from="1782641497510" duration="2764000" />
     </task>
     <servers />
   </component>

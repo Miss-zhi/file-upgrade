@@ -1,0 +1,21 @@
+## 1. Tasks
+
+- [x] 1.1 创建 package.json（vue 3.4 / vite 5 / element-plus 2.5 / pinia 2 / vue-router 4 / axios）
+- [x] 1.2 创建 vite.config.ts（路径别名 @ _c _v _a _api + 代理 /api → localhost:8080 + Element Plus 按需引入 unplugin）
+- [x] 1.3 创建 tsconfig.json + tsconfig.node.json
+- [x] 1.4 创建 eslint.config.js（eslint-plugin-vue + @typescript-eslint）
+- [x] 1.5 创建 index.html + .gitignore
+- [x] 1.6 创建 src/main.ts（createApp + 插件注册）
+- [x] 1.7 创建 src/App.vue（根组件骨架）
+- [x] 1.8 创建 src/config/index.js（全局配置）
+- [x] 1.9 创建 src/api/http.js（Axios 实例 + 请求拦截器 attach JWT + 响应拦截器错误处理）
+- [x] 1.10 创建 src/api/user.js file.js home.js admin.js（API 模块骨架 export async function）
+- [x] 1.11 创建 src/router/index.js + guards.js（Vue Router 4 路由表 + 全局守卫）
+- [x] 1.12 创建 Pinia stores（user / fileList / sideMenu / common / uploadFile）Setup Store 骨架
+- [x] 1.13 创建 src/plugins/element.js（Element Plus 注册）
+- [x] 1.14 创建 src/plugins/fileOperationPlugins.js（createApp 命令式弹窗）
+- [x] 1.15 创建组件目录骨架（AppHeader/AppFooter + common/ file/ home/ 子目录）
+- [x] 1.16 创建 src/assets/styles/ 样式目录
+- [x] 1.17 执行 npm install 安装依赖
+- [x] 1.18 验证 npx eslint src/ --ext .vue,.js,.ts 无错误
+- [x] 1.19 验证 npx vite build 生产构建成功
