@@ -1,12 +1,25 @@
 <script setup lang="ts">
-defineProps({
-  files: { type: Array, default: () => [] },
-  loading: { type: Boolean, default: false }
-})
+interface FileItem {
+  id: string
+  fileName: string
+  filePath: string
+  fileSize: number
+  fileType: string
+  isFolder: boolean
+  createTime: string
+}
 
-const emit = defineEmits(['enter', 'delete'])
+defineProps<{
+  files: FileItem[]
+  loading: boolean
+}>()
 
-function formatSize(bytes) {
+const emit = defineEmits<{
+  enter: [path: string]
+  delete: [id: string, name: string]
+}>()
+
+function formatSize(bytes: number | null): string {
   if (!bytes) return '-'
   const units = ['B', 'KB', 'MB', 'GB']
   let size = bytes
@@ -24,7 +37,6 @@ function formatSize(bytes) {
     :data="files"
     v-loading="loading"
     style="width: 100%"
-    :default-sort="{ prop: 'isFolder', order: 'ascending' }"
   >
     <el-table-column label="文件名" min-width="300">
       <template #default="{ row }">

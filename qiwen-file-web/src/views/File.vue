@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
+import { computed, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useFileListStore } from '@/stores/fileList'
 import { ElMessageBox, ElMessage } from 'element-plus'
+import type { UploadFile } from 'element-plus'
 import FileList from '_c/file/FileList.vue'
 
 const fileListStore = useFileListStore()
-const { files, currentPath, loading } = fileListStore
-
-const uploadRef = ref()
+const { files, currentPath, loading } = storeToRefs(fileListStore)
 
 // 面包屑
 const breadcrumbPaths = computed(() => {
   const parts = currentPath.value.split('/').filter(Boolean)
-  const crumbs = [{ name: '根目录', path: '/' }]
+  const crumbs: { name: string; path: string }[] = [{ name: '根目录', path: '/' }]
   let accumulated = '/'
   for (const part of parts) {
     accumulated += part + '/'
@@ -21,43 +21,46 @@ const breadcrumbPaths = computed(() => {
   return crumbs
 })
 
-// 进入文件夹
-function enterFolder(path) {
-  fileListStore.fetchFiles(path)
-}
-
 // 面包屑点击
-function handleBreadcrumbClick(crumb) {
+function handleBreadcrumbClick(crumb: { name: string; path: string }) {
   fileListStore.fetchFiles(crumb.path)
 }
 
 // 上传
-async function handleUpload(file) {
-  await fileListStore.uploadFile(file.raw || file, currentPath.value)
+async function handleUpload(uploadFile: UploadFile) {
+  if (!uploadFile.raw) return
+  await fileListStore.uploadFile(uploadFile.raw, currentPath.value)
 }
 
 // 新建文件夹
 async function handleCreateFolder() {
-  const { value: folderName } = await ElMessageBox.prompt('请输入文件夹名称', '新建', {
-    confirmButtonText: '创建',
-    cancelButtonText: '取消'
-  }).catch(() => ({ value: null }))
-
-  if (folderName) {
-    await fileListStore.createFolder(currentPath.value, folderName)
+  try {
+    const result = await ElMessageBox.prompt('请输入文件夹名称', '新建', {
+      confirmButtonText: '创建',
+      cancelButtonText: '取消'
+    })
+    const folderName: string = (result as any).value
+    if (folderName) {
+      await fileListStore.createFolder(currentPath.value, folderName)
+    }
+  } catch {
+    // 用户取消
   }
 }
 
 // 删除
-async function handleDelete(id, name) {
-  await ElMessageBox.confirm(`确定删除 "${name}" 吗？`, '确认删除', {
-    type: 'warning',
-    confirmButtonText: '删除',
-    cancelButtonText: '取消'
-  }).then(async () => {
+async function handleDelete(id: string, name: string) {
+  try {
+    await ElMessageBox.confirm(`确定删除 "${name}" 吗？`, '确认删除', {
+      type: 'warning',
+      confirmButtonText: '删除',
+      cancelButtonText: '取消'
+    })
     await fileListStore.deleteFile(id)
     ElMessage.success('删除成功')
-  }).catch(() => {})
+  } catch {
+    // 用户取消
+  }
 }
 
 // 刷新
@@ -94,7 +97,6 @@ onMounted(() => {
           新建文件夹
         </el-button>
         <el-upload
-          ref="uploadRef"
           :auto-upload="false"
           :show-file-list="false"
           :on-change="handleUpload"
@@ -113,7 +115,7 @@ onMounted(() => {
     <FileList
       :files="files"
       :loading="loading"
-      @enter="enterFolder"
+      @enter="(path: string) => fileListStore.fetchFiles(path)"
       @delete="handleDelete"
     />
   </div>
