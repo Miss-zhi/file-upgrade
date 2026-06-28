@@ -42,6 +42,7 @@ public class SecurityConfig {
                                 "/user/login",
                                 "/user/register",
                                 "/anonymous/**",
+                                "/onlyoffice/callback",
                                 "/share/verify",
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**",

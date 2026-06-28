@@ -6,6 +6,7 @@ com\qiwenshare\ufop\operation\Renamer.class
 com\qiwenshare\file\service\SysConfigService.class
 com\qiwenshare\file\config\jwt\JwtProperties.class
 com\qiwenshare\file\util\RestResult.class
+com\qiwenshare\file\config\onlyoffice\OnlyOfficeProperties.class
 com\qiwenshare\file\config\RedisConfig.class
 com\qiwenshare\file\service\FileService.class
 com\qiwenshare\file\dto\share\CreateShareDTO.class
@@ -34,6 +35,7 @@ com\qiwenshare\file\vo\user\UserVO$UserVOBuilder.class
 com\qiwenshare\ufop\UFOPFactory.class
 com\qiwenshare\file\controller\FileController.class
 com\qiwenshare\file\dto\user\RegisterDTO.class
+com\qiwenshare\file\service\OnlyOfficeService.class
 com\qiwenshare\file\vo\user\UserAdminVO$UserAdminVOBuilder.class
 com\qiwenshare\file\domain\config\SysConfig.class
 com\qiwenshare\file\vo\user\UserAdminVO.class
@@ -45,6 +47,7 @@ com\qiwenshare\file\controller\ShareController.class
 com\qiwenshare\file\controller\SearchController.class
 com\qiwenshare\file\advice\GlobalExceptionHandlerAdvice.class
 com\qiwenshare\file\service\StatsService.class
+com\qiwenshare\file\controller\OnlyOfficeController.class
 com\qiwenshare\file\vo\share\ShareVO.class
 com\qiwenshare\file\FileApplication.class
 com\qiwenshare\file\config\threadpool\ThreadPoolConfig.class

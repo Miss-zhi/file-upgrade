@@ -42,8 +42,11 @@ function onMove(row: FileItem) { emit('move', row) }
 function onCopy(row: FileItem) { emit('copy', row) }
 function onDelete(row: FileItem) { emit('delete', row) }
 function onDownload(row: FileItem) { emit('download', row) }
+function isEditable(fileType: string): boolean {
+  if (!fileType) return false
+  return /doc|docx|xls|xlsx|ppt|pptx|odt|ods|odp|pdf/i.test(fileType)
+}
 </script>
-
 <template>
   <el-table :data="files" v-loading="loading" style="width: 100%">
     <el-table-column label="文件名" min-width="300">
@@ -71,6 +74,9 @@ function onDownload(row: FileItem) { emit('download', row) }
       <template #default="{ row }: any">
         <el-button v-if="!row.isFolder" link type="primary" size="small" @click="onDownload(row)">
           下载
+        </el-button>
+        <el-button v-if="!row.isFolder && isEditable(row.fileType)" link type="success" size="small" @click="$router.push(`/onlyoffice/${row.id}`)">
+          编辑
         </el-button>
         <el-dropdown trigger="click">
           <el-button link type="info" size="small">更多<el-icon><ArrowDown /></el-icon></el-button>
