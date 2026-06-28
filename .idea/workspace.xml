@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="807da718-47d1-4550-9f05-c703305169ff" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/openspec/changes/backend-scaffold/.openspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/backend-scaffold/design.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/backend-scaffold/proposal.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/backend-scaffold/specs/backend-scaffold/spec.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/backend-scaffold/tasks.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/frontend-scaffold/.openspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/frontend-scaffold/design.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/frontend-scaffold/proposal.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/frontend-scaffold/specs/frontend-scaffold/spec.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/frontend-scaffold/tasks.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +52,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "MavenSettings",
+    "ts.external.directory.path": "E:\\file-upgrade\\qiwen-file-web\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -70,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1782641496053</updated>
-      <workItem from="1782641497510" duration="2764000" />
+      <workItem from="1782641497510" duration="4268000" />
     </task>
     <servers />
   </component>

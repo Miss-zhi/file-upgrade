@@ -3,11 +3,11 @@ import { TOKEN_KEY } from '_api/http'
 
 const LOGIN_PATH = '/login'
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
   const token = localStorage.getItem(TOKEN_KEY)
   const { noAuth } = to.meta
 
-  // 已登录用户访问登录页 → 重定向到首页
+  // 已登录用户访问登录/注册页 → 重定向到首页
   if (token && noAuth) {
     return next('/home')
   }

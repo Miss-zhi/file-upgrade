@@ -8,6 +8,12 @@ const routes = [
     meta: { title: '登录', noAuth: true }
   },
   {
+    path: '/register',
+    name: 'Register',
+    component: () => import('_v/Register.vue'),
+    meta: { title: '注册', noAuth: true }
+  },
+  {
     path: '/',
     name: 'Layout',
     component: () => import('_v/Layout.vue'),
