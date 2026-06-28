@@ -6,6 +6,8 @@ import com.qiwenshare.file.aop.MyLog;
 import com.qiwenshare.file.domain.user.User;
 import com.qiwenshare.file.dto.user.UserQueryDTO;
 import com.qiwenshare.file.dto.user.UserUpdateDTO;
+import com.qiwenshare.file.service.SysConfigService;
+import com.qiwenshare.file.service.StatsService;
 import com.qiwenshare.file.util.RestResult;
 import com.qiwenshare.file.vo.user.UserAdminVO;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,6 +29,8 @@ import java.util.Map;
 public class AdminController {
 
     private final IUserService userService;
+    private final StatsService statsService;
+    private final SysConfigService sysConfigService;
 
     @Operation(summary = "分页搜索用户列表")
     @PostMapping("/user/list")
@@ -62,6 +66,25 @@ public class AdminController {
     @PutMapping("/user/{id}/status")
     public RestResult<Void> toggleStatus(@PathVariable String id, @RequestParam boolean enabled) {
         userService.toggleStatus(id, enabled);
+        return RestResult.success();
+    }
+
+    @Operation(summary = "统计信息")
+    @GetMapping("/stats")
+    public RestResult<Map<String, Object>> getStats() {
+        return RestResult.success(statsService.getStats());
+    }
+
+    @Operation(summary = "获取系统配置")
+    @GetMapping("/config")
+    public RestResult<Map<String, String>> getConfig() {
+        return RestResult.success(sysConfigService.getAllConfig());
+    }
+
+    @Operation(summary = "保存系统配置")
+    @PutMapping("/config")
+    public RestResult<Void> saveConfig(@RequestBody Map<String, String> config) {
+        sysConfigService.saveConfig(config);
         return RestResult.success();
     }
 }

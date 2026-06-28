@@ -41,7 +41,13 @@ const routes = [
         path: 'admin',
         name: 'Admin',
         component: () => import('_v/Admin.vue'),
-        meta: { title: '管理后台', admin: true }
+        meta: { title: '用户管理', admin: true }
+      },
+      {
+        path: 'dashboard',
+        name: 'Dashboard',
+        component: () => import('_v/Dashboard.vue'),
+        meta: { title: '管理面板', admin: true }
       }
     ]
   },

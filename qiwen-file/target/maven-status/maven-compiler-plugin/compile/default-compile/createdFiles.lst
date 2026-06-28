@@ -3,6 +3,7 @@ com\qiwenshare\ufop\operation\Uploader.class
 com\qiwenshare\file\dto\user\UserUpdateDTO.class
 com\qiwenshare\file\mapper\FileBeanMapper.class
 com\qiwenshare\ufop\operation\Renamer.class
+com\qiwenshare\file\service\SysConfigService.class
 com\qiwenshare\file\config\jwt\JwtProperties.class
 com\qiwenshare\file\util\RestResult.class
 com\qiwenshare\file\config\RedisConfig.class
@@ -23,6 +24,7 @@ com\qiwenshare\file\service\ShareFileService.class
 com\qiwenshare\file\vo\file\FileVO.class
 com\qiwenshare\ufop\operation\Reader.class
 com\qiwenshare\ufop\operation\Downloader.class
+com\qiwenshare\file\mapper\SysConfigMapper.class
 com\qiwenshare\file\exception\QiwenException.class
 com\qiwenshare\file\config\security\SecurityConfig.class
 com\qiwenshare\file\domain\file\FileBean.class
@@ -33,6 +35,7 @@ com\qiwenshare\ufop\UFOPFactory.class
 com\qiwenshare\file\controller\FileController.class
 com\qiwenshare\file\dto\user\RegisterDTO.class
 com\qiwenshare\file\vo\user\UserAdminVO$UserAdminVOBuilder.class
+com\qiwenshare\file\domain\config\SysConfig.class
 com\qiwenshare\file\vo\user\UserAdminVO.class
 com\qiwenshare\ufop\operation\Copier.class
 com\qiwenshare\file\vo\user\UserVO.class
@@ -41,6 +44,7 @@ com\qiwenshare\file\domain\share\ShareFile.class
 com\qiwenshare\file\controller\ShareController.class
 com\qiwenshare\file\controller\SearchController.class
 com\qiwenshare\file\advice\GlobalExceptionHandlerAdvice.class
+com\qiwenshare\file\service\StatsService.class
 com\qiwenshare\file\vo\share\ShareVO.class
 com\qiwenshare\file\FileApplication.class
 com\qiwenshare\file\config\threadpool\ThreadPoolConfig.class
