@@ -1,0 +1,166 @@
+# =============================================================================
+# 奇文网盘 CD 流水线 — 构建镜像 + SSH 自动部署
+# 触发：push 到 main 分支 + 手动触发（workflow_dispatch）
+# 流程：CI 通过后 → 构建 Docker 镜像 → 推送镜像仓库 → SSH 部署到服务器
+# =============================================================================
+
+name: CD Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      target:
+        description: '部署目标'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+          - production
+          - staging
+
+concurrency:
+  group: cd-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  # 镜像仓库 — 默认 GitHub Container Registry，也可改为阿里云/Docker Hub
+  REGISTRY: ghcr.io
+  IMAGE_BACKEND: ghcr.io/${{ github.repository }}/backend
+  IMAGE_FRONTEND: ghcr.io/${{ github.repository }}/frontend
+
+jobs:
+  # ======================== 构建并推送镜像 ========================
+
+  build-images:
+    name: 构建 Docker 镜像
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # 登录镜像仓库
+      - name: 登录 GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # Docker Buildx（支持多阶段构建 + 缓存）
+      - name: 设置 Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # 构建后端镜像
+      - name: 构建并推送后端镜像
+        uses: docker/build-push-action@v5
+        with:
+          context: ./qiwen-file
+          push: true
+          tags: |
+            ${{ env.IMAGE_BACKEND }}:latest
+            ${{ env.IMAGE_BACKEND }}:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # 构建前端镜像
+      - name: 构建并推送前端镜像
+        uses: docker/build-push-action@v5
+        with:
+          context: ./qiwen-file-web
+          push: true
+          tags: |
+            ${{ env.IMAGE_FRONTEND }}:latest
+            ${{ env.IMAGE_FRONTEND }}:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # ======================== SSH 部署到服务器 ========================
+
+  deploy:
+    name: 部署到服务器
+    needs: [build-images]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # 生成 .env 文件（包含镜像标签和密钥）
+      - name: 生成部署配置
+        run: |
+          cat > .env <<'ENVEOF'
+          IMAGE_TAG=${{ github.sha }}
+          IMAGE_BACKEND=${{ env.IMAGE_BACKEND }}
+          IMAGE_FRONTEND=${{ env.IMAGE_FRONTEND }}
+          MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }}
+          MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}
+          JWT_SECRET=${{ secrets.JWT_SECRET }}
+          ENVEOF
+
+      # 通过 SCP 将 docker-compose.yml + .env 传到服务器
+
+      - name: SCP 传输部署文件
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          source: "docker-compose.yml,.env"
+          target: "~/qiwen-deploy"
+          strip_components: 1
+
+      # SSH 到服务器执行部署
+      - name: SSH 部署
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script: |
+            set -e
+            cd ~/qiwen-deploy
+
+            # 登录镜像仓库（拉取 ghcr.io 上的应用镜像）
+            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
+
+            # 拉取全部镜像（MySQL/Redis/OnlyOffice 来自公共仓库，自动拉取）
+            docker compose pull
+
+            # 启动全部服务（已存在的容器自动重建，数据卷持久化不丢失）
+            docker compose up -d --remove-orphans
+
+            # 等待 MySQL/Redis 健康检查通过
+            echo "等待服务就绪..."
+            sleep 15
+
+            # 验证所有容器状态
+            docker compose ps
+
+            # 清理悬空镜像
+            docker image prune -f
+
+            echo "Deploy complete: ${{ github.sha }}"
+
+  # ======================== 部署结果通知 ========================
+
+  deploy-summary:
+    name: 部署结果
+    needs: [deploy]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: 输出结果
+        run: |
+          echo "==============================="
+          echo "部署结果: ${{ needs.deploy.result }}"
+          echo "Commit:   ${{ github.sha }}"
+          echo "分支:     ${{ github.ref_name }}"
+          echo "==============================="
+          if [[ "${{ needs.deploy.result }}" == "failure" ]]; then
+            echo "::error::部署失败"
+            exit 1
+          fi
