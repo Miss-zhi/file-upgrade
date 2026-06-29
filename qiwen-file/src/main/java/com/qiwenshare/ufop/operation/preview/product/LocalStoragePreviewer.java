@@ -16,8 +16,7 @@ public class LocalStoragePreviewer implements Previewer {
     @Override
     public InputStream preview(PreviewFile previewFile) {
         try {
-            Path path = Paths.get(previewFile.getFileUrl());
-            return new ByteArrayInputStream(Files.readAllBytes(path));
+            return Files.newInputStream(Paths.get(previewFile.getFileUrl()));
         } catch (IOException e) {
             log.warn("本地预览失败: {}", e.getMessage());
             return InputStream.nullInputStream();

@@ -1,10 +1,9 @@
 package com.qiwenshare.ufop;
 
 import com.qiwenshare.ufop.config.UFOPConfigProperties;
-import com.qiwenshare.ufop.constant.StorageType;
 import com.qiwenshare.ufop.operation.*;
-import com.qiwenshare.ufop.operation.preview.*;
-import com.qiwenshare.ufop.operation.preview.product.*;
+import com.qiwenshare.ufop.operation.preview.Previewer;
+import com.qiwenshare.ufop.operation.preview.product.LocalStoragePreviewer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

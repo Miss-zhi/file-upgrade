@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.qiwenshare.file.FilePreviewTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 43.40 s -- in com.qiwenshare.file.FilePreviewTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 62.35 s -- in com.qiwenshare.file.FilePreviewTest

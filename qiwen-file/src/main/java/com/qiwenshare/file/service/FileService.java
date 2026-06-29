@@ -173,9 +173,12 @@ public class FileService extends ServiceImpl<FileBeanMapper, FileBean> implement
     @Override
     @Transactional
     public void batchDelete(List<String> fileIds, String userId) {
-        for (String id : fileIds) {
-            try { delete(id, userId); } catch (Exception e) { log.warn("批量删除跳过: id={}", id); }
-        }
+        LambdaQueryWrapper<FileBean> w = new LambdaQueryWrapper<>();
+        w.in(FileBean::getId, fileIds).eq(FileBean::getUserId, userId);
+        FileBean update = new FileBean();
+        update.setDeleted(1);
+        update.setUpdateTime(LocalDateTime.now());
+        fileBeanMapper.update(update, w);
     }
 
     @Override

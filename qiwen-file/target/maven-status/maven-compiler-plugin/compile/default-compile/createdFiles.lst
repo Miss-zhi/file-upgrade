@@ -3,7 +3,6 @@ com\qiwenshare\ufop\constant\FilePermissionEnum.class
 com\qiwenshare\ufop\operation\copy\product\AliyunOSSCopier.class
 com\qiwenshare\file\controller\FileTypeController.class
 com\qiwenshare\file\dto\user\UserUpdateDTO.class
-com\qiwenshare\ufop\exception\operation\ReadException.class
 com\qiwenshare\ufop\operation\preview\ThumbImage.class
 com\qiwenshare\file\domain\file\FileVersion.class
 com\qiwenshare\file\mapper\FileVersionMapper.class
@@ -19,7 +18,6 @@ com\qiwenshare\file\mapper\UploadTaskMapper.class
 com\qiwenshare\file\dto\share\CreateShareDTO.class
 com\qiwenshare\ufop\operation\download\product\QiniuyunKodoDownloader.class
 com\qiwenshare\ufop\operation\read\product\QiniuyunKodoReader.class
-com\qiwenshare\ufop\exception\operation\DeleteException.class
 com\qiwenshare\file\controller\UserController.class
 com\qiwenshare\file\domain\user\Permission.class
 com\qiwenshare\ufop\operation\download\product\MinioDownloader.class
@@ -54,7 +52,6 @@ com\qiwenshare\file\controller\SearchController.class
 com\qiwenshare\file\advice\GlobalExceptionHandlerAdvice.class
 com\qiwenshare\file\domain\file\FileType.class
 com\qiwenshare\file\vo\share\ShareVO.class
-com\qiwenshare\ufop\config\QiniuyunConfig.class
 com\qiwenshare\file\config\threadpool\ThreadPoolConfig.class
 com\qiwenshare\ufop\operation\Writer.class
 com\qiwenshare\file\api\IFileService.class
@@ -68,7 +65,6 @@ com\qiwenshare\file\util\DateUtil.class
 com\qiwenshare\ufop\operation\download\product\AliyunOSSDownloader.class
 com\qiwenshare\ufop\util\UFOPUtils.class
 com\qiwenshare\file\domain\user\User.class
-com\qiwenshare\ufop\domain\AliyunOSS.class
 com\qiwenshare\ufop\operation\preview\product\QiniuyunKodoPreviewer.class
 com\qiwenshare\file\config\security\JwtAuthFilter.class
 com\qiwenshare\file\domain\user\UserRole.class
@@ -93,7 +89,6 @@ com\qiwenshare\file\config\mybatisplus\MyBatisPlusConfig.class
 com\qiwenshare\file\config\es\ElasticsearchConfig.class
 com\qiwenshare\file\mapper\ShareFileMapper.class
 com\qiwenshare\file\service\UserService.class
-com\qiwenshare\ufop\config\MinioConfig.class
 com\qiwenshare\ufop\operation\write\product\MinioWriter.class
 com\qiwenshare\file\service\FileVersionService.class
 com\qiwenshare\file\config\jwt\JwtUtil.class
@@ -102,12 +97,10 @@ com\qiwenshare\file\dto\file\DeleteFileDTO.class
 com\qiwenshare\file\vo\share\ShareVO$ShareVOBuilder.class
 com\qiwenshare\file\controller\FilePreviewController.class
 com\qiwenshare\ufop\constant\StorageType.class
-com\qiwenshare\ufop\exception\operation\UploadException.class
 com\qiwenshare\ufop\operation\read\product\FastDFSReader.class
 com\qiwenshare\file\mapper\RolePermissionMapper.class
 com\qiwenshare\ufop\operation\copy\product\QiniuyunKodoCopier.class
 com\qiwenshare\ufop\operation\Reader.class
-com\qiwenshare\ufop\exception\operation\CopyException.class
 com\qiwenshare\ufop\operation\Downloader.class
 com\qiwenshare\file\controller\NoticeController.class
 com\qiwenshare\file\mapper\SysConfigMapper.class
@@ -116,21 +109,17 @@ com\qiwenshare\file\exception\QiwenException.class
 com\qiwenshare\ufop\util\ReadFileUtils.class
 com\qiwenshare\file\config\security\SecurityConfig.class
 com\qiwenshare\file\domain\file\FileBean.class
-com\qiwenshare\ufop\domain\QiniuyunKodo.class
 com\qiwenshare\file\service\FileTypeService.class
 com\qiwenshare\file\service\RoleService.class
-com\qiwenshare\ufop\config\AliyunConfig.class
 com\qiwenshare\file\config\openapi\OpenApiConfig.class
 com\qiwenshare\ufop\UFOPFactory.class
 com\qiwenshare\file\controller\FileController.class
 com\qiwenshare\file\service\PermissionService.class
-com\qiwenshare\ufop\exception\operation\DownloadException.class
 com\qiwenshare\file\dto\user\RegisterDTO.class
 com\qiwenshare\ufop\operation\preview\PreviewFile.class
 com\qiwenshare\file\controller\FileVersionController.class
 com\qiwenshare\file\service\OperationLogService.class
 com\qiwenshare\file\vo\user\UserAdminVO$UserAdminVOBuilder.class
-com\qiwenshare\ufop\exception\operation\WriteException.class
 com\qiwenshare\ufop\operation\LocalStorageDownloader.class
 com\qiwenshare\file\domain\log\OperationLog.class
 com\qiwenshare\ufop\operation\Copier.class
@@ -160,7 +149,6 @@ com\qiwenshare\file\service\FiletransferService.class
 com\qiwenshare\ufop\operation\copy\product\MinioCopier.class
 com\qiwenshare\file\aop\MyLog.class
 com\qiwenshare\ufop\operation\preview\Previewer.class
-com\qiwenshare\ufop\exception\operation\PreviewException.class
 com\qiwenshare\ufop\operation\read\product\MinioReader.class
 com\qiwenshare\file\service\FileSearchService.class
 com\qiwenshare\ufop\operation\preview\product\MinioPreviewer.class
