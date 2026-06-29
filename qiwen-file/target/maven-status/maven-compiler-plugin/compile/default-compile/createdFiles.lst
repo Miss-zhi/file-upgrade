@@ -30,6 +30,7 @@ com\qiwenshare\ufop\operation\Reader.class
 com\qiwenshare\ufop\operation\Downloader.class
 com\qiwenshare\file\mapper\SysConfigMapper.class
 com\qiwenshare\file\exception\QiwenException.class
+com\qiwenshare\file\mapper\OperationLogMapper.class
 com\qiwenshare\file\config\security\SecurityConfig.class
 com\qiwenshare\file\domain\file\FileBean.class
 com\qiwenshare\file\config\openapi\OpenApiConfig.class
@@ -39,9 +40,11 @@ com\qiwenshare\ufop\UFOPFactory.class
 com\qiwenshare\file\controller\FileController.class
 com\qiwenshare\file\dto\user\RegisterDTO.class
 com\qiwenshare\file\service\OnlyOfficeService.class
+com\qiwenshare\file\service\OperationLogService.class
 com\qiwenshare\file\vo\user\UserAdminVO$UserAdminVOBuilder.class
 com\qiwenshare\file\domain\config\SysConfig.class
 com\qiwenshare\ufop\operation\LocalStorageDownloader.class
+com\qiwenshare\file\domain\log\OperationLog.class
 com\qiwenshare\file\vo\user\UserAdminVO.class
 com\qiwenshare\ufop\operation\Copier.class
 com\qiwenshare\file\vo\user\UserVO.class

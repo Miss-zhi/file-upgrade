@@ -31,3 +31,7 @@ export async function getConfig() {
 export async function saveConfig(data) {
   return http.put('/admin/config', data)
 }
+
+export async function getOperationLogs(params) {
+  return http.get('/admin/logs', { params })
+}

@@ -6,8 +6,10 @@ import com.qiwenshare.file.aop.MyLog;
 import com.qiwenshare.file.domain.user.User;
 import com.qiwenshare.file.dto.user.UserQueryDTO;
 import com.qiwenshare.file.dto.user.UserUpdateDTO;
-import com.qiwenshare.file.service.SysConfigService;
 import com.qiwenshare.file.service.StatsService;
+import com.qiwenshare.file.service.SysConfigService;
+import com.qiwenshare.file.service.OperationLogService;
+import com.qiwenshare.file.domain.log.OperationLog;
 import org.springframework.security.access.prepost.PreAuthorize;
 import com.qiwenshare.file.util.RestResult;
 import com.qiwenshare.file.vo.user.UserAdminVO;
@@ -33,6 +35,7 @@ public class AdminController {
     private final IUserService userService;
     private final StatsService statsService;
     private final SysConfigService sysConfigService;
+    private final OperationLogService logService;
 
     @Operation(summary = "分页搜索用户列表")
     @PostMapping("/user/list")
@@ -95,5 +98,22 @@ public class AdminController {
     public RestResult<Void> updateRole(@PathVariable String id, @RequestBody Map<String, String> body) {
         userService.updateRole(id, body.get("role"));
         return RestResult.success();
+    }
+
+    @Operation(summary = "操作日志")
+    @GetMapping("/logs")
+    public RestResult<Map<String, Object>> getLogs(
+            @RequestParam(defaultValue = "1") Integer page,
+            @RequestParam(defaultValue = "20") Integer size,
+            @RequestParam(required = false) String operation,
+            @RequestParam(required = false) String startTime,
+            @RequestParam(required = false) String endTime) {
+        com.baomidou.mybatisplus.core.metadata.IPage<OperationLog> result =
+                logService.page(page, size, operation, startTime, endTime);
+        return RestResult.success(Map.of(
+            "records", result.getRecords(),
+            "total", result.getTotal(),
+            "pages", result.getPages()
+        ));
     }
 }

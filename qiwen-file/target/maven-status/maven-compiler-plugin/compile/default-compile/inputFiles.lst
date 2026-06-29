@@ -11,6 +11,7 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\mybatisplus\
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\domain\file\FileBean.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\FilePreviewController.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\UFOPFactory.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\domain\log\OperationLog.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\threadpool\ThreadPoolConfig.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\util\RestResult.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\security\JwtAuthFilter.java
@@ -19,6 +20,7 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\OnlyOfficeS
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\domain\share\ShareFile.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\StatsService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\FileApplication.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\OperationLogService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\SysConfigService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\vo\user\UserVO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\util\DateUtil.java
@@ -53,6 +55,7 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\UserMapper.j
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\dto\share\CreateShareDTO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\vo\file\FileVO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\LocalStorageRenamer.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\OperationLogMapper.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\config\UFOPConfigProperties.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\api\IUserService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\exception\QiwenException.java
