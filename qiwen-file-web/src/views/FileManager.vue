@@ -43,8 +43,8 @@ function handleEnter(path: string) {
 }
 
 // 上传
-function handleUploadConfirm(file: File, path: string) {
-  fileListStore.uploadFile(file, path)
+function handleUploadConfirm() {
+  fileListStore.fetchFiles(currentPath.value)
 }
 
 async function handleCreateFolder() {
