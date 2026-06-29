@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.qiwenshare.file.FileServiceTest" time="10.155" tests="6" errors="0" skipped="1" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.qiwenshare.file.FileServiceTest" time="7.59" tests="6" errors="0" skipped="1" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CN"/>
     <property name="sun.boot.library.path" value="C:\Users\Administrator\.jdks\ms-17.0.18\bin"/>
-    <property name="sun.java.command" value="C:\Users\Administrator\AppData\Local\Temp\surefire16397525860498229733\surefirebooter-20260629140125002_3.jar C:\Users\Administrator\AppData\Local\Temp\surefire16397525860498229733 2026-06-29T14-01-24_312-jvmRun1 surefire-20260629140125002_1tmp surefire_0-20260629140125002_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Administrator\AppData\Local\Temp\surefire4755852793176789923\surefirebooter-20260629141001343_3.jar C:\Users\Administrator\AppData\Local\Temp\surefire4755852793176789923 2026-06-29T14-10-00_725-jvmRun1 surefire-20260629141001343_1tmp surefire_0-20260629141001343_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="E:\file-upgrade\qiwen-file\target\test-classes;E:\file-upgrade\qiwen-file\target\classes;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-web\3.2.5\spring-boot-starter-web-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter\3.2.5\spring-boot-starter-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot\3.2.5\spring-boot-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-logging\3.2.5\spring-boot-starter-logging-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\ch\qos\logback\logback-classic\1.4.14\logback-classic-1.4.14.jar;D:\Maven\apache-maven-3.9.6\repository\ch\qos\logback\logback-core\1.4.14\logback-core-1.4.14.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\slf4j\jul-to-slf4j\2.0.13\jul-to-slf4j-2.0.13.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-json\3.2.5\spring-boot-starter-json-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.4\jackson-datatype-jdk8-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.4\jackson-datatype-jsr310-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.4\jackson-module-parameter-names-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-tomcat\3.2.5\spring-boot-starter-tomcat-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.20\tomcat-embed-core-10.1.20.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.20\tomcat-embed-websocket-10.1.20.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-web\6.1.6\spring-web-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-beans\6.1.6\spring-beans-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\io\micrometer\micrometer-observation\1.12.5\micrometer-observation-1.12.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\micrometer\micrometer-commons\1.12.5\micrometer-commons-1.12.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-webmvc\6.1.6\spring-webmvc-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-context\6.1.6\spring-context-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-expression\6.1.6\spring-expression-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-security\3.2.5\spring-boot-starter-security-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-aop\6.1.6\spring-aop-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\security\spring-security-config\6.2.4\spring-security-config-6.2.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\security\spring-security-web\6.2.4\spring-security-web-6.2.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.2.5\spring-boot-starter-data-jpa-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-jdbc\3.2.5\spring-boot-starter-jdbc-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-jdbc\6.1.6\spring-jdbc-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\hibernate\orm\hibernate-core\6.4.4.Final\hibernate-core-6.4.4.Final.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;D:\Maven\apache-maven-3.9.6\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\classmate\1.6.0\classmate-1.6.0.jar;D:\Maven\apache-maven-3.9.6\repository\net\bytebuddy\byte-buddy\1.14.13\byte-buddy-1.14.13.jar;D:\Maven\apache-maven-3.9.6\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;D:\Maven\apache-maven-3.9.6\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\data\spring-data-jpa\3.2.5\spring-data-jpa-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\data\spring-data-commons\3.2.5\spring-data-commons-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-orm\6.1.6\spring-orm-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-tx\6.1.6\spring-tx-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-aspects\6.1.6\spring-aspects-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-data-redis\3.2.5\spring-boot-starter-data-redis-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\lettuce\lettuce-core\6.3.2.RELEASE\lettuce-core-6.3.2.RELEASE.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-common\4.1.109.Final\netty-common-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-handler\4.1.109.Final\netty-handler-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-resolver\4.1.109.Final\netty-resolver-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-buffer\4.1.109.Final\netty-buffer-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-transport-native-unix-common\4.1.109.Final\netty-transport-native-unix-common-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-codec\4.1.109.Final\netty-codec-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-transport\4.1.109.Final\netty-transport-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\projectreactor\reactor-core\3.6.5\reactor-core-3.6.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\data\spring-data-redis\3.2.5\spring-data-redis-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\data\spring-data-keyvalue\3.2.5\spring-data-keyvalue-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-oxm\6.1.6\spring-oxm-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-context-support\6.1.6\spring-context-support-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-validation\3.2.5\spring-boot-starter-validation-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.20\tomcat-embed-el-10.1.20.jar;D:\Maven\apache-maven-3.9.6\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-aop\3.2.5\spring-boot-starter-aop-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\aspectj\aspectjweaver\1.9.22\aspectjweaver-1.9.22.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus-spring-boot3-starter\3.5.6\mybatis-plus-spring-boot3-starter-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus\3.5.6\mybatis-plus-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus-core\3.5.6\mybatis-plus-core-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus-annotation\3.5.6\mybatis-plus-annotation-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus-extension\3.5.6\mybatis-plus-extension-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\mybatis\mybatis\3.5.16\mybatis-3.5.16.jar;D:\Maven\apache-maven-3.9.6\repository\com\github\jsqlparser\jsqlparser\4.9\jsqlparser-4.9.jar;D:\Maven\apache-maven-3.9.6\repository\org\mybatis\mybatis-spring\3.0.3\mybatis-spring-3.0.3.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus-spring-boot-autoconfigure\3.5.6\mybatis-plus-spring-boot-autoconfigure-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.5\spring-boot-autoconfigure-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\jsonwebtoken\jjwt-api\0.12.5\jjwt-api-0.12.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\jsonwebtoken\jjwt-impl\0.12.5\jjwt-impl-0.12.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\jsonwebtoken\jjwt-jackson\0.12.5\jjwt-jackson-0.12.5.jar;D:\Maven\apache-maven-3.9.6\repository\co\elastic\clients\elasticsearch-java\8.12.2\elasticsearch-java-8.12.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\elasticsearch\client\elasticsearch-rest-client\8.10.4\elasticsearch-rest-client-8.10.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\httpcomponents\httpcore\4.4.16\httpcore-4.4.16.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\httpcomponents\httpasyncclient\4.1.5\httpasyncclient-4.1.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\httpcomponents\httpcore-nio\4.4.16\httpcore-nio-4.4.16.jar;D:\Maven\apache-maven-3.9.6\repository\commons-codec\commons-codec\1.16.1\commons-codec-1.16.1.jar;D:\Maven\apache-maven-3.9.6\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\json\jakarta.json-api\2.1.3\jakarta.json-api-2.1.3.jar;D:\Maven\apache-maven-3.9.6\repository\org\eclipse\parsson\parsson\1.0.5\parsson-1.0.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\opentelemetry\opentelemetry-api\1.31.0\opentelemetry-api-1.31.0.jar;D:\Maven\apache-maven-3.9.6\repository\io\opentelemetry\opentelemetry-context\1.31.0\opentelemetry-context-1.31.0.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\core\jackson-databind\2.15.3\jackson-databind-2.15.3.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.4\jackson-annotations-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\core\jackson-core\2.15.4\jackson-core-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springdoc\springdoc-openapi-starter-webmvc-ui\2.5.0\springdoc-openapi-starter-webmvc-ui-2.5.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\springdoc\springdoc-openapi-starter-webmvc-api\2.5.0\springdoc-openapi-starter-webmvc-api-2.5.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\springdoc\springdoc-openapi-starter-common\2.5.0\springdoc-openapi-starter-common-2.5.0.jar;D:\Maven\apache-maven-3.9.6\repository\io\swagger\core\v3\swagger-core-jakarta\2.2.21\swagger-core-jakarta-2.2.21.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\commons\commons-lang3\3.13.0\commons-lang3-3.13.0.jar;D:\Maven\apache-maven-3.9.6\repository\io\swagger\core\v3\swagger-annotations-jakarta\2.2.21\swagger-annotations-jakarta-2.2.21.jar;D:\Maven\apache-maven-3.9.6\repository\io\swagger\core\v3\swagger-models-jakarta\2.2.21\swagger-models-jakarta-2.2.21.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-yaml\2.15.4\jackson-dataformat-yaml-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\webjars\swagger-ui\5.13.0\swagger-ui-5.13.0.jar;D:\Maven\apache-maven-3.9.6\repository\cn\hutool\hutool-all\5.8.28\hutool-all-5.8.28.jar;D:\Maven\apache-maven-3.9.6\repository\org\projectlombok\lombok\1.18.32\lombok-1.18.32.jar;D:\Maven\apache-maven-3.9.6\repository\com\mysql\mysql-connector-j\8.3.0\mysql-connector-j-8.3.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-test\3.2.5\spring-boot-starter-test-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-test\3.2.5\spring-boot-test-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.2.5\spring-boot-test-autoconfigure-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;D:\Maven\apache-maven-3.9.6\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;D:\Maven\apache-maven-3.9.6\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\awaitility\awaitility\4.2.1\awaitility-4.2.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\mockito\mockito-core\5.7.0\mockito-core-5.7.0.jar;D:\Maven\apache-maven-3.9.6\repository\net\bytebuddy\byte-buddy-agent\1.14.13\byte-buddy-agent-1.14.13.jar;D:\Maven\apache-maven-3.9.6\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;D:\Maven\apache-maven-3.9.6\repository\org\mockito\mockito-junit-jupiter\5.7.0\mockito-junit-jupiter-5.7.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;D:\Maven\apache-maven-3.9.6\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-core\6.1.6\spring-core-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-jcl\6.1.6\spring-jcl-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-test\6.1.6\spring-test-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\security\spring-security-test\6.2.4\spring-security-test-6.2.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\security\spring-security-core\6.2.4\spring-security-core-6.2.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\security\spring-security-crypto\6.2.4\spring-security-crypto-6.2.4.jar;D:\Maven\apache-maven-3.9.6\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -25,7 +25,6 @@
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="java.version.date" value="2026-01-20"/>
     <property name="java.home" value="C:\Users\Administrator\.jdks\ms-17.0.18"/>
-    <property name="spring.profiles.active" value="test"/>
     <property name="file.separator" value="\"/>
     <property name="basedir" value="E:\file-upgrade\qiwen-file"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
@@ -34,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="FILE_LOG_CHARSET" value="GBK"/>
     <property name="java.awt.headless" value="true"/>
-    <property name="surefire.real.class.path" value="C:\Users\Administrator\AppData\Local\Temp\surefire16397525860498229733\surefirebooter-20260629140125002_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Administrator\AppData\Local\Temp\surefire4755852793176789923\surefirebooter-20260629141001343_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.18+8-LTS"/>
@@ -53,7 +52,7 @@
     <property name="user.dir" value="E:\file-upgrade\qiwen-file"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="1348"/>
+    <property name="PID" value="12320"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="CONSOLE_LOG_CHARSET" value="GBK"/>
     <property name="native.encoding" value="GBK"/>
@@ -66,9 +65,9 @@
     <property name="java.class.version" value="61.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[qiwen-file] "/>
   </properties>
-  <testcase name="testCreateFolder" classname="com.qiwenshare.file.FileServiceTest" time="0.054">
-    <system-out><![CDATA[2026-06-29T14:02:13.435+08:00  INFO 1348 --- [qiwen-file] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.qiwenshare.file.FileServiceTest]: FileServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-06-29T14:02:13.446+08:00  INFO 1348 --- [qiwen-file] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.qiwenshare.file.FileApplication for test class com.qiwenshare.file.FileServiceTest
+  <testcase name="testCreateFolder" classname="com.qiwenshare.file.FileServiceTest" time="0.053">
+    <system-out><![CDATA[2026-06-29T14:10:47.480+08:00  INFO 12320 --- [qiwen-file] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.qiwenshare.file.FileServiceTest]: FileServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-29T14:10:47.486+08:00  INFO 12320 --- [qiwen-file] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.qiwenshare.file.FileApplication for test class com.qiwenshare.file.FileServiceTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -78,23 +77,23 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.5)
 
-2026-06-29T14:02:13.600+08:00  INFO 1348 --- [qiwen-file] [           main] com.qiwenshare.file.FileServiceTest      : Starting FileServiceTest using Java 17.0.18 with PID 1348 (started by Administrator in E:\file-upgrade\qiwen-file)
-2026-06-29T14:02:13.609+08:00 DEBUG 1348 --- [qiwen-file] [           main] com.qiwenshare.file.FileServiceTest      : Running with Spring Boot v3.2.5, Spring v6.1.6
-2026-06-29T14:02:13.609+08:00  INFO 1348 --- [qiwen-file] [           main] com.qiwenshare.file.FileServiceTest      : The following 1 profile is active: "test"
-2026-06-29T14:02:16.164+08:00  INFO 1348 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-29T14:02:16.164+08:00  INFO 1348 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-29T14:02:16.203+08:00  INFO 1348 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 0 JPA repository interfaces.
-2026-06-29T14:02:16.211+08:00  INFO 1348 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-29T14:02:16.211+08:00  INFO 1348 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-06-29T14:02:16.226+08:00  INFO 1348 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
-2026-06-29T14:02:16.861+08:00  INFO 1348 --- [qiwen-file] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-29T14:02:16.873+08:00  INFO 1348 --- [qiwen-file] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-29T14:02:16.881+08:00  INFO 1348 --- [qiwen-file] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-29T14:02:16.886+08:00  INFO 1348 --- [qiwen-file] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2026-06-29T14:02:16.890+08:00  INFO 1348 --- [qiwen-file] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:qiwen_file_test user=SA
-2026-06-29T14:02:16.890+08:00  INFO 1348 --- [qiwen-file] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2026-06-29T14:02:16.890+08:00  WARN 1348 --- [qiwen-file] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-29T14:02:18.336+08:00  INFO 1348 --- [qiwen-file] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-29T14:10:47.629+08:00  INFO 12320 --- [qiwen-file] [           main] com.qiwenshare.file.FileServiceTest      : Starting FileServiceTest using Java 17.0.18 with PID 12320 (started by Administrator in E:\file-upgrade\qiwen-file)
+2026-06-29T14:10:47.632+08:00 DEBUG 12320 --- [qiwen-file] [           main] com.qiwenshare.file.FileServiceTest      : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-06-29T14:10:47.636+08:00  INFO 12320 --- [qiwen-file] [           main] com.qiwenshare.file.FileServiceTest      : The following 1 profile is active: "test"
+2026-06-29T14:10:50.296+08:00  INFO 12320 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-29T14:10:50.311+08:00  INFO 12320 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-29T14:10:50.359+08:00  INFO 12320 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 0 JPA repository interfaces.
+2026-06-29T14:10:50.385+08:00  INFO 12320 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-29T14:10:50.386+08:00  INFO 12320 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-29T14:10:50.396+08:00  INFO 12320 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2026-06-29T14:10:50.827+08:00  INFO 12320 --- [qiwen-file] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-29T14:10:50.838+08:00  INFO 12320 --- [qiwen-file] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-29T14:10:50.845+08:00  INFO 12320 --- [qiwen-file] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-29T14:10:50.851+08:00  INFO 12320 --- [qiwen-file] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-06-29T14:10:50.855+08:00  INFO 12320 --- [qiwen-file] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:qiwen_file_test user=SA
+2026-06-29T14:10:50.856+08:00  INFO 12320 --- [qiwen-file] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-06-29T14:10:50.856+08:00  WARN 12320 --- [qiwen-file] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-29T14:10:51.789+08:00  INFO 12320 --- [qiwen-file] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     drop table if exists file_bean cascade 
 Hibernate: 
@@ -260,613 +259,613 @@ Hibernate:
         user_id varchar(255),
         primary key (id)
     )
-2026-06-29T14:02:18.392+08:00  INFO 1348 --- [qiwen-file] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-29T14:10:51.845+08:00  INFO 12320 --- [qiwen-file] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl' adapter.
  _ _   |_  _ _|_. ___ _ |    _ 
 | | |\/|_)(_| | |_\  |_)||_|_\ 
      /               |         
                         3.5.6 
 Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1de306c9] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@572992428 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68068736] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1637399234 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: SELECT COUNT( * ) AS total FROM role
 ==> Parameters: 
 <==    Columns: TOTAL
 <==        Row: 0
 <==      Total: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1de306c9]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68068736]
 Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14d25248] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@218045011 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4193b8a5] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@769763645 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO role ( role_name, description, available ) VALUES ( ?, ?, ? )
 ==> Parameters: admin(String), 管理员(String), 1(Integer)
 <==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14d25248]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4193b8a5]
 Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9af804b] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@315531417 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7102b480] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1441291976 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO role ( role_name, description, available ) VALUES ( ?, ?, ? )
 ==> Parameters: editor(String), 编辑者(String), 1(Integer)
 <==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9af804b]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7102b480]
 Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1408e09a] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@1099666539 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9628240] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1645283156 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO role ( role_name, description, available ) VALUES ( ?, ?, ? )
 ==> Parameters: viewer(String), 只读者(String), 1(Integer)
 <==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1408e09a]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9628240]
 Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40692fc3] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@624995697 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52f3859a] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@486919086 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: SELECT COUNT( * ) AS total FROM permission
 ==> Parameters: 
 <==    Columns: TOTAL
 <==        Row: 0
 <==      Total: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40692fc3]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53e7ef2d] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@1745258294 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO permission ( permission_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ? )
-==> Parameters: 1(Long), 文件管理(String), 0(Integer), file(String), 1(Integer)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53e7ef2d]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6198bac2] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@1100200101 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO permission ( permission_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ? )
-==> Parameters: 2(Long), 用户管理(String), 0(Integer), user(String), 2(Integer)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6198bac2]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2de1a93d] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@1896002688 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO permission ( permission_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ? )
-==> Parameters: 3(Long), 系统管理(String), 0(Integer), system(String), 3(Integer)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2de1a93d]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@55e85ec8] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@157450816 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO permission ( permission_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ? )
-==> Parameters: 4(Long), 管理面板(String), 0(Integer), dashboard(String), 4(Integer)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@55e85ec8]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@296a6a10] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@1302883593 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO permission ( permission_id, parent_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ?, ? )
-==> Parameters: 5(Long), 1(Long), 文件上传(String), 1(Integer), file:upload(String), 1(Integer)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@296a6a10]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d8c55ff] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@868394850 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO permission ( permission_id, parent_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ?, ? )
-==> Parameters: 6(Long), 1(Long), 文件下载(String), 1(Integer), file:download(String), 2(Integer)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d8c55ff]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62110754] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@1091683607 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO permission ( permission_id, parent_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ?, ? )
-==> Parameters: 7(Long), 1(Long), 文件删除(String), 1(Integer), file:delete(String), 3(Integer)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62110754]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1eed4367] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@942808687 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO permission ( permission_id, parent_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ?, ? )
-==> Parameters: 8(Long), 1(Long), 文件分享(String), 1(Integer), file:share(String), 4(Integer)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1eed4367]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52f3859a] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@486919086 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO permission ( permission_id, parent_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ?, ? )
-==> Parameters: 9(Long), 2(Long), 用户列表(String), 1(Integer), user:list(String), 1(Integer)
-<==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52f3859a]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@69075512] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@1106181947 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO permission ( permission_id, parent_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ?, ? )
-==> Parameters: 10(Long), 2(Long), 角色分配(String), 1(Integer), user:role(String), 2(Integer)
+==>  Preparing: INSERT INTO permission ( permission_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ? )
+==> Parameters: 1(Long), 文件管理(String), 0(Integer), file(String), 1(Integer)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@69075512]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@fff7dc9] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@1007980323 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO permission ( permission_id, parent_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ?, ? )
-==> Parameters: 11(Long), 3(Long), 公告管理(String), 1(Integer), system:notice(String), 1(Integer)
+==>  Preparing: INSERT INTO permission ( permission_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ? )
+==> Parameters: 2(Long), 用户管理(String), 0(Integer), user(String), 2(Integer)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@fff7dc9]
 Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@807bfd3] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@242520127 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6fe8e276] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1506402199 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO permission ( permission_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ? )
+==> Parameters: 3(Long), 系统管理(String), 0(Integer), system(String), 3(Integer)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6fe8e276]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2dacf052] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@895029075 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO permission ( permission_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ? )
+==> Parameters: 4(Long), 管理面板(String), 0(Integer), dashboard(String), 4(Integer)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2dacf052]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d8ab0dc] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@178844061 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO permission ( permission_id, parent_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ?, ? )
+==> Parameters: 5(Long), 1(Long), 文件上传(String), 1(Integer), file:upload(String), 1(Integer)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d8ab0dc]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@75564919] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@952072759 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO permission ( permission_id, parent_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ?, ? )
+==> Parameters: 6(Long), 1(Long), 文件下载(String), 1(Integer), file:download(String), 2(Integer)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@75564919]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1da1a8a4] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@806294029 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO permission ( permission_id, parent_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ?, ? )
+==> Parameters: 7(Long), 1(Long), 文件删除(String), 1(Integer), file:delete(String), 3(Integer)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1da1a8a4]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77d68b94] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@888879515 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO permission ( permission_id, parent_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ?, ? )
+==> Parameters: 8(Long), 1(Long), 文件分享(String), 1(Integer), file:share(String), 4(Integer)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77d68b94]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@240f4328] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1826140894 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO permission ( permission_id, parent_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ?, ? )
+==> Parameters: 9(Long), 2(Long), 用户列表(String), 1(Integer), user:list(String), 1(Integer)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@240f4328]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2f110efa] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1112264034 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO permission ( permission_id, parent_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ?, ? )
+==> Parameters: 10(Long), 2(Long), 角色分配(String), 1(Integer), user:role(String), 2(Integer)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2f110efa]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1c83c000] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@904187660 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO permission ( permission_id, parent_id, permission_name, resource_type, permission_code, order_num ) VALUES ( ?, ?, ?, ?, ?, ? )
+==> Parameters: 11(Long), 3(Long), 公告管理(String), 1(Integer), system:notice(String), 1(Integer)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1c83c000]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@59c4921f] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@2080985906 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: SELECT COUNT( * ) AS total FROM file_type
 ==> Parameters: 
 <==    Columns: TOTAL
 <==        Row: 0
 <==      Total: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@807bfd3]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ea14a58] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@1294430571 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO file_type ( name, order_num ) VALUES ( ?, ? )
-==> Parameters: 图片(String), 1(Integer)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ea14a58]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@720a86ef] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@469483253 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 1(Integer), jpg(String)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@720a86ef]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d19d465] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@197353092 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 1(Integer), jpeg(String)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d19d465]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d589ced] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@1796379557 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 1(Integer), png(String)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d589ced]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@581bc85e] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@1228769959 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 1(Integer), gif(String)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@581bc85e]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20ebc899] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@1595668634 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 1(Integer), bmp(String)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20ebc899]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@59c4921f] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@2080985906 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 1(Integer), webp(String)
-<==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@59c4921f]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d8f32a] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@42403011 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 1(Integer), svg(String)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d8f32a]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7f2e2ae6] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@1233680114 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 1(Integer), ico(String)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7f2e2ae6]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c0c9d4a] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@907489556 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_type ( name, order_num ) VALUES ( ?, ? )
-==> Parameters: 文档(String), 2(Integer)
+==> Parameters: 图片(String), 1(Integer)
 <==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c0c9d4a]
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d8f32a]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3860542a] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@844466738 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 2(Integer), pdf(String)
+==> Parameters: 1(Integer), jpg(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3860542a]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5a5ba7ff] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@1431024177 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 2(Integer), doc(String)
+==> Parameters: 1(Integer), jpeg(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5a5ba7ff]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6fb07db6] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@1898606184 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 2(Integer), docx(String)
+==> Parameters: 1(Integer), png(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6fb07db6]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@76494bed] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@2124133679 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 2(Integer), xls(String)
+==> Parameters: 1(Integer), gif(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@76494bed]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@122a3a87] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@819023748 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 2(Integer), xlsx(String)
+==> Parameters: 1(Integer), bmp(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@122a3a87]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c7b6c50] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@795513405 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 2(Integer), ppt(String)
+==> Parameters: 1(Integer), webp(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c7b6c50]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6cd76b55] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@1447076900 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 2(Integer), pptx(String)
+==> Parameters: 1(Integer), svg(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6cd76b55]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18e5b50] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@2047789606 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 2(Integer), txt(String)
+==> Parameters: 1(Integer), ico(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18e5b50]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d549bf1] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@2120645627 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 2(Integer), md(String)
+==>  Preparing: INSERT INTO file_type ( name, order_num ) VALUES ( ?, ? )
+==> Parameters: 文档(String), 2(Integer)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d549bf1]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@dc1fbbc] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@1172626498 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO file_type ( name, order_num ) VALUES ( ?, ? )
-==> Parameters: 视频(String), 3(Integer)
+JDBC Connection [HikariProxyConnection@17977304 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
+==> Parameters: 2(Integer), pdf(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@dc1fbbc]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@810d718] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1172626498 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
+==> Parameters: 2(Integer), doc(String)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@810d718]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@477ac359] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@1418012897 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 3(Integer), mp4(String)
+==> Parameters: 2(Integer), docx(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@477ac359]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5a238d7e] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@969301172 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 3(Integer), avi(String)
+==> Parameters: 2(Integer), xls(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5a238d7e]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@283730de] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@1426638617 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 3(Integer), mkv(String)
+==> Parameters: 2(Integer), xlsx(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@283730de]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1386f8bb] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@414070147 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 3(Integer), mov(String)
+==> Parameters: 2(Integer), ppt(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1386f8bb]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@90e5788] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@439187903 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 3(Integer), wmv(String)
+==> Parameters: 2(Integer), pptx(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@90e5788]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3eca0961] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@1461788950 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 3(Integer), flv(String)
+==> Parameters: 2(Integer), txt(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3eca0961]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2c689e6d] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@1568275166 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 3(Integer), webm(String)
+==> Parameters: 2(Integer), md(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2c689e6d]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33966111] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@1835126756 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+JDBC Connection [HikariProxyConnection@388958901 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_type ( name, order_num ) VALUES ( ?, ? )
-==> Parameters: 音乐(String), 4(Integer)
+==> Parameters: 视频(String), 3(Integer)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33966111]
-Creating a new SqlSession
-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@592afd3] was not registered for synchronization because synchronization is not active
-JDBC Connection [HikariProxyConnection@388958901 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 4(Integer), mp3(String)
-<==    Updates: 1
-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@592afd3]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@17b17fa8] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@1959562325 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 4(Integer), wav(String)
+==> Parameters: 3(Integer), mp4(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@17b17fa8]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@64b05928] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@195403177 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 4(Integer), flac(String)
+==> Parameters: 3(Integer), avi(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@64b05928]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1775ff4a] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@130774997 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 4(Integer), aac(String)
+==> Parameters: 3(Integer), mkv(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1775ff4a]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@61d4171d] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@1178306139 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 4(Integer), ogg(String)
+==> Parameters: 3(Integer), mov(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@61d4171d]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7e0cbe79] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@572857266 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 4(Integer), wma(String)
+==> Parameters: 3(Integer), wmv(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7e0cbe79]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@63888c14] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@2040252256 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
-==>  Preparing: INSERT INTO file_type ( name, order_num ) VALUES ( ?, ? )
-==> Parameters: 其他(String), 5(Integer)
+==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
+==> Parameters: 3(Integer), flv(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@63888c14]
 Creating a new SqlSession
 SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@627f515c] was not registered for synchronization because synchronization is not active
 JDBC Connection [HikariProxyConnection@1754086954 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
 ==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
-==> Parameters: 5(Integer), (String)
+==> Parameters: 3(Integer), webm(String)
 <==    Updates: 1
 Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@627f515c]
-2026-06-29T14:02:22.087+08:00  INFO 1348 --- [qiwen-file] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3c32105c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@39a54d70, org.springframework.security.web.context.SecurityContextHolderFilter@4ee127c6, org.springframework.security.web.header.HeaderWriterFilter@771047b4, org.springframework.web.filter.CorsFilter@39b5d60, org.springframework.security.web.authentication.logout.LogoutFilter@b51d862, com.qiwenshare.file.config.security.JwtAuthFilter@206100aa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5e805a0d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2bd89b8e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@952883c, org.springframework.security.web.session.SessionManagementFilter@3bfb81be, org.springframework.security.web.access.ExceptionTranslationFilter@7cdd8582, org.springframework.security.web.access.intercept.AuthorizationFilter@38b65eb9]
-2026-06-29T14:02:23.155+08:00  INFO 1348 --- [qiwen-file] [           main] com.qiwenshare.file.FileServiceTest      : Started FileServiceTest in 9.704 seconds (process running for 57.29)
 Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1532b1d]
-JDBC Connection [HikariProxyConnection@206331953 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4fc2e703] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1749387612 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO file_type ( name, order_num ) VALUES ( ?, ? )
+==> Parameters: 音乐(String), 4(Integer)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4fc2e703]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@70a8c0b9] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1901452520 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
+==> Parameters: 4(Integer), mp3(String)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@70a8c0b9]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@29f7c73e] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1841083445 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
+==> Parameters: 4(Integer), wav(String)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@29f7c73e]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5b270c33] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@80361763 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
+==> Parameters: 4(Integer), flac(String)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5b270c33]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1313d0b3] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@453428216 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
+==> Parameters: 4(Integer), aac(String)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1313d0b3]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78a3023f] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@762654505 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
+==> Parameters: 4(Integer), ogg(String)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78a3023f]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20eee47c] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@224062106 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
+==> Parameters: 4(Integer), wma(String)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20eee47c]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6d88a3f4] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1770046731 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO file_type ( name, order_num ) VALUES ( ?, ? )
+==> Parameters: 其他(String), 5(Integer)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6d88a3f4]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e9a0143] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1682842160 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will not be managed by Spring
+==>  Preparing: INSERT INTO file_classification ( file_type_id, file_extend_name ) VALUES ( ?, ? )
+==> Parameters: 5(Integer), (String)
+<==    Updates: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e9a0143]
+2026-06-29T14:10:53.932+08:00  INFO 12320 --- [qiwen-file] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3c288a4e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27b27f3c, org.springframework.security.web.context.SecurityContextHolderFilter@242270ae, org.springframework.security.web.header.HeaderWriterFilter@500a6c2f, org.springframework.web.filter.CorsFilter@1529406e, org.springframework.security.web.authentication.logout.LogoutFilter@5599d304, com.qiwenshare.file.config.security.JwtAuthFilter@60019f4b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@704a0f9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@46ccf22, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7bb92a71, org.springframework.security.web.session.SessionManagementFilter@67a02460, org.springframework.security.web.access.ExceptionTranslationFilter@69894182, org.springframework.security.web.access.intercept.AuthorizationFilter@15cf663c]
+2026-06-29T14:10:54.726+08:00  INFO 12320 --- [qiwen-file] [           main] com.qiwenshare.file.FileServiceTest      : Started FileServiceTest in 7.22 seconds (process running for 52.737)
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@43462cef]
+JDBC Connection [HikariProxyConnection@167547238 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: SELECT COUNT( * ) AS total FROM file_bean WHERE deleted=0 AND (file_path = ? AND user_id = ?)
 ==> Parameters: /documents(String), user001(String)
 <==    Columns: TOTAL
 <==        Row: 0
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1532b1d]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1532b1d] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@43462cef]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@43462cef] from current transaction
 ==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071474338930737152(String), documents(String), /documents(String), 0(Long), (String), true(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T14:02:23.190981300(LocalDateTime), 2026-06-29T14:02:23.190981300(LocalDateTime)
+==> Parameters: 2071476484606631936(String), documents(String), /documents(String), 0(Long), (String), true(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T14:10:54.759307200(LocalDateTime), 2026-06-29T14:10:54.759307200(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1532b1d]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1532b1d]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1532b1d]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@43462cef]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@43462cef]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@43462cef]
 ]]></system-out>
   </testcase>
-  <testcase name="testListByPath" classname="com.qiwenshare.file.FileServiceTest" time="0.255">
+  <testcase name="testListByPath" classname="com.qiwenshare.file.FileServiceTest" time="0.145">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3]
-JDBC Connection [HikariProxyConnection@1246343791 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379]
+JDBC Connection [HikariProxyConnection@369349115 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: SELECT COUNT( * ) AS total FROM file_bean WHERE deleted=0 AND (file_path = ? AND user_id = ?)
 ==> Parameters: /pics(String), user001(String)
 <==    Columns: TOTAL
 <==        Row: 0
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379] from current transaction
 ==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071474339069149184(String), pics(String), /pics(String), 0(Long), (String), true(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T14:02:23.223893500(LocalDateTime), 2026-06-29T14:02:23.223893500(LocalDateTime)
+==> Parameters: 2071476484849901568(String), pics(String), /pics(String), 0(Long), (String), true(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T14:10:54.817987600(LocalDateTime), 2026-06-29T14:10:54.817987600(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379] from current transaction
 ==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE deleted=0 AND (file_path = ?)
 ==> Parameters: /a.txt(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379] from current transaction
 ==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071474339203366912(String), a.txt(String), /a.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T14:02:23.255807900(LocalDateTime), 2026-06-29T14:02:23.255807900(LocalDateTime)
+==> Parameters: 2071476484883456000(String), a.txt(String), /a.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T14:10:54.825968(LocalDateTime), 2026-06-29T14:10:54.825968(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379] from current transaction
 ==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC LIMIT 1
-==> Parameters: 2071474339203366912(String)
+==> Parameters: 2071476484883456000(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379] from current transaction
 ==>  Preparing: INSERT INTO file_version ( id, file_id, version, file_name, file_path, file_size, storage_path, user_id, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071474339236921344(String), 2071474339203366912(String), 1(Integer), a.txt(String), /a.txt(String), 100(Long), /a.txt(String), user001(String), 2026-06-29T14:02:23.263789100(LocalDateTime)
+==> Parameters: 2071476484929593344(String), 2071476484883456000(String), 1(Integer), a.txt(String), /a.txt(String), 100(Long), /a.txt(String), user001(String), 2026-06-29T14:10:54.836938800(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379] from current transaction
 ==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC
-==> Parameters: 2071474339203366912(String)
+==> Parameters: 2071476484883456000(String)
 <==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
-<==        Row: 2071474339236921344, 2071474339203366912, 1, a.txt, /a.txt, 100, /a.txt, user001, 2026-06-29 14:02:23.263789
+<==        Row: 2071476484929593344, 2071476484883456000, 1, a.txt, /a.txt, 100, /a.txt, user001, 2026-06-29 14:10:54.836939
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3]
-2026-06-29T14:02:23.439+08:00 ERROR 1348 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379]
+2026-06-29T14:10:54.889+08:00 ERROR 12320 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379] from current transaction
 ==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE deleted=0 AND (file_path = ?)
 ==> Parameters: /b.jpg(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379] from current transaction
 ==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071474339987701760(String), b.jpg(String), /b.jpg(String), 200(Long), image/jpeg(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T14:02:23.442394900(LocalDateTime), 2026-06-29T14:02:23.442394900(LocalDateTime)
+==> Parameters: 2071476485160280064(String), b.jpg(String), /b.jpg(String), 200(Long), image/jpeg(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T14:10:54.892385500(LocalDateTime), 2026-06-29T14:10:54.892385500(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379] from current transaction
 ==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC LIMIT 1
-==> Parameters: 2071474339987701760(String)
+==> Parameters: 2071476485160280064(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379] from current transaction
 ==>  Preparing: INSERT INTO file_version ( id, file_id, version, file_name, file_path, file_size, storage_path, user_id, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071474340012867584(String), 2071474339987701760(String), 1(Integer), b.jpg(String), /b.jpg(String), 200(Long), /b.jpg(String), user001(String), 2026-06-29T14:02:23.448385200(LocalDateTime)
+==> Parameters: 2071476485198028800(String), 2071476485160280064(String), 1(Integer), b.jpg(String), /b.jpg(String), 200(Long), /b.jpg(String), user001(String), 2026-06-29T14:10:54.900364400(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379] from current transaction
 ==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC
-==> Parameters: 2071474339987701760(String)
+==> Parameters: 2071476485160280064(String)
 <==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
-<==        Row: 2071474340012867584, 2071474339987701760, 1, b.jpg, /b.jpg, 200, /b.jpg, user001, 2026-06-29 14:02:23.448385
+<==        Row: 2071476485198028800, 2071476485160280064, 1, b.jpg, /b.jpg, 200, /b.jpg, user001, 2026-06-29 14:10:54.900364
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3]
-2026-06-29T14:02:23.458+08:00 ERROR 1348 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379]
+2026-06-29T14:10:54.917+08:00 ERROR 12320 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379] from current transaction
 ==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE deleted=0 AND (parent_path = ? AND user_id = ? AND deleted = ?) ORDER BY is_folder ASC,file_name ASC
 ==> Parameters: /(String), user001(String), 0(Integer)
 <==    Columns: ID, FILE_NAME, FILE_PATH, FILE_SIZE, FILE_TYPE, IS_FOLDER, PARENT_PATH, USER_ID, DELETED, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071474339203366912, a.txt, /a.txt, 100, text/plain, FALSE, /, user001, 0, 2026-06-29 14:02:23.255808, 2026-06-29 14:02:23.255808
-<==        Row: 2071474339987701760, b.jpg, /b.jpg, 200, image/jpeg, FALSE, /, user001, 0, 2026-06-29 14:02:23.442395, 2026-06-29 14:02:23.442395
-<==        Row: 2071474339069149184, pics, /pics, 0, , TRUE, /, user001, 0, 2026-06-29 14:02:23.223894, 2026-06-29 14:02:23.223894
+<==        Row: 2071476484883456000, a.txt, /a.txt, 100, text/plain, FALSE, /, user001, 0, 2026-06-29 14:10:54.825968, 2026-06-29 14:10:54.825968
+<==        Row: 2071476485160280064, b.jpg, /b.jpg, 200, image/jpeg, FALSE, /, user001, 0, 2026-06-29 14:10:54.892386, 2026-06-29 14:10:54.892386
+<==        Row: 2071476484849901568, pics, /pics, 0, , TRUE, /, user001, 0, 2026-06-29 14:10:54.817988, 2026-06-29 14:10:54.817988
 <==      Total: 3
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@37890e3]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6dd65379]
 ]]></system-out>
   </testcase>
-  <testcase name="testGetById" classname="com.qiwenshare.file.FileServiceTest" time="0.046">
+  <testcase name="testGetById" classname="com.qiwenshare.file.FileServiceTest" time="0.043">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48fc2397]
-JDBC Connection [HikariProxyConnection@783541000 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@340c211e]
+JDBC Connection [HikariProxyConnection@408331026 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE deleted=0 AND (file_path = ?)
 ==> Parameters: /findme.txt(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48fc2397]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48fc2397] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@340c211e]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@340c211e] from current transaction
 ==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071474340180639744(String), findme.txt(String), /findme.txt(String), 99(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T14:02:23.488270(LocalDateTime), 2026-06-29T14:02:23.488270(LocalDateTime)
+==> Parameters: 2071476485420326912(String), findme.txt(String), /findme.txt(String), 99(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T14:10:54.953761400(LocalDateTime), 2026-06-29T14:10:54.953761400(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48fc2397]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48fc2397] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@340c211e]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@340c211e] from current transaction
 ==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC LIMIT 1
-==> Parameters: 2071474340180639744(String)
+==> Parameters: 2071476485420326912(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48fc2397]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48fc2397] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@340c211e]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@340c211e] from current transaction
 ==>  Preparing: INSERT INTO file_version ( id, file_id, version, file_name, file_path, file_size, storage_path, user_id, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071474340230971392(String), 2071474340180639744(String), 1(Integer), findme.txt(String), /findme.txt(String), 99(Long), /findme.txt(String), user001(String), 2026-06-29T14:02:23.500239600(LocalDateTime)
+==> Parameters: 2071476485432909824(String), 2071476485420326912(String), 1(Integer), findme.txt(String), /findme.txt(String), 99(Long), /findme.txt(String), user001(String), 2026-06-29T14:10:54.956460900(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48fc2397]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48fc2397] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@340c211e]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@340c211e] from current transaction
 ==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC
-==> Parameters: 2071474340180639744(String)
+==> Parameters: 2071476485420326912(String)
 <==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
-<==        Row: 2071474340230971392, 2071474340180639744, 1, findme.txt, /findme.txt, 99, /findme.txt, user001, 2026-06-29 14:02:23.50024
+<==        Row: 2071476485432909824, 2071476485420326912, 1, findme.txt, /findme.txt, 99, /findme.txt, user001, 2026-06-29 14:10:54.956461
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48fc2397]
-2026-06-29T14:02:23.506+08:00 ERROR 1348 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48fc2397] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@340c211e]
+2026-06-29T14:10:54.971+08:00 ERROR 12320 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@340c211e] from current transaction
 ==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE id=? AND deleted=0
-==> Parameters: 2071474340180639744(String)
+==> Parameters: 2071476485420326912(String)
 <==    Columns: ID, FILE_NAME, FILE_PATH, FILE_SIZE, FILE_TYPE, IS_FOLDER, PARENT_PATH, USER_ID, DELETED, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071474340180639744, findme.txt, /findme.txt, 99, text/plain, FALSE, /, user001, 0, 2026-06-29 14:02:23.48827, 2026-06-29 14:02:23.48827
+<==        Row: 2071476485420326912, findme.txt, /findme.txt, 99, text/plain, FALSE, /, user001, 0, 2026-06-29 14:10:54.953761, 2026-06-29 14:10:54.953761
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48fc2397]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48fc2397]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48fc2397]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@340c211e]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@340c211e]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@340c211e]
 ]]></system-out>
   </testcase>
-  <testcase name="testDeleteOtherUserFile" classname="com.qiwenshare.file.FileServiceTest" time="0.033">
+  <testcase name="testDeleteOtherUserFile" classname="com.qiwenshare.file.FileServiceTest" time="0.037">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51f1e931]
-JDBC Connection [HikariProxyConnection@1490238813 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2938c689]
+JDBC Connection [HikariProxyConnection@804949221 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE deleted=0 AND (file_path = ?)
 ==> Parameters: /secret.txt(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51f1e931]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51f1e931] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2938c689]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2938c689] from current transaction
 ==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071474340369383424(String), secret.txt(String), /secret.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T14:02:23.533153(LocalDateTime), 2026-06-29T14:02:23.533153(LocalDateTime)
+==> Parameters: 2071476485579710464(String), secret.txt(String), /secret.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T14:10:54.991981700(LocalDateTime), 2026-06-29T14:10:54.991981700(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51f1e931]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51f1e931] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2938c689]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2938c689] from current transaction
 ==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC LIMIT 1
-==> Parameters: 2071474340369383424(String)
+==> Parameters: 2071476485579710464(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51f1e931]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51f1e931] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2938c689]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2938c689] from current transaction
 ==>  Preparing: INSERT INTO file_version ( id, file_id, version, file_name, file_path, file_size, storage_path, user_id, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071474340386160640(String), 2071474340369383424(String), 1(Integer), secret.txt(String), /secret.txt(String), 100(Long), /secret.txt(String), user001(String), 2026-06-29T14:02:23.537139400(LocalDateTime)
+==> Parameters: 2071476485621653504(String), 2071476485579710464(String), 1(Integer), secret.txt(String), /secret.txt(String), 100(Long), /secret.txt(String), user001(String), 2026-06-29T14:10:55.001956300(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51f1e931]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51f1e931] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2938c689]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2938c689] from current transaction
 ==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC
-==> Parameters: 2071474340369383424(String)
+==> Parameters: 2071476485579710464(String)
 <==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
-<==        Row: 2071474340386160640, 2071474340369383424, 1, secret.txt, /secret.txt, 100, /secret.txt, user001, 2026-06-29 14:02:23.537139
+<==        Row: 2071476485621653504, 2071476485579710464, 1, secret.txt, /secret.txt, 100, /secret.txt, user001, 2026-06-29 14:10:55.001956
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51f1e931]
-2026-06-29T14:02:23.547+08:00 ERROR 1348 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51f1e931] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2938c689]
+2026-06-29T14:10:55.008+08:00 ERROR 12320 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2938c689] from current transaction
 ==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE id=? AND deleted=0
-==> Parameters: 2071474340369383424(String)
+==> Parameters: 2071476485579710464(String)
 <==    Columns: ID, FILE_NAME, FILE_PATH, FILE_SIZE, FILE_TYPE, IS_FOLDER, PARENT_PATH, USER_ID, DELETED, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071474340369383424, secret.txt, /secret.txt, 100, text/plain, FALSE, /, user001, 0, 2026-06-29 14:02:23.533153, 2026-06-29 14:02:23.533153
+<==        Row: 2071476485579710464, secret.txt, /secret.txt, 100, text/plain, FALSE, /, user001, 0, 2026-06-29 14:10:54.991982, 2026-06-29 14:10:54.991982
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51f1e931]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51f1e931]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51f1e931]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2938c689]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2938c689]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2938c689]
 ]]></system-out>
   </testcase>
   <testcase name="testDelete" classname="com.qiwenshare.file.FileServiceTest" time="0.0">
     <skipped message="H2 + JPA/MyBatis 双 ORM 事务冲突，生产 MySQL 无此问题"/>
   </testcase>
-  <testcase name="testUpload" classname="com.qiwenshare.file.FileServiceTest" time="0.03">
+  <testcase name="testUpload" classname="com.qiwenshare.file.FileServiceTest" time="0.034">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32f3174d]
-JDBC Connection [HikariProxyConnection@87180871 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4591a080]
+JDBC Connection [HikariProxyConnection@1179392200 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE deleted=0 AND (file_path = ?)
 ==> Parameters: /readme.txt(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32f3174d]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32f3174d] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4591a080]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4591a080] from current transaction
 ==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071474340507795456(String), readme.txt(String), /readme.txt(String), 1024(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T14:02:23.566061800(LocalDateTime), 2026-06-29T14:02:23.566061800(LocalDateTime)
+==> Parameters: 2071476485772648448(String), readme.txt(String), /readme.txt(String), 1024(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T14:10:55.037161200(LocalDateTime), 2026-06-29T14:10:55.037161200(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32f3174d]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32f3174d] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4591a080]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4591a080] from current transaction
 ==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC LIMIT 1
-==> Parameters: 2071474340507795456(String)
+==> Parameters: 2071476485772648448(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32f3174d]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32f3174d] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4591a080]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4591a080] from current transaction
 ==>  Preparing: INSERT INTO file_version ( id, file_id, version, file_name, file_path, file_size, storage_path, user_id, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071474340524572672(String), 2071474340507795456(String), 1(Integer), readme.txt(String), /readme.txt(String), 1024(Long), /readme.txt(String), user001(String), 2026-06-29T14:02:23.570051300(LocalDateTime)
+==> Parameters: 2071476485785231360(String), 2071476485772648448(String), 1(Integer), readme.txt(String), /readme.txt(String), 1024(Long), /readme.txt(String), user001(String), 2026-06-29T14:10:55.040228400(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32f3174d]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32f3174d] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4591a080]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4591a080] from current transaction
 ==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC
-==> Parameters: 2071474340507795456(String)
+==> Parameters: 2071476485772648448(String)
 <==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
-<==        Row: 2071474340524572672, 2071474340507795456, 1, readme.txt, /readme.txt, 1024, /readme.txt, user001, 2026-06-29 14:02:23.570051
+<==        Row: 2071476485785231360, 2071476485772648448, 1, readme.txt, /readme.txt, 1024, /readme.txt, user001, 2026-06-29 14:10:55.040228
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32f3174d]
-2026-06-29T14:02:23.583+08:00 ERROR 1348 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32f3174d]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32f3174d]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4591a080]
+2026-06-29T14:10:55.053+08:00 ERROR 12320 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4591a080]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4591a080]
 ]]></system-out>
   </testcase>
 </testsuite>
