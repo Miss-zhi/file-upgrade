@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="807da718-47d1-4550-9f05-c703305169ff" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/openspec/changes/file-uploadtask/.openspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/file-uploadtask/design.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/file-uploadtask/proposal.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/file-uploadtask/specs/file-uploadtask/spec.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/file-uploadtask/tasks.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/file-classify/.openspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/file-classify/design.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/file-classify/proposal.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/file-classify/specs/file-classify/spec.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/file-classify/tasks.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1782641496053</updated>
       <workItem from="1782641497510" duration="10817000" />
-      <workItem from="1782693298771" duration="8140000" />
+      <workItem from="1782693298771" duration="8748000" />
     </task>
     <servers />
   </component>
