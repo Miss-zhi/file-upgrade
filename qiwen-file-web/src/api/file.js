@@ -26,6 +26,10 @@ export async function batchMoveFiles(ids, targetPath) {
   return http.post('/file/batch-move', { ids, targetPath })
 }
 
+export async function renameFile(id, newName) {
+  return http.post('/file/rename', { id, newName })
+}
+
 export async function moveFile(id, targetPath) {
   return http.post('/file/move', { id, targetPath })
 }
