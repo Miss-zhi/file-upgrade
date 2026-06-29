@@ -24,6 +24,7 @@ const emit = defineEmits<{
   share: [file: FileItem]
   preview: [file: FileItem]
   'selection-change': [files: FileItem[]]
+  versions: [file: FileItem]
 }>()
 
 function formatSize(bytes: number | null): string {
@@ -79,6 +80,7 @@ function isPreviewable(fileName: string): boolean {
               <el-dropdown-item @click="onMove(row)">移动到</el-dropdown-item>
               <el-dropdown-item @click="onCopy(row)">复制</el-dropdown-item>
               <el-dropdown-item divided @click="onDelete(row)">删除</el-dropdown-item>
+              <el-dropdown-item @click="emit('versions', row)">版本历史</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>

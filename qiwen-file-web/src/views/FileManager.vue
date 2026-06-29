@@ -11,6 +11,7 @@ import BreadCrumb from '_c/common/BreadCrumb.vue'
 import UploadDialog from '_c/file/dialog/UploadDialog.vue'
 import ShareDialog from '_c/file/dialog/ShareDialog.vue'
 import PreviewDialog from '_c/file/dialog/PreviewDialog.vue'
+import VersionHistory from '_c/file/dialog/VersionHistory.vue'
 import RenameDialog from '_c/file/dialog/RenameDialog.vue'
 import MoveDialog from '_c/file/dialog/MoveDialog.vue'
 import CopyDialog from '_c/file/dialog/CopyDialog.vue'
@@ -25,6 +26,7 @@ const selectedFiles = ref<any[]>([])
 const uploadRef = ref<InstanceType<typeof UploadDialog>>()
 const shareRef = ref<InstanceType<typeof ShareDialog>>()
 const previewRef = ref<InstanceType<typeof PreviewDialog>>()
+const versionRef = ref<InstanceType<typeof VersionHistory>>()
 const renameRef = ref<InstanceType<typeof RenameDialog>>()
 const moveRef = ref<InstanceType<typeof MoveDialog>>()
 const copyRef = ref<InstanceType<typeof CopyDialog>>()
@@ -89,6 +91,7 @@ async function handleDeleteConfirm(id: string) {
 
 function handleShare(file: any) { shareRef.value?.open(file.filePath) }
 function handlePreview(file: any) { previewRef.value?.open(file) }
+function handleVersions(file: any) { versionRef.value?.open(file.id, file.fileName) }
 
 async function handleBatchDelete() {
   const ids = selectedFiles.value.map((f: any) => f.id)
@@ -172,6 +175,7 @@ onMounted(() => {
         @share="handleShare"
         @preview="handlePreview"
         @selection-change="selectedFiles = $event"
+        @versions="handleVersions"
       />
     </div>
 
@@ -179,6 +183,7 @@ onMounted(() => {
     <UploadDialog ref="uploadRef" @confirm="handleUploadConfirm" />
     <ShareDialog ref="shareRef" @confirm="handleShareConfirm" />
     <PreviewDialog ref="previewRef" />
+    <VersionHistory ref="versionRef" />
     <RenameDialog ref="renameRef" @confirm="handleRenameConfirm" />
     <MoveDialog ref="moveRef" @confirm="handleMoveConfirm" />
     <CopyDialog ref="copyRef" @confirm="handleCopyConfirm" />

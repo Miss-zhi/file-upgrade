@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.qiwenshare.file.FileRecycleTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.001 s -- in com.qiwenshare.file.FileRecycleTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.002 s -- in com.qiwenshare.file.FileRecycleTest

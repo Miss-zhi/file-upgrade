@@ -1,12 +1,15 @@
 com\qiwenshare\file\dto\user\LoginDTO.class
 com\qiwenshare\ufop\operation\Uploader.class
 com\qiwenshare\file\dto\user\UserUpdateDTO.class
+com\qiwenshare\file\domain\file\FileVersion.class
+com\qiwenshare\file\mapper\FileVersionMapper.class
 com\qiwenshare\file\mapper\FileBeanMapper.class
 com\qiwenshare\ufop\operation\LocalStorageRenamer.class
 com\qiwenshare\ufop\operation\Renamer.class
 com\qiwenshare\file\service\SysConfigService.class
 com\qiwenshare\file\config\jwt\JwtProperties.class
 com\qiwenshare\file\util\RestResult.class
+com\qiwenshare\file\api\IFileVersionService.class
 com\qiwenshare\file\config\onlyoffice\OnlyOfficeProperties.class
 com\qiwenshare\file\config\RedisConfig.class
 com\qiwenshare\file\service\FileService.class
@@ -15,6 +18,7 @@ com\qiwenshare\file\config\mybatisplus\MyBatisPlusConfig.class
 com\qiwenshare\file\config\es\ElasticsearchConfig.class
 com\qiwenshare\file\mapper\ShareFileMapper.class
 com\qiwenshare\file\service\UserService.class
+com\qiwenshare\file\service\FileVersionService.class
 com\qiwenshare\file\config\jwt\JwtUtil.class
 com\qiwenshare\ufop\exception\UFOPException.class
 com\qiwenshare\file\controller\UserController.class
@@ -40,6 +44,7 @@ com\qiwenshare\ufop\UFOPFactory.class
 com\qiwenshare\file\controller\FileController.class
 com\qiwenshare\file\dto\user\RegisterDTO.class
 com\qiwenshare\file\service\OnlyOfficeService.class
+com\qiwenshare\file\controller\FileVersionController.class
 com\qiwenshare\file\service\OperationLogService.class
 com\qiwenshare\file\vo\user\UserAdminVO$UserAdminVOBuilder.class
 com\qiwenshare\file\domain\config\SysConfig.class

@@ -40,6 +40,7 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\LocalStor
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\dto\user\RegisterDTO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\FileController.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Renamer.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\domain\file\FileVersion.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\FileBeanMapper.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\RedisConfig.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\api\IFileService.java
@@ -47,6 +48,7 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\ShareFileSe
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Uploader.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Reader.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Writer.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\api\IFileVersionService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Downloader.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Copier.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\OnlyOfficeController.java
@@ -64,8 +66,11 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\aop\WebLogAspect.ja
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\FileSearchService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\ShareController.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\ShareFileMapper.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\FileVersionService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\jwt\JwtUtil.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\LocalStorageWriter.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\FileVersionController.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\FileVersionMapper.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\es\ElasticsearchConfig.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\FileService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\LocalStorageCopier.java

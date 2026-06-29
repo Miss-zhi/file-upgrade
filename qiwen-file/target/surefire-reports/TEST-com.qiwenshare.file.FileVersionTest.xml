@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.qiwenshare.file.FileServiceTest" time="5.509" tests="6" errors="0" skipped="1" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.qiwenshare.file.FileVersionTest" time="0.518" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -66,339 +66,227 @@
     <property name="java.class.version" value="61.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[qiwen-file] "/>
   </properties>
-  <testcase name="testCreateFolder" classname="com.qiwenshare.file.FileServiceTest" time="0.084">
-    <system-out><![CDATA[2026-06-29T11:17:23.286+08:00  INFO 13508 --- [qiwen-file] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.qiwenshare.file.FileServiceTest]: FileServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-06-29T11:17:23.290+08:00  INFO 13508 --- [qiwen-file] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.qiwenshare.file.FileApplication for test class com.qiwenshare.file.FileServiceTest
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v3.2.5)
-
-2026-06-29T11:17:23.454+08:00  INFO 13508 --- [qiwen-file] [           main] com.qiwenshare.file.FileServiceTest      : Starting FileServiceTest using Java 17.0.18 with PID 13508 (started by Administrator in E:\file-upgrade\qiwen-file)
-2026-06-29T11:17:23.455+08:00 DEBUG 13508 --- [qiwen-file] [           main] com.qiwenshare.file.FileServiceTest      : Running with Spring Boot v3.2.5, Spring v6.1.6
-2026-06-29T11:17:23.455+08:00  INFO 13508 --- [qiwen-file] [           main] com.qiwenshare.file.FileServiceTest      : The following 1 profile is active: "test"
-2026-06-29T11:17:24.849+08:00  INFO 13508 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-29T11:17:24.850+08:00  INFO 13508 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-29T11:17:24.872+08:00  INFO 13508 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 0 JPA repository interfaces.
-2026-06-29T11:17:24.889+08:00  INFO 13508 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-29T11:17:24.890+08:00  INFO 13508 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-06-29T11:17:24.904+08:00  INFO 13508 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
-2026-06-29T11:17:25.334+08:00  INFO 13508 --- [qiwen-file] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-29T11:17:25.340+08:00  INFO 13508 --- [qiwen-file] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-29T11:17:25.357+08:00  INFO 13508 --- [qiwen-file] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-29T11:17:25.368+08:00  INFO 13508 --- [qiwen-file] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2026-06-29T11:17:25.384+08:00  INFO 13508 --- [qiwen-file] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:qiwen_file_test user=SA
-2026-06-29T11:17:25.385+08:00  INFO 13508 --- [qiwen-file] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2026-06-29T11:17:25.408+08:00  WARN 13508 --- [qiwen-file] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-29T11:17:26.015+08:00  INFO 13508 --- [qiwen-file] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-Hibernate: 
-    drop table if exists file_bean cascade 
-Hibernate: 
-    drop table if exists file_version cascade 
-Hibernate: 
-    drop table if exists qiwen_user cascade 
-Hibernate: 
-    drop table if exists share_file cascade 
-Hibernate: 
-    drop table if exists sys_config cascade 
-Hibernate: 
-    create table file_bean (
-        deleted integer,
-        is_folder boolean,
-        create_time timestamp(6),
-        file_size bigint,
-        update_time timestamp(6),
-        file_name varchar(255),
-        file_path varchar(255),
-        file_type varchar(255),
-        id varchar(255) not null,
-        parent_path varchar(255),
-        user_id varchar(255),
-        primary key (id)
-    )
-Hibernate: 
-    create table file_version (
-        version integer,
-        create_time timestamp(6),
-        file_size bigint,
-        file_id varchar(255),
-        file_name varchar(255),
-        file_path varchar(255),
-        id varchar(255) not null,
-        storage_path varchar(255),
-        user_id varchar(255),
-        primary key (id)
-    )
-Hibernate: 
-    create table qiwen_user (
-        status integer,
-        create_time timestamp(6),
-        update_time timestamp(6),
-        avatar varchar(255),
-        email varchar(255),
-        id varchar(255) not null,
-        nickname varchar(255),
-        password varchar(255),
-        phone varchar(255),
-        role varchar(255),
-        username varchar(255),
-        primary key (id)
-    )
-Hibernate: 
-    create table share_file (
-        expire_days integer,
-        create_time timestamp(6),
-        expire_time timestamp(6),
-        file_path varchar(255),
-        id varchar(255) not null,
-        share_batch_num varchar(255),
-        share_code varchar(255),
-        share_token varchar(255),
-        user_id varchar(255),
-        primary key (id)
-    )
-Hibernate: 
-    create table sys_config (
-        config_key varchar(255),
-        config_value varchar(255),
-        description varchar(255),
-        id varchar(255) not null,
-        primary key (id)
-    )
-2026-06-29T11:17:26.051+08:00  INFO 13508 --- [qiwen-file] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl' adapter.
- _ _   |_  _ _|_. ___ _ |    _ 
-| | |\/|_)(_| | |_\  |_)||_|_\ 
-     /               |         
-                        3.5.6 
-2026-06-29T11:17:27.419+08:00  INFO 13508 --- [qiwen-file] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2564b7f2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27dbe9a3, org.springframework.security.web.context.SecurityContextHolderFilter@2b2c7991, org.springframework.security.web.header.HeaderWriterFilter@203f41d7, org.springframework.web.filter.CorsFilter@3eeba527, org.springframework.security.web.authentication.logout.LogoutFilter@2b05371a, com.qiwenshare.file.config.security.JwtAuthFilter@58fb9020, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3810d15d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@627b0e71, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@9252e52, org.springframework.security.web.session.SessionManagementFilter@6dad9f5e, org.springframework.security.web.access.ExceptionTranslationFilter@417a5aab, org.springframework.security.web.access.intercept.AuthorizationFilter@2f931d5d]
-2026-06-29T11:17:28.272+08:00  INFO 13508 --- [qiwen-file] [           main] com.qiwenshare.file.FileServiceTest      : Started FileServiceTest in 4.966 seconds (process running for 55.453)
+  <testcase name="testRestoreVersion" classname="com.qiwenshare.file.FileVersionTest" time="0.076">
+    <system-out><![CDATA[2026-06-29T11:17:28.799+08:00  INFO 13508 --- [qiwen-file] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.qiwenshare.file.FileVersionTest]: FileVersionTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-29T11:17:28.802+08:00  INFO 13508 --- [qiwen-file] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.qiwenshare.file.FileApplication for test class com.qiwenshare.file.FileVersionTest
 Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@686d5284]
-JDBC Connection [HikariProxyConnection@1712600096 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
-==>  Preparing: SELECT COUNT( * ) AS total FROM file_bean WHERE deleted=0 AND (file_path = ? AND user_id = ?)
-==> Parameters: /documents(String), user001(String)
-<==    Columns: TOTAL
-<==        Row: 0
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@686d5284]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@686d5284] from current transaction
-==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071432836774907904(String), documents(String), /documents(String), 0(Long), (String), true(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T11:17:28.308337700(LocalDateTime), 2026-06-29T11:17:28.308337700(LocalDateTime)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@686d5284]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@686d5284]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@686d5284]
-]]></system-out>
-  </testcase>
-  <testcase name="testListByPath" classname="com.qiwenshare.file.FileServiceTest" time="0.18">
-    <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
-JDBC Connection [HikariProxyConnection@686595107 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
-==>  Preparing: SELECT COUNT( * ) AS total FROM file_bean WHERE deleted=0 AND (file_path = ? AND user_id = ?)
-==> Parameters: /pics(String), user001(String)
-<==    Columns: TOTAL
-<==        Row: 0
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0] from current transaction
-==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071432837089480704(String), pics(String), /pics(String), 0(Long), (String), true(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T11:17:28.380146600(LocalDateTime), 2026-06-29T11:17:28.380146600(LocalDateTime)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0] from current transaction
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+JDBC Connection [HikariProxyConnection@1735011638 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE deleted=0 AND (file_path = ?)
-==> Parameters: /a.txt(String)
+==> Parameters: /rollback.txt(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b] from current transaction
 ==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071432837144006656(String), a.txt(String), /a.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T11:17:28.393117800(LocalDateTime), 2026-06-29T11:17:28.393117800(LocalDateTime)
+==> Parameters: 2071432838918197248(String), rollback.txt(String), /rollback.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T11:17:28.816984100(LocalDateTime), 2026-06-29T11:17:28.816984100(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b] from current transaction
 ==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC LIMIT 1
-==> Parameters: 2071432837144006656(String)
+==> Parameters: 2071432838918197248(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b] from current transaction
 ==>  Preparing: INSERT INTO file_version ( id, file_id, version, file_name, file_path, file_size, storage_path, user_id, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071432837181755392(String), 2071432837144006656(String), 1(Integer), a.txt(String), /a.txt(String), 100(Long), /a.txt(String), user001(String), 2026-06-29T11:17:28.402088100(LocalDateTime)
+==> Parameters: 2071432838930780160(String), 2071432838918197248(String), 1(Integer), rollback.txt(String), /rollback.txt(String), 100(Long), /rollback.txt(String), user001(String), 2026-06-29T11:17:28.819976(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b] from current transaction
 ==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC
-==> Parameters: 2071432837144006656(String)
+==> Parameters: 2071432838918197248(String)
 <==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
-<==        Row: 2071432837181755392, 2071432837144006656, 1, a.txt, /a.txt, 100, /a.txt, user001, 2026-06-29 11:17:28.402088
+<==        Row: 2071432838930780160, 2071432838918197248, 1, rollback.txt, /rollback.txt, 100, /rollback.txt, user001, 2026-06-29 11:17:28.819976
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
-2026-06-29T11:17:28.467+08:00 ERROR 13508 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+2026-06-29T11:17:28.832+08:00 ERROR 13508 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b] from current transaction
 ==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE deleted=0 AND (file_path = ?)
-==> Parameters: /b.jpg(String)
-<==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0] from current transaction
-==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071432837500522496(String), b.jpg(String), /b.jpg(String), 200(Long), image/jpeg(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T11:17:28.478884400(LocalDateTime), 2026-06-29T11:17:28.478884400(LocalDateTime)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0] from current transaction
-==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC LIMIT 1
-==> Parameters: 2071432837500522496(String)
-<==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0] from current transaction
-==>  Preparing: INSERT INTO file_version ( id, file_id, version, file_name, file_path, file_size, storage_path, user_id, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071432837596991488(String), 2071432837500522496(String), 1(Integer), b.jpg(String), /b.jpg(String), 200(Long), /b.jpg(String), user001(String), 2026-06-29T11:17:28.501824300(LocalDateTime)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0] from current transaction
-==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC
-==> Parameters: 2071432837500522496(String)
-<==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
-<==        Row: 2071432837596991488, 2071432837500522496, 1, b.jpg, /b.jpg, 200, /b.jpg, user001, 2026-06-29 11:17:28.501824
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
-2026-06-29T11:17:28.519+08:00 ERROR 13508 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0] from current transaction
-==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE deleted=0 AND (parent_path = ? AND user_id = ? AND deleted = ?) ORDER BY is_folder ASC,file_name ASC
-==> Parameters: /(String), user001(String), 0(Integer)
+==> Parameters: /rollback.txt(String)
 <==    Columns: ID, FILE_NAME, FILE_PATH, FILE_SIZE, FILE_TYPE, IS_FOLDER, PARENT_PATH, USER_ID, DELETED, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071432837144006656, a.txt, /a.txt, 100, text/plain, FALSE, /, user001, 0, 2026-06-29 11:17:28.393118, 2026-06-29 11:17:28.393118
-<==        Row: 2071432837500522496, b.jpg, /b.jpg, 200, image/jpeg, FALSE, /, user001, 0, 2026-06-29 11:17:28.478884, 2026-06-29 11:17:28.478884
-<==        Row: 2071432837089480704, pics, /pics, 0, , TRUE, /, user001, 0, 2026-06-29 11:17:28.380147, 2026-06-29 11:17:28.380147
+<==        Row: 2071432838918197248, rollback.txt, /rollback.txt, 100, text/plain, FALSE, /, user001, 0, 2026-06-29 11:17:28.816984, 2026-06-29 11:17:28.816984
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b] from current transaction
+==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC LIMIT 1
+==> Parameters: 2071432838918197248(String)
+<==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
+<==        Row: 2071432838930780160, 2071432838918197248, 1, rollback.txt, /rollback.txt, 100, /rollback.txt, user001, 2026-06-29 11:17:28.819976
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b] from current transaction
+==>  Preparing: INSERT INTO file_version ( id, file_id, version, file_name, file_path, file_size, storage_path, user_id, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 2071432839031443456(String), 2071432838918197248(String), 2(Integer), rollback.txt(String), /rollback.txt(String), 100(Long), /rollback.txt(String), user001(String), 2026-06-29T11:17:28.843920300(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b] from current transaction
+==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC
+==> Parameters: 2071432838918197248(String)
+<==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
+<==        Row: 2071432839031443456, 2071432838918197248, 2, rollback.txt, /rollback.txt, 100, /rollback.txt, user001, 2026-06-29 11:17:28.84392
+<==        Row: 2071432838930780160, 2071432838918197248, 1, rollback.txt, /rollback.txt, 100, /rollback.txt, user001, 2026-06-29 11:17:28.819976
+<==      Total: 2
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b] from current transaction
+==>  Preparing: UPDATE file_bean SET file_name=?, file_path=?, file_size=?, file_type=?, is_folder=?, parent_path=?, user_id=?, create_time=?, update_time=? WHERE id=? AND deleted=0
+==> Parameters: rollback-new.txt(String), /rollback.txt(String), 200(Long), text/plain(String), false(Boolean), /(String), user001(String), 2026-06-29T11:17:28.816984(LocalDateTime), 2026-06-29T11:17:28.849895(LocalDateTime), 2071432838918197248(String)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b] from current transaction
+==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE id=?
+==> Parameters: 2071432838930780160(String)
+<==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
+<==        Row: 2071432838930780160, 2071432838918197248, 1, rollback.txt, /rollback.txt, 100, /rollback.txt, user001, 2026-06-29 11:17:28.819976
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b] from current transaction
+==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE id=? AND deleted=0
+==> Parameters: 2071432838918197248(String)
+<==    Columns: ID, FILE_NAME, FILE_PATH, FILE_SIZE, FILE_TYPE, IS_FOLDER, PARENT_PATH, USER_ID, DELETED, CREATE_TIME, UPDATE_TIME
+<==        Row: 2071432838918197248, rollback-new.txt, /rollback.txt, 200, text/plain, FALSE, /, user001, 0, 2026-06-29 11:17:28.816984, 2026-06-29 11:17:28.849895
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b] from current transaction
+==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC LIMIT 1
+==> Parameters: 2071432838918197248(String)
+<==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
+<==        Row: 2071432839031443456, 2071432838918197248, 2, rollback.txt, /rollback.txt, 100, /rollback.txt, user001, 2026-06-29 11:17:28.84392
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b] from current transaction
+==>  Preparing: INSERT INTO file_version ( id, file_id, version, file_name, file_path, file_size, storage_path, user_id, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 2071432839144689664(String), 2071432838918197248(String), 3(Integer), rollback-new.txt(String), /rollback.txt(String), 200(Long), /rollback.txt(String), user001(String), 2026-06-29T11:17:28.870841(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b] from current transaction
+==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC
+==> Parameters: 2071432838918197248(String)
+<==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
+<==        Row: 2071432839144689664, 2071432838918197248, 3, rollback-new.txt, /rollback.txt, 200, /rollback.txt, user001, 2026-06-29 11:17:28.870841
+<==        Row: 2071432839031443456, 2071432838918197248, 2, rollback.txt, /rollback.txt, 100, /rollback.txt, user001, 2026-06-29 11:17:28.84392
+<==        Row: 2071432838930780160, 2071432838918197248, 1, rollback.txt, /rollback.txt, 100, /rollback.txt, user001, 2026-06-29 11:17:28.819976
 <==      Total: 3
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b] from current transaction
+==>  Preparing: UPDATE file_bean SET file_name=?, file_path=?, file_size=?, file_type=?, is_folder=?, parent_path=?, user_id=?, create_time=?, update_time=? WHERE id=? AND deleted=0
+==> Parameters: rollback.txt(String), /rollback.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 2026-06-29T11:17:28.816984(LocalDateTime), 2026-06-29T11:17:28.882807200(LocalDateTime), 2071432838918197248(String)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e12aa8b]
 ]]></system-out>
   </testcase>
-  <testcase name="testGetById" classname="com.qiwenshare.file.FileServiceTest" time="0.124">
+  <testcase name="testOverwriteVersion" classname="com.qiwenshare.file.FileVersionTest" time="0.062">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7947bf34]
-JDBC Connection [HikariProxyConnection@23356402 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754]
+JDBC Connection [HikariProxyConnection@286184739 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE deleted=0 AND (file_path = ?)
-==> Parameters: /findme.txt(String)
+==> Parameters: /same.txt(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7947bf34]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7947bf34] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754] from current transaction
 ==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071432837878009856(String), findme.txt(String), /findme.txt(String), 99(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T11:17:28.568645400(LocalDateTime), 2026-06-29T11:17:28.568645400(LocalDateTime)
+==> Parameters: 2071432839316656128(String), same.txt(String), /same.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T11:17:28.911739600(LocalDateTime), 2026-06-29T11:17:28.911739600(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7947bf34]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7947bf34] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754] from current transaction
 ==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC LIMIT 1
-==> Parameters: 2071432837878009856(String)
+==> Parameters: 2071432839316656128(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7947bf34]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7947bf34] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754] from current transaction
 ==>  Preparing: INSERT INTO file_version ( id, file_id, version, file_name, file_path, file_size, storage_path, user_id, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071432837957701632(String), 2071432837878009856(String), 1(Integer), findme.txt(String), /findme.txt(String), 99(Long), /findme.txt(String), user001(String), 2026-06-29T11:17:28.587593600(LocalDateTime)
+==> Parameters: 2071432839337627648(String), 2071432839316656128(String), 1(Integer), same.txt(String), /same.txt(String), 100(Long), /same.txt(String), user001(String), 2026-06-29T11:17:28.916717100(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7947bf34]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7947bf34] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754] from current transaction
 ==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC
-==> Parameters: 2071432837878009856(String)
+==> Parameters: 2071432839316656128(String)
 <==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
-<==        Row: 2071432837957701632, 2071432837878009856, 1, findme.txt, /findme.txt, 99, /findme.txt, user001, 2026-06-29 11:17:28.587594
+<==        Row: 2071432839337627648, 2071432839316656128, 1, same.txt, /same.txt, 100, /same.txt, user001, 2026-06-29 11:17:28.916717
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7947bf34]
-2026-06-29T11:17:28.667+08:00 ERROR 13508 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7947bf34] from current transaction
-==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE id=? AND deleted=0
-==> Parameters: 2071432837878009856(String)
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754]
+2026-06-29T11:17:28.927+08:00 ERROR 13508 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754] from current transaction
+==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE deleted=0 AND (file_path = ?)
+==> Parameters: /same.txt(String)
 <==    Columns: ID, FILE_NAME, FILE_PATH, FILE_SIZE, FILE_TYPE, IS_FOLDER, PARENT_PATH, USER_ID, DELETED, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071432837878009856, findme.txt, /findme.txt, 99, text/plain, FALSE, /, user001, 0, 2026-06-29 11:17:28.568645, 2026-06-29 11:17:28.568645
+<==        Row: 2071432839316656128, same.txt, /same.txt, 100, text/plain, FALSE, /, user001, 0, 2026-06-29 11:17:28.91174, 2026-06-29 11:17:28.91174
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7947bf34]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7947bf34]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7947bf34]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754] from current transaction
+==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC LIMIT 1
+==> Parameters: 2071432839316656128(String)
+<==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
+<==        Row: 2071432839337627648, 2071432839316656128, 1, same.txt, /same.txt, 100, /same.txt, user001, 2026-06-29 11:17:28.916717
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754] from current transaction
+==>  Preparing: INSERT INTO file_version ( id, file_id, version, file_name, file_path, file_size, storage_path, user_id, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 2071432839417319424(String), 2071432839316656128(String), 2(Integer), same.txt(String), /same.txt(String), 100(Long), /same.txt(String), user001(String), 2026-06-29T11:17:28.935666800(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754] from current transaction
+==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC
+==> Parameters: 2071432839316656128(String)
+<==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
+<==        Row: 2071432839417319424, 2071432839316656128, 2, same.txt, /same.txt, 100, /same.txt, user001, 2026-06-29 11:17:28.935667
+<==        Row: 2071432839337627648, 2071432839316656128, 1, same.txt, /same.txt, 100, /same.txt, user001, 2026-06-29 11:17:28.916717
+<==      Total: 2
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754] from current transaction
+==>  Preparing: UPDATE file_bean SET file_name=?, file_path=?, file_size=?, file_type=?, is_folder=?, parent_path=?, user_id=?, create_time=?, update_time=? WHERE id=? AND deleted=0
+==> Parameters: same-new.txt(String), /same.txt(String), 200(Long), text/plain(String), false(Boolean), /(String), user001(String), 2026-06-29T11:17:28.911740(LocalDateTime), 2026-06-29T11:17:28.945641500(LocalDateTime), 2071432839316656128(String)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754] from current transaction
+==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC
+==> Parameters: 2071432839316656128(String)
+<==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
+<==        Row: 2071432839417319424, 2071432839316656128, 2, same.txt, /same.txt, 100, /same.txt, user001, 2026-06-29 11:17:28.935667
+<==        Row: 2071432839337627648, 2071432839316656128, 1, same.txt, /same.txt, 100, /same.txt, user001, 2026-06-29 11:17:28.916717
+<==      Total: 2
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10ea1754]
 ]]></system-out>
   </testcase>
-  <testcase name="testDeleteOtherUserFile" classname="com.qiwenshare.file.FileServiceTest" time="0.055">
+  <testcase name="testInitialVersion" classname="com.qiwenshare.file.FileVersionTest" time="0.352">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26c8b723]
-JDBC Connection [HikariProxyConnection@1101629239 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@543e228c]
+JDBC Connection [HikariProxyConnection@151863667 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE deleted=0 AND (file_path = ?)
-==> Parameters: /secret.txt(String)
+==> Parameters: /v1.txt(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26c8b723]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26c8b723] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@543e228c]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@543e228c] from current transaction
 ==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071432838427463680(String), secret.txt(String), /secret.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T11:17:28.699298600(LocalDateTime), 2026-06-29T11:17:28.699298600(LocalDateTime)
+==> Parameters: 2071432839836749824(String), v1.txt(String), /v1.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T11:17:29.035401400(LocalDateTime), 2026-06-29T11:17:29.035401400(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26c8b723]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26c8b723] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@543e228c]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@543e228c] from current transaction
 ==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC LIMIT 1
-==> Parameters: 2071432838427463680(String)
+==> Parameters: 2071432839836749824(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26c8b723]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26c8b723] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@543e228c]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@543e228c] from current transaction
 ==>  Preparing: INSERT INTO file_version ( id, file_id, version, file_name, file_path, file_size, storage_path, user_id, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071432838444240896(String), 2071432838427463680(String), 1(Integer), secret.txt(String), /secret.txt(String), 100(Long), /secret.txt(String), user001(String), 2026-06-29T11:17:28.703288200(LocalDateTime)
+==> Parameters: 2071432840096796672(String), 2071432839836749824(String), 1(Integer), v1.txt(String), /v1.txt(String), 100(Long), /v1.txt(String), user001(String), 2026-06-29T11:17:29.097236700(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26c8b723]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26c8b723] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@543e228c]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@543e228c] from current transaction
 ==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC
-==> Parameters: 2071432838427463680(String)
+==> Parameters: 2071432839836749824(String)
 <==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
-<==        Row: 2071432838444240896, 2071432838427463680, 1, secret.txt, /secret.txt, 100, /secret.txt, user001, 2026-06-29 11:17:28.703288
+<==        Row: 2071432840096796672, 2071432839836749824, 1, v1.txt, /v1.txt, 100, /v1.txt, user001, 2026-06-29 11:17:29.097237
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26c8b723]
-2026-06-29T11:17:28.718+08:00 ERROR 13508 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26c8b723] from current transaction
-==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE id=? AND deleted=0
-==> Parameters: 2071432838427463680(String)
-<==    Columns: ID, FILE_NAME, FILE_PATH, FILE_SIZE, FILE_TYPE, IS_FOLDER, PARENT_PATH, USER_ID, DELETED, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071432838427463680, secret.txt, /secret.txt, 100, text/plain, FALSE, /, user001, 0, 2026-06-29 11:17:28.699299, 2026-06-29 11:17:28.699299
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26c8b723]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26c8b723]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26c8b723]
-]]></system-out>
-  </testcase>
-  <testcase name="testDelete" classname="com.qiwenshare.file.FileServiceTest" time="0.0">
-    <skipped message="H2 + JPA/MyBatis 双 ORM 事务冲突，生产 MySQL 无此问题"/>
-  </testcase>
-  <testcase name="testUpload" classname="com.qiwenshare.file.FileServiceTest" time="0.039">
-    <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7568f5bc]
-JDBC Connection [HikariProxyConnection@656313320 wrapping conn10: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
-==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE deleted=0 AND (file_path = ?)
-==> Parameters: /readme.txt(String)
-<==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7568f5bc]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7568f5bc] from current transaction
-==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071432838700093440(String), readme.txt(String), /readme.txt(String), 1024(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T11:17:28.764123900(LocalDateTime), 2026-06-29T11:17:28.764123900(LocalDateTime)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7568f5bc]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7568f5bc] from current transaction
-==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC LIMIT 1
-==> Parameters: 2071432838700093440(String)
-<==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7568f5bc]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7568f5bc] from current transaction
-==>  Preparing: INSERT INTO file_version ( id, file_id, version, file_name, file_path, file_size, storage_path, user_id, create_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071432838721064960(String), 2071432838700093440(String), 1(Integer), readme.txt(String), /readme.txt(String), 1024(Long), /readme.txt(String), user001(String), 2026-06-29T11:17:28.769111400(LocalDateTime)
-<==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7568f5bc]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7568f5bc] from current transaction
-==>  Preparing: SELECT id,file_id,version,file_name,file_path,file_size,storage_path,user_id,create_time FROM file_version WHERE (file_id = ?) ORDER BY version DESC
-==> Parameters: 2071432838700093440(String)
-<==    Columns: ID, FILE_ID, VERSION, FILE_NAME, FILE_PATH, FILE_SIZE, STORAGE_PATH, USER_ID, CREATE_TIME
-<==        Row: 2071432838721064960, 2071432838700093440, 1, readme.txt, /readme.txt, 1024, /readme.txt, user001, 2026-06-29 11:17:28.769111
-<==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7568f5bc]
-2026-06-29T11:17:28.783+08:00 ERROR 13508 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7568f5bc]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7568f5bc]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@543e228c]
+2026-06-29T11:17:29.115+08:00 ERROR 13508 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@543e228c] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@543e228c]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@543e228c]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@543e228c]
 ]]></system-out>
   </testcase>
 </testsuite>

@@ -4,6 +4,7 @@ import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qiwenshare.file.api.IFileService;
+import com.qiwenshare.file.api.IFileVersionService;
 import com.qiwenshare.file.domain.file.FileBean;
 import com.qiwenshare.file.exception.QiwenException;
 import com.qiwenshare.file.mapper.FileBeanMapper;
@@ -27,6 +28,7 @@ public class FileService extends ServiceImpl<FileBeanMapper, FileBean> implement
     private final FileBeanMapper fileBeanMapper;
     private final FileSearchService searchService;
     private final UFOPFactory ufopFactory;
+    private final IFileVersionService versionService;
 
     @Override
     public List<FileBean> listByPath(String path, String userId) {
@@ -42,6 +44,20 @@ public class FileService extends ServiceImpl<FileBeanMapper, FileBean> implement
     @Override
     @Transactional
     public FileBean upload(String fileName, String filePath, Long fileSize, String fileType, String userId) {
+        // 覆盖上传：先存档旧版本
+        FileBean existing = getByPath(filePath);
+        if (existing != null) {
+            versionService.saveVersion(existing.getId(),
+                existing.getFileName(), existing.getFilePath(),
+                existing.getFileSize(), existing.getFilePath(), userId);
+            existing.setFileName(fileName);
+            existing.setFileSize(fileSize);
+            existing.setFileType(fileType);
+            existing.setUpdateTime(LocalDateTime.now());
+            fileBeanMapper.updateById(existing);
+            return existing;
+        }
+
         FileBean file = new FileBean();
         file.setId(IdUtil.getSnowflakeNextIdStr());
         file.setFileName(fileName);
@@ -56,6 +72,8 @@ public class FileService extends ServiceImpl<FileBeanMapper, FileBean> implement
         file.setUpdateTime(LocalDateTime.now());
 
         fileBeanMapper.insert(file);
+        // 初始版本
+        versionService.saveVersion(file.getId(), fileName, filePath, fileSize, filePath, userId);
         // 异步建 ES 索引（忽略错误）
         try { searchService.createIndex(file.getId(), file.getFileName(), file.getFilePath(), file.getFileType(), file.getFileSize(), userId); } catch (Exception e) { log.warn("ES 索引失败: {}", e.getMessage()); }
         return file;
