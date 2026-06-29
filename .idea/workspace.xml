@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="807da718-47d1-4550-9f05-c703305169ff" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/openspec/changes/ufop-utils/.openspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/ufop-utils/proposal.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/ufop-utils/specs/ufop-utils/spec.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/ufop-utils/tasks.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/docker-compose/.openspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/docker-compose/proposal.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/docker-compose/specs/docker-compose/spec.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/docker-compose/tasks.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1782641496053</updated>
       <workItem from="1782641497510" duration="10817000" />
-      <workItem from="1782693298771" duration="12372000" />
+      <workItem from="1782693298771" duration="13958000" />
     </task>
     <servers />
   </component>
