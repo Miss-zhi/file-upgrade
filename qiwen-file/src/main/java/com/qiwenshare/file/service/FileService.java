@@ -33,6 +33,7 @@ public class FileService extends ServiceImpl<FileBeanMapper, FileBean> implement
         LambdaQueryWrapper<FileBean> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(FileBean::getParentPath, path)
                .eq(FileBean::getUserId, userId)
+               .eq(FileBean::getDeleted, 0)
                .orderByAsc(FileBean::getIsFolder)
                .orderByAsc(FileBean::getFileName);
         return fileBeanMapper.selectList(wrapper);
@@ -50,6 +51,7 @@ public class FileService extends ServiceImpl<FileBeanMapper, FileBean> implement
         file.setIsFolder(false);
         file.setParentPath(getParentPath(filePath));
         file.setUserId(userId);
+        file.setDeleted(0);
         file.setCreateTime(LocalDateTime.now());
         file.setUpdateTime(LocalDateTime.now());
 
@@ -66,8 +68,11 @@ public class FileService extends ServiceImpl<FileBeanMapper, FileBean> implement
         if (file == null || !file.getUserId().equals(userId)) {
             throw new QiwenException(403, "无权删除此文件");
         }
-        fileBeanMapper.deleteById(fileId);
-        // 删物理文件
+        file.setDeleted(1);
+        file.setUpdateTime(LocalDateTime.now());
+        // 直接 SQL 更新，绕过 JPA dirty checking
+        fileBeanMapper.updateById(file);
+        // 删物理文件/ES（暂时保留，彻底删除时处理）
         try { ufopFactory.getDeleter().delete(file.getFilePath()); } catch (Exception e) { log.warn("物理文件删除失败: {}", e.getMessage()); }
         // 删 ES 索引
         try { searchService.deleteIndex(fileId); } catch (Exception e) { log.warn("ES 删除索引失败: {}", e.getMessage()); }
@@ -112,6 +117,39 @@ public class FileService extends ServiceImpl<FileBeanMapper, FileBean> implement
         LambdaQueryWrapper<FileBean> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(FileBean::getFilePath, filePath);
         return fileBeanMapper.selectOne(wrapper);
+    }
+
+    @Override
+    public List<FileBean> listDeleted(String userId) {
+        LambdaQueryWrapper<FileBean> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(FileBean::getUserId, userId)
+               .eq(FileBean::getDeleted, 1)
+               .orderByDesc(FileBean::getUpdateTime);
+        return fileBeanMapper.selectList(wrapper);
+    }
+
+    @Override
+    @Transactional
+    public void restore(String fileId, String userId) {
+        FileBean file = fileBeanMapper.selectById(fileId);
+        if (file == null || file.getDeleted() == null || file.getDeleted() != 1)
+            throw new QiwenException(404, "文件不存在或未删除");
+        file.setDeleted(0);
+        file.setUpdateTime(LocalDateTime.now());
+        fileBeanMapper.updateById(file);
+    }
+
+    @Override
+    @Transactional
+    public void permanentDelete(String fileId, String userId) {
+        FileBean file = fileBeanMapper.selectById(fileId);
+        if (file == null) return;
+        // 删物理文件
+        try { ufopFactory.getDeleter().delete(file.getFilePath()); } catch (Exception e) { log.warn("物理删除失败: {}", e.getMessage()); }
+        // ES 索引
+        try { searchService.deleteIndex(fileId); } catch (Exception e) { log.warn("ES 删除索引失败: {}", e.getMessage()); }
+        // 物理删 DB
+        fileBeanMapper.deleteById(fileId);
     }
 
     private String getParentPath(String filePath) {

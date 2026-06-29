@@ -43,6 +43,9 @@ public class FileBean {
     /** 拥有者用户 ID */
     private String userId;
 
+    /** 逻辑删除标记 (0=正常, 1=已删除) */
+    private Integer deleted = 0;
+
     /** 创建时间 */
     private LocalDateTime createTime;
 

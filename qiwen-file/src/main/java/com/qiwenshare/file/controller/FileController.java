@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 文件控制器
@@ -88,6 +89,30 @@ public class FileController {
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFileName() + "\"")
                 .contentType(MediaType.APPLICATION_OCTET_STREAM)
                 .body(resource);
+    }
+
+    @Operation(summary = "回收站列表")
+    @PostMapping("/recycle")
+    public RestResult<List<FileVO>> recycleList() {
+        String userId = getCurrentUserId();
+        List<FileBean> files = fileService.listDeleted(userId);
+        return RestResult.success(files.stream().map(FileVO::fromEntity).toList(), files.size());
+    }
+
+    @Operation(summary = "恢复文件")
+    @PostMapping("/restore")
+    public RestResult<Void> restore(@RequestBody DeleteFileDTO dto) {
+        String userId = getCurrentUserId();
+        fileService.restore(dto.getId(), userId);
+        return RestResult.success();
+    }
+
+    @Operation(summary = "彻底删除")
+    @DeleteMapping("/permanent/{id}")
+    public RestResult<Void> permanentDelete(@PathVariable String id) {
+        String userId = getCurrentUserId();
+        fileService.permanentDelete(id, userId);
+        return RestResult.success();
     }
 
     private String getCurrentUserId() {

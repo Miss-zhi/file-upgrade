@@ -23,7 +23,8 @@ const routes = [
       { path: 'file', name: 'File', component: () => import('_v/FileManager.vue'), meta: { title: '文件管理' } },
       { path: 'share', name: 'Share', component: () => import('_v/Share.vue'), meta: { title: '文件分享' } },
       { path: 'admin', name: 'Admin', component: () => import('_v/Admin.vue'), meta: { title: '用户管理', admin: true } },
-      { path: 'dashboard', name: 'Dashboard', component: () => import('_v/Dashboard.vue'), meta: { title: '管理面板', admin: true } }
+      { path: 'dashboard', name: 'Dashboard', component: () => import('_v/Dashboard.vue'), meta: { title: '管理面板', admin: true } },
+      { path: 'recycle', name: 'Recycle', component: () => import('_v/RecycleBin.vue'), meta: { title: '回收站' } }
     ]
   },
   { path: '/search', name: 'Search', component: () => import('_v/SearchResult.vue'), meta: { title: '搜索结果' } },

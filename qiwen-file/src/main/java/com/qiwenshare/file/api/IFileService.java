@@ -25,4 +25,13 @@ public interface IFileService {
 
     /** 根据路径获取 */
     FileBean getByPath(String filePath);
+
+    /** 回收站列表 */
+    List<FileBean> listDeleted(String userId);
+
+    /** 恢复文件 */
+    void restore(String fileId, String userId);
+
+    /** 彻底删除 */
+    void permanentDelete(String fileId, String userId);
 }
