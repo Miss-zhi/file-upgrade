@@ -7,9 +7,13 @@ import com.qiwenshare.file.domain.user.User;
 import com.qiwenshare.file.dto.user.UserQueryDTO;
 import com.qiwenshare.file.dto.user.UserUpdateDTO;
 import com.qiwenshare.file.service.StatsService;
+import com.qiwenshare.file.service.RoleService;
+import com.qiwenshare.file.service.PermissionService;
 import com.qiwenshare.file.service.SysConfigService;
 import com.qiwenshare.file.service.OperationLogService;
 import com.qiwenshare.file.domain.log.OperationLog;
+import com.qiwenshare.file.domain.user.Role;
+import com.qiwenshare.file.vo.user.PermissionVO;
 import org.springframework.security.access.prepost.PreAuthorize;
 import com.qiwenshare.file.util.RestResult;
 import com.qiwenshare.file.vo.user.UserAdminVO;
@@ -36,6 +40,8 @@ public class AdminController {
     private final StatsService statsService;
     private final SysConfigService sysConfigService;
     private final OperationLogService logService;
+    private final RoleService roleService;
+    private final PermissionService permissionService;
 
     @Operation(summary = "分页搜索用户列表")
     @PostMapping("/user/list")
@@ -115,5 +121,69 @@ public class AdminController {
             "total", result.getTotal(),
             "pages", result.getPages()
         ));
+    }
+
+    // ===== RBAC — 角色管理 =====
+
+    @Operation(summary = "角色列表")
+    @GetMapping("/roles")
+    public RestResult<List<Role>> listRoles() {
+        return RestResult.success(roleService.listAll());
+    }
+
+    @Operation(summary = "创建角色")
+    @PostMapping("/roles")
+    public RestResult<Role> createRole(@RequestBody Role role) {
+        return RestResult.success(roleService.create(role));
+    }
+
+    @Operation(summary = "更新角色")
+    @PutMapping("/roles/{id}")
+    public RestResult<Role> updateRole(@PathVariable Long id, @RequestBody Role role) {
+        role.setRoleId(id);
+        return RestResult.success(roleService.update(role));
+    }
+
+    @Operation(summary = "删除角色")
+    @DeleteMapping("/roles/{id}")
+    public RestResult<Void> deleteRole(@PathVariable Long id) {
+        roleService.delete(id);
+        return RestResult.success();
+    }
+
+    // ===== RBAC — 权限树 =====
+
+    @Operation(summary = "权限树")
+    @GetMapping("/permissions/tree")
+    public RestResult<List<PermissionVO>> getPermissionTree() {
+        return RestResult.success(permissionService.getTree());
+    }
+
+    // ===== RBAC — 用户角色分配 =====
+
+    @GetMapping("/users/{userId}/roles")
+    public RestResult<List<Role>> getUserRoles(@PathVariable String userId) {
+        return RestResult.success(roleService.getUserRoles(userId));
+    }
+
+    @PutMapping("/users/{userId}/roles")
+    public RestResult<Void> assignUserRoles(@PathVariable String userId,
+                                            @RequestBody Map<String, List<Long>> body) {
+        roleService.assignUserRoles(userId, body.get("roleIds"));
+        return RestResult.success();
+    }
+
+    // ===== RBAC — 角色权限分配 =====
+
+    @GetMapping("/roles/{roleId}/permissions")
+    public RestResult<List<Long>> getRolePermissions(@PathVariable Long roleId) {
+        return RestResult.success(roleService.getRolePermissionIds(roleId));
+    }
+
+    @PutMapping("/roles/{roleId}/permissions")
+    public RestResult<Void> assignRolePermissions(@PathVariable Long roleId,
+                                                  @RequestBody Map<String, List<Long>> body) {
+        roleService.assignRolePermissions(roleId, body.get("permissionIds"));
+        return RestResult.success();
     }
 }
