@@ -9,6 +9,7 @@ import FileTable from '_c/file/FileTable.vue'
 import BreadCrumb from '_c/common/BreadCrumb.vue'
 import UploadDialog from '_c/file/dialog/UploadDialog.vue'
 import ShareDialog from '_c/file/dialog/ShareDialog.vue'
+import PreviewDialog from '_c/file/dialog/PreviewDialog.vue'
 import RenameDialog from '_c/file/dialog/RenameDialog.vue'
 import MoveDialog from '_c/file/dialog/MoveDialog.vue'
 import CopyDialog from '_c/file/dialog/CopyDialog.vue'
@@ -20,6 +21,7 @@ const { files, currentPath, loading } = storeToRefs(fileListStore)
 // 对话框引用
 const uploadRef = ref<InstanceType<typeof UploadDialog>>()
 const shareRef = ref<InstanceType<typeof ShareDialog>>()
+const previewRef = ref<InstanceType<typeof PreviewDialog>>()
 const renameRef = ref<InstanceType<typeof RenameDialog>>()
 const moveRef = ref<InstanceType<typeof MoveDialog>>()
 const copyRef = ref<InstanceType<typeof CopyDialog>>()
@@ -83,6 +85,7 @@ async function handleDeleteConfirm(id: string) {
 }
 
 function handleShare(file: any) { shareRef.value?.open(file.filePath) }
+function handlePreview(file: any) { previewRef.value?.open(file) }
 async function handleShareConfirm(data: any) {
   const res: any = await createShare(data)
   if (res.success) {
@@ -143,12 +146,14 @@ onMounted(() => {
         @delete="handleDelete"
         @download="handleDownload"
         @share="handleShare"
+        @preview="handlePreview"
       />
     </div>
 
     <!-- 对话框层 -->
     <UploadDialog ref="uploadRef" @confirm="handleUploadConfirm" />
     <ShareDialog ref="shareRef" @confirm="handleShareConfirm" />
+    <PreviewDialog ref="previewRef" />
     <RenameDialog ref="renameRef" @confirm="handleRenameConfirm" />
     <MoveDialog ref="moveRef" @confirm="handleMoveConfirm" />
     <CopyDialog ref="copyRef" @confirm="handleCopyConfirm" />

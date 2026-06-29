@@ -22,6 +22,7 @@ const emit = defineEmits<{
   delete: [file: FileItem]
   download: [file: FileItem]
   share: [file: FileItem]
+  preview: [file: FileItem]
 }>()
 
 function formatSize(bytes: number | null): string {
@@ -45,6 +46,10 @@ function onDownload(row: FileItem) { emit('download', row) }
 function isEditable(fileType: string): boolean {
   if (!fileType) return false
   return /doc|docx|xls|xlsx|ppt|pptx|odt|ods|odp|pdf/i.test(fileType)
+}
+function isPreviewable(fileName: string): boolean {
+  const ext = fileName.split('.').pop()?.toLowerCase() || ''
+  return /jpg|jpeg|png|gif|webp|svg|mp4|webm|txt|md|json|pdf|xml|html|css|js/i.test(ext)
 }
 </script>
 <template>
@@ -75,8 +80,11 @@ function isEditable(fileType: string): boolean {
         <el-button v-if="!row.isFolder" link type="primary" size="small" @click="onDownload(row)">
           下载
         </el-button>
-        <el-button v-if="!row.isFolder && isEditable(row.fileType)" link type="success" size="small" @click="$router.push(`/onlyoffice/${row.id}`)">
+        <el-button v-if="!row.isFolder" link type="success" size="small" @click="$router.push(`/onlyoffice/${row.id}`)">
           编辑
+        </el-button>
+        <el-button v-if="!row.isFolder && isPreviewable(row.fileName)" link type="warning" size="small" @click="emit('preview', row)">
+          预览
         </el-button>
         <el-dropdown trigger="click">
           <el-button link type="info" size="small">更多<el-icon><ArrowDown /></el-icon></el-button>

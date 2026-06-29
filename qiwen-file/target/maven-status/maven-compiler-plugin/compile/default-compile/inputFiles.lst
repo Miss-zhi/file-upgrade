@@ -9,6 +9,7 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\SysConfigMap
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\vo\share\ShareVO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\mybatisplus\MyBatisPlusConfig.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\domain\file\FileBean.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\FilePreviewController.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\UFOPFactory.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\threadpool\ThreadPoolConfig.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\util\RestResult.java

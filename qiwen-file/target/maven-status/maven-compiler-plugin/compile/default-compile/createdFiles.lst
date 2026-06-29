@@ -21,6 +21,7 @@ com\qiwenshare\file\controller\UserController.class
 com\qiwenshare\file\dto\file\DeleteFileDTO.class
 com\qiwenshare\file\vo\share\ShareVO$ShareVOBuilder.class
 com\qiwenshare\file\dto\user\UserQueryDTO.class
+com\qiwenshare\file\controller\FilePreviewController.class
 com\qiwenshare\ufop\constant\StorageType.class
 com\qiwenshare\file\service\ShareFileService.class
 com\qiwenshare\file\vo\file\FileVO.class
