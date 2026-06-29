@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.qiwenshare.file.FilePreviewTest" time="31.731" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.qiwenshare.file.FilePreviewTest" time="48.787" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CN"/>
     <property name="sun.boot.library.path" value="C:\Users\Administrator\.jdks\ms-17.0.18\bin"/>
-    <property name="sun.java.command" value="C:\Users\Administrator\AppData\Local\Temp\surefire5251746692405566786\surefirebooter-20260629092824900_3.jar C:\Users\Administrator\AppData\Local\Temp\surefire5251746692405566786 2026-06-29T09-28-24_227-jvmRun1 surefire-20260629092824900_1tmp surefire_0-20260629092824900_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Administrator\AppData\Local\Temp\surefire10878701986745981602\surefirebooter-20260629095721295_3.jar C:\Users\Administrator\AppData\Local\Temp\surefire10878701986745981602 2026-06-29T09-57-20_599-jvmRun1 surefire-20260629095721295_1tmp surefire_0-20260629095721295_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="E:\file-upgrade\qiwen-file\target\test-classes;E:\file-upgrade\qiwen-file\target\classes;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-web\3.2.5\spring-boot-starter-web-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter\3.2.5\spring-boot-starter-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot\3.2.5\spring-boot-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-logging\3.2.5\spring-boot-starter-logging-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\ch\qos\logback\logback-classic\1.4.14\logback-classic-1.4.14.jar;D:\Maven\apache-maven-3.9.6\repository\ch\qos\logback\logback-core\1.4.14\logback-core-1.4.14.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\slf4j\jul-to-slf4j\2.0.13\jul-to-slf4j-2.0.13.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-json\3.2.5\spring-boot-starter-json-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.4\jackson-datatype-jdk8-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.4\jackson-datatype-jsr310-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.4\jackson-module-parameter-names-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-tomcat\3.2.5\spring-boot-starter-tomcat-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.20\tomcat-embed-core-10.1.20.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.20\tomcat-embed-websocket-10.1.20.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-web\6.1.6\spring-web-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-beans\6.1.6\spring-beans-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\io\micrometer\micrometer-observation\1.12.5\micrometer-observation-1.12.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\micrometer\micrometer-commons\1.12.5\micrometer-commons-1.12.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-webmvc\6.1.6\spring-webmvc-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-context\6.1.6\spring-context-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-expression\6.1.6\spring-expression-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-security\3.2.5\spring-boot-starter-security-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-aop\6.1.6\spring-aop-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\security\spring-security-config\6.2.4\spring-security-config-6.2.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\security\spring-security-web\6.2.4\spring-security-web-6.2.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.2.5\spring-boot-starter-data-jpa-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-jdbc\3.2.5\spring-boot-starter-jdbc-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-jdbc\6.1.6\spring-jdbc-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\hibernate\orm\hibernate-core\6.4.4.Final\hibernate-core-6.4.4.Final.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;D:\Maven\apache-maven-3.9.6\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\classmate\1.6.0\classmate-1.6.0.jar;D:\Maven\apache-maven-3.9.6\repository\net\bytebuddy\byte-buddy\1.14.13\byte-buddy-1.14.13.jar;D:\Maven\apache-maven-3.9.6\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;D:\Maven\apache-maven-3.9.6\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\data\spring-data-jpa\3.2.5\spring-data-jpa-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\data\spring-data-commons\3.2.5\spring-data-commons-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-orm\6.1.6\spring-orm-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-tx\6.1.6\spring-tx-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-aspects\6.1.6\spring-aspects-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-data-redis\3.2.5\spring-boot-starter-data-redis-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\lettuce\lettuce-core\6.3.2.RELEASE\lettuce-core-6.3.2.RELEASE.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-common\4.1.109.Final\netty-common-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-handler\4.1.109.Final\netty-handler-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-resolver\4.1.109.Final\netty-resolver-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-buffer\4.1.109.Final\netty-buffer-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-transport-native-unix-common\4.1.109.Final\netty-transport-native-unix-common-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-codec\4.1.109.Final\netty-codec-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-transport\4.1.109.Final\netty-transport-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\projectreactor\reactor-core\3.6.5\reactor-core-3.6.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\data\spring-data-redis\3.2.5\spring-data-redis-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\data\spring-data-keyvalue\3.2.5\spring-data-keyvalue-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-oxm\6.1.6\spring-oxm-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-context-support\6.1.6\spring-context-support-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-validation\3.2.5\spring-boot-starter-validation-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.20\tomcat-embed-el-10.1.20.jar;D:\Maven\apache-maven-3.9.6\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-aop\3.2.5\spring-boot-starter-aop-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\aspectj\aspectjweaver\1.9.22\aspectjweaver-1.9.22.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus-spring-boot3-starter\3.5.6\mybatis-plus-spring-boot3-starter-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus\3.5.6\mybatis-plus-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus-core\3.5.6\mybatis-plus-core-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus-annotation\3.5.6\mybatis-plus-annotation-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus-extension\3.5.6\mybatis-plus-extension-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\mybatis\mybatis\3.5.16\mybatis-3.5.16.jar;D:\Maven\apache-maven-3.9.6\repository\com\github\jsqlparser\jsqlparser\4.9\jsqlparser-4.9.jar;D:\Maven\apache-maven-3.9.6\repository\org\mybatis\mybatis-spring\3.0.3\mybatis-spring-3.0.3.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus-spring-boot-autoconfigure\3.5.6\mybatis-plus-spring-boot-autoconfigure-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.5\spring-boot-autoconfigure-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\jsonwebtoken\jjwt-api\0.12.5\jjwt-api-0.12.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\jsonwebtoken\jjwt-impl\0.12.5\jjwt-impl-0.12.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\jsonwebtoken\jjwt-jackson\0.12.5\jjwt-jackson-0.12.5.jar;D:\Maven\apache-maven-3.9.6\repository\co\elastic\clients\elasticsearch-java\8.12.2\elasticsearch-java-8.12.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\elasticsearch\client\elasticsearch-rest-client\8.10.4\elasticsearch-rest-client-8.10.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\httpcomponents\httpcore\4.4.16\httpcore-4.4.16.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\httpcomponents\httpasyncclient\4.1.5\httpasyncclient-4.1.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\httpcomponents\httpcore-nio\4.4.16\httpcore-nio-4.4.16.jar;D:\Maven\apache-maven-3.9.6\repository\commons-codec\commons-codec\1.16.1\commons-codec-1.16.1.jar;D:\Maven\apache-maven-3.9.6\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\json\jakarta.json-api\2.1.3\jakarta.json-api-2.1.3.jar;D:\Maven\apache-maven-3.9.6\repository\org\eclipse\parsson\parsson\1.0.5\parsson-1.0.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\opentelemetry\opentelemetry-api\1.31.0\opentelemetry-api-1.31.0.jar;D:\Maven\apache-maven-3.9.6\repository\io\opentelemetry\opentelemetry-context\1.31.0\opentelemetry-context-1.31.0.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\core\jackson-databind\2.15.3\jackson-databind-2.15.3.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.4\jackson-annotations-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\core\jackson-core\2.15.4\jackson-core-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springdoc\springdoc-openapi-starter-webmvc-ui\2.5.0\springdoc-openapi-starter-webmvc-ui-2.5.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\springdoc\springdoc-openapi-starter-webmvc-api\2.5.0\springdoc-openapi-starter-webmvc-api-2.5.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\springdoc\springdoc-openapi-starter-common\2.5.0\springdoc-openapi-starter-common-2.5.0.jar;D:\Maven\apache-maven-3.9.6\repository\io\swagger\core\v3\swagger-core-jakarta\2.2.21\swagger-core-jakarta-2.2.21.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\commons\commons-lang3\3.13.0\commons-lang3-3.13.0.jar;D:\Maven\apache-maven-3.9.6\repository\io\swagger\core\v3\swagger-annotations-jakarta\2.2.21\swagger-annotations-jakarta-2.2.21.jar;D:\Maven\apache-maven-3.9.6\repository\io\swagger\core\v3\swagger-models-jakarta\2.2.21\swagger-models-jakarta-2.2.21.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-yaml\2.15.4\jackson-dataformat-yaml-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\webjars\swagger-ui\5.13.0\swagger-ui-5.13.0.jar;D:\Maven\apache-maven-3.9.6\repository\cn\hutool\hutool-all\5.8.28\hutool-all-5.8.28.jar;D:\Maven\apache-maven-3.9.6\repository\org\projectlombok\lombok\1.18.32\lombok-1.18.32.jar;D:\Maven\apache-maven-3.9.6\repository\com\mysql\mysql-connector-j\8.3.0\mysql-connector-j-8.3.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-test\3.2.5\spring-boot-starter-test-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-test\3.2.5\spring-boot-test-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.2.5\spring-boot-test-autoconfigure-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;D:\Maven\apache-maven-3.9.6\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;D:\Maven\apache-maven-3.9.6\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\awaitility\awaitility\4.2.1\awaitility-4.2.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\mockito\mockito-core\5.7.0\mockito-core-5.7.0.jar;D:\Maven\apache-maven-3.9.6\repository\net\bytebuddy\byte-buddy-agent\1.14.13\byte-buddy-agent-1.14.13.jar;D:\Maven\apache-maven-3.9.6\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;D:\Maven\apache-maven-3.9.6\repository\org\mockito\mockito-junit-jupiter\5.7.0\mockito-junit-jupiter-5.7.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;D:\Maven\apache-maven-3.9.6\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-core\6.1.6\spring-core-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-jcl\6.1.6\spring-jcl-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-test\6.1.6\spring-test-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\security\spring-security-test\6.2.4\spring-security-test-6.2.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\security\spring-security-core\6.2.4\spring-security-core-6.2.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\security\spring-security-crypto\6.2.4\spring-security-crypto-6.2.4.jar;D:\Maven\apache-maven-3.9.6\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -34,7 +34,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="FILE_LOG_CHARSET" value="GBK"/>
     <property name="java.awt.headless" value="true"/>
-    <property name="surefire.real.class.path" value="C:\Users\Administrator\AppData\Local\Temp\surefire5251746692405566786\surefirebooter-20260629092824900_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Administrator\AppData\Local\Temp\surefire10878701986745981602\surefirebooter-20260629095721295_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.18+8-LTS"/>
@@ -53,7 +53,7 @@
     <property name="user.dir" value="E:\file-upgrade\qiwen-file"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="4232"/>
+    <property name="PID" value="10872"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="CONSOLE_LOG_CHARSET" value="GBK"/>
     <property name="native.encoding" value="GBK"/>
@@ -66,9 +66,9 @@
     <property name="java.class.version" value="61.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[qiwen-file] "/>
   </properties>
-  <testcase name="testPreviewStream" classname="com.qiwenshare.file.FilePreviewTest" time="3.247">
-    <system-out><![CDATA[09:28:28.719 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.qiwenshare.file.FilePreviewTest]: FilePreviewTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:28:29.226 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.qiwenshare.file.FileApplication for test class com.qiwenshare.file.FilePreviewTest
+  <testcase name="testPreviewStream" classname="com.qiwenshare.file.FilePreviewTest" time="3.668">
+    <system-out><![CDATA[09:57:26.536 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.qiwenshare.file.FilePreviewTest]: FilePreviewTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+09:57:27.072 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.qiwenshare.file.FileApplication for test class com.qiwenshare.file.FilePreviewTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -78,24 +78,24 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.5)
 
-2026-06-29T09:28:31.541+08:00  INFO 4232 --- [qiwen-file] [           main] com.qiwenshare.file.FilePreviewTest      : Starting FilePreviewTest using Java 17.0.18 with PID 4232 (started by Administrator in E:\file-upgrade\qiwen-file)
-2026-06-29T09:28:31.543+08:00 DEBUG 4232 --- [qiwen-file] [           main] com.qiwenshare.file.FilePreviewTest      : Running with Spring Boot v3.2.5, Spring v6.1.6
-2026-06-29T09:28:31.545+08:00  INFO 4232 --- [qiwen-file] [           main] com.qiwenshare.file.FilePreviewTest      : The following 1 profile is active: "test"
-2026-06-29T09:28:36.526+08:00  INFO 4232 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-29T09:28:36.534+08:00  INFO 4232 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-29T09:28:36.704+08:00  INFO 4232 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 0 JPA repository interfaces.
-2026-06-29T09:28:36.789+08:00  INFO 4232 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-29T09:28:36.799+08:00  INFO 4232 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-06-29T09:28:36.853+08:00  INFO 4232 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 Redis repository interfaces.
-2026-06-29T09:28:40.917+08:00  INFO 4232 --- [qiwen-file] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-29T09:28:41.110+08:00  INFO 4232 --- [qiwen-file] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2026-06-29T09:28:41.282+08:00  INFO 4232 --- [qiwen-file] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-29T09:28:42.161+08:00  INFO 4232 --- [qiwen-file] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-29T09:28:42.254+08:00  INFO 4232 --- [qiwen-file] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-06-29T09:28:42.937+08:00  INFO 4232 --- [qiwen-file] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:qiwen_file_test user=SA
-2026-06-29T09:28:42.942+08:00  INFO 4232 --- [qiwen-file] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-06-29T09:28:43.002+08:00  WARN 4232 --- [qiwen-file] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-29T09:28:45.566+08:00  INFO 4232 --- [qiwen-file] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-29T09:57:29.376+08:00  INFO 10872 --- [qiwen-file] [           main] com.qiwenshare.file.FilePreviewTest      : Starting FilePreviewTest using Java 17.0.18 with PID 10872 (started by Administrator in E:\file-upgrade\qiwen-file)
+2026-06-29T09:57:29.379+08:00 DEBUG 10872 --- [qiwen-file] [           main] com.qiwenshare.file.FilePreviewTest      : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-06-29T09:57:29.384+08:00  INFO 10872 --- [qiwen-file] [           main] com.qiwenshare.file.FilePreviewTest      : The following 1 profile is active: "test"
+2026-06-29T09:57:36.937+08:00  INFO 10872 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-29T09:57:36.948+08:00  INFO 10872 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-29T09:57:37.081+08:00  INFO 10872 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79 ms. Found 0 JPA repository interfaces.
+2026-06-29T09:57:37.286+08:00  INFO 10872 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-29T09:57:37.300+08:00  INFO 10872 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-29T09:57:37.417+08:00  INFO 10872 --- [qiwen-file] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 0 Redis repository interfaces.
+2026-06-29T09:57:42.308+08:00  INFO 10872 --- [qiwen-file] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-29T09:57:42.691+08:00  INFO 10872 --- [qiwen-file] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-06-29T09:57:42.849+08:00  INFO 10872 --- [qiwen-file] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-29T09:57:44.212+08:00  INFO 10872 --- [qiwen-file] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-29T09:57:44.339+08:00  INFO 10872 --- [qiwen-file] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-29T09:57:45.185+08:00  INFO 10872 --- [qiwen-file] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:qiwen_file_test user=SA
+2026-06-29T09:57:45.190+08:00  INFO 10872 --- [qiwen-file] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-29T09:57:45.305+08:00  WARN 10872 --- [qiwen-file] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-29T09:57:49.124+08:00  INFO 10872 --- [qiwen-file] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     drop table if exists file_bean cascade 
 Hibernate: 
@@ -154,95 +154,95 @@ Hibernate:
         id varchar(255) not null,
         primary key (id)
     )
-2026-06-29T09:28:45.664+08:00  INFO 4232 --- [qiwen-file] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-29T09:57:49.259+08:00  INFO 10872 --- [qiwen-file] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl' adapter.
 Use localhost address 
 Get PC202107041543/192.168.33.1 network interface 
 Get network interface info: name:eth2 (VMware Virtual Ethernet Adapter for VMnet8)
-Initialization Sequence datacenterId:0 workerId:13
+Initialization Sequence datacenterId:0 workerId:4
  _ _   |_  _ _|_. ___ _ |    _ 
 | | |\/|_)(_| | |_\  |_)||_|_\ 
      /               |         
                         3.5.6 
-2026-06-29T09:28:53.069+08:00  INFO 4232 --- [qiwen-file] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7f8614ce, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@11261fc9, org.springframework.security.web.context.SecurityContextHolderFilter@275860e9, org.springframework.security.web.header.HeaderWriterFilter@591bff1d, org.springframework.web.filter.CorsFilter@273cb729, org.springframework.security.web.authentication.logout.LogoutFilter@574f89bf, com.qiwenshare.file.config.security.JwtAuthFilter@213bd66a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@56c95789, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65dff28b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@76603c44, org.springframework.security.web.session.SessionManagementFilter@548d9d87, org.springframework.security.web.access.ExceptionTranslationFilter@6e863469, org.springframework.security.web.access.intercept.AuthorizationFilter@461e0652]
-2026-06-29T09:28:55.535+08:00 DEBUG 4232 --- [qiwen-file] [           main] c.q.file.config.security.JwtAuthFilter   : Filter 'jwtAuthFilter' configured for use
-2026-06-29T09:28:55.537+08:00  INFO 4232 --- [qiwen-file] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-06-29T09:28:55.537+08:00  INFO 4232 --- [qiwen-file] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-06-29T09:28:55.540+08:00  INFO 4232 --- [qiwen-file] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
-2026-06-29T09:28:55.652+08:00  INFO 4232 --- [qiwen-file] [           main] com.qiwenshare.file.FilePreviewTest      : Started FilePreviewTest in 25.732 seconds (process running for 30.253)
+2026-06-29T09:58:03.947+08:00  INFO 10872 --- [qiwen-file] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@18f6ee8d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5a318745, org.springframework.security.web.context.SecurityContextHolderFilter@13f6395d, org.springframework.security.web.header.HeaderWriterFilter@5935ade6, org.springframework.web.filter.CorsFilter@2d44025b, org.springframework.security.web.authentication.logout.LogoutFilter@71443983, com.qiwenshare.file.config.security.JwtAuthFilter@68aa1164, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@154ea177, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@30c0993e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6fb8cfa7, org.springframework.security.web.session.SessionManagementFilter@56c95789, org.springframework.security.web.access.ExceptionTranslationFilter@18a66406, org.springframework.security.web.access.intercept.AuthorizationFilter@76603c44]
+2026-06-29T09:58:09.207+08:00 DEBUG 10872 --- [qiwen-file] [           main] c.q.file.config.security.JwtAuthFilter   : Filter 'jwtAuthFilter' configured for use
+2026-06-29T09:58:09.219+08:00  INFO 10872 --- [qiwen-file] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-06-29T09:58:09.220+08:00  INFO 10872 --- [qiwen-file] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-29T09:58:09.222+08:00  INFO 10872 --- [qiwen-file] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-06-29T09:58:09.424+08:00  INFO 10872 --- [qiwen-file] [           main] com.qiwenshare.file.FilePreviewTest      : Started FilePreviewTest in 41.681 seconds (process running for 47.221)
 Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3aef4650]
-JDBC Connection [HikariProxyConnection@1408075340 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a6cab6f]
+JDBC Connection [HikariProxyConnection@312501701 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071405530912206848(String), test.txt(String), /preview-test-1782696537884.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T09:28:58.080605700(LocalDateTime), 2026-06-29T09:28:58.080605700(LocalDateTime)
+==> Parameters: 2071412888010874880(String), test.txt(String), /preview-test-1782698291888.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T09:58:12.149818400(LocalDateTime), 2026-06-29T09:58:12.149818400(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3aef4650]
-2026-06-29T09:28:58.532+08:00 ERROR 4232 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3aef4650] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a6cab6f]
+2026-06-29T09:58:12.632+08:00 ERROR 10872 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a6cab6f] from current transaction
 ==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE id=? AND deleted=0
-==> Parameters: 2071405530912206848(String)
+==> Parameters: 2071412888010874880(String)
 <==    Columns: ID, FILE_NAME, FILE_PATH, FILE_SIZE, FILE_TYPE, IS_FOLDER, PARENT_PATH, USER_ID, DELETED, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071405530912206848, test.txt, /preview-test-1782696537884.txt, 100, text/plain, FALSE, /, user001, 0, 2026-06-29 09:28:58.080606, 2026-06-29 09:28:58.080606
+<==        Row: 2071412888010874880, test.txt, /preview-test-1782698291888.txt, 100, text/plain, FALSE, /, user001, 0, 2026-06-29 09:58:12.149818, 2026-06-29 09:58:12.149818
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3aef4650]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3aef4650]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3aef4650]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a6cab6f]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a6cab6f]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a6cab6f]
 ]]></system-out>
   </testcase>
-  <testcase name="testPreviewText" classname="com.qiwenshare.file.FilePreviewTest" time="0.319">
+  <testcase name="testPreviewText" classname="com.qiwenshare.file.FilePreviewTest" time="0.873">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6804a46a]
-JDBC Connection [HikariProxyConnection@221023291 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3680cde9]
+JDBC Connection [HikariProxyConnection@1745134698 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071405534720634880(String), test.txt(String), /preview-test-1782696538988.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T09:28:58.988326100(LocalDateTime), 2026-06-29T09:28:58.988326100(LocalDateTime)
+==> Parameters: 2071412892612026368(String), test.txt(String), /preview-test-1782698293246.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T09:58:13.246079900(LocalDateTime), 2026-06-29T09:58:13.246079900(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6804a46a]
-2026-06-29T09:28:59.005+08:00 ERROR 4232 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6804a46a] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3680cde9]
+2026-06-29T09:58:13.282+08:00 ERROR 10872 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3680cde9] from current transaction
 ==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE id=? AND deleted=0
-==> Parameters: 2071405534720634880(String)
+==> Parameters: 2071412892612026368(String)
 <==    Columns: ID, FILE_NAME, FILE_PATH, FILE_SIZE, FILE_TYPE, IS_FOLDER, PARENT_PATH, USER_ID, DELETED, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071405534720634880, test.txt, /preview-test-1782696538988.txt, 100, text/plain, FALSE, /, user001, 0, 2026-06-29 09:28:58.988326, 2026-06-29 09:28:58.988326
+<==        Row: 2071412892612026368, test.txt, /preview-test-1782698293246.txt, 100, text/plain, FALSE, /, user001, 0, 2026-06-29 09:58:13.24608, 2026-06-29 09:58:13.24608
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6804a46a]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6804a46a]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6804a46a]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3680cde9]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3680cde9]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3680cde9]
 ]]></system-out>
   </testcase>
-  <testcase name="testPreviewTextNotFound" classname="com.qiwenshare.file.FilePreviewTest" time="0.046">
+  <testcase name="testPreviewTextNotFound" classname="com.qiwenshare.file.FilePreviewTest" time="0.086">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ca1a69b]
-JDBC Connection [HikariProxyConnection@1473496525 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4fb56bdf]
+JDBC Connection [HikariProxyConnection@1017226907 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071405536083783680(String), test.txt(String), /preview-test-1782696539313.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T09:28:59.313435(LocalDateTime), 2026-06-29T09:28:59.313435(LocalDateTime)
+==> Parameters: 2071412896277848064(String), test.txt(String), /preview-test-1782698294119.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T09:58:14.120026400(LocalDateTime), 2026-06-29T09:58:14.120026400(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ca1a69b]
-2026-06-29T09:28:59.321+08:00 ERROR 4232 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ca1a69b] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4fb56bdf]
+2026-06-29T09:58:14.136+08:00 ERROR 10872 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4fb56bdf] from current transaction
 ==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE id=? AND deleted=0
 ==> Parameters: nonexistent-id(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ca1a69b]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ca1a69b]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ca1a69b]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4fb56bdf]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4fb56bdf]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4fb56bdf]
 ]]></system-out>
   </testcase>
-  <testcase name="testPreviewNotFound" classname="com.qiwenshare.file.FilePreviewTest" time="0.102">
+  <testcase name="testPreviewNotFound" classname="com.qiwenshare.file.FilePreviewTest" time="0.091">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c648d16]
-JDBC Connection [HikariProxyConnection@118175968 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7adde112]
+JDBC Connection [HikariProxyConnection@1818529046 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: INSERT INTO file_bean ( id, file_name, file_path, file_size, file_type, is_folder, parent_path, user_id, deleted, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071405536259944448(String), test.txt(String), /preview-test-1782696539355.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T09:28:59.355325100(LocalDateTime), 2026-06-29T09:28:59.355325100(LocalDateTime)
+==> Parameters: 2071412896688889856(String), test.txt(String), /preview-test-1782698294218.txt(String), 100(Long), text/plain(String), false(Boolean), /(String), user001(String), 0(Integer), 2026-06-29T09:58:14.218766800(LocalDateTime), 2026-06-29T09:58:14.218766800(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c648d16]
-2026-06-29T09:28:59.370+08:00 ERROR 4232 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c648d16] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7adde112]
+2026-06-29T09:58:14.230+08:00 ERROR 10872 --- [qiwen-file] [           main] c.q.file.service.FileSearchService       : ES 索引创建失败: Connection refused: getsockopt
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7adde112] from current transaction
 ==>  Preparing: SELECT id,file_name,file_path,file_size,file_type,is_folder,parent_path,user_id,deleted,create_time,update_time FROM file_bean WHERE id=? AND deleted=0
 ==> Parameters: nonexistent-id(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c648d16]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c648d16]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c648d16]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7adde112]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7adde112]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7adde112]
 ]]></system-out>
   </testcase>
 </testsuite>

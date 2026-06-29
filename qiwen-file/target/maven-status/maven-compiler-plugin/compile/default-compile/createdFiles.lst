@@ -65,6 +65,7 @@ com\qiwenshare\ufop\operation\Deleter.class
 com\qiwenshare\file\dto\file\ListFileDTO.class
 com\qiwenshare\file\mapper\UserMapper.class
 com\qiwenshare\ufop\operation\LocalStorageCopier.class
+com\qiwenshare\file\controller\HomeController.class
 com\qiwenshare\file\aop\WebLogAspect.class
 com\qiwenshare\file\controller\AdminController.class
 com\qiwenshare\file\util\DateUtil.class

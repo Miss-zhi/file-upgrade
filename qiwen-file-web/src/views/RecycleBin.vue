@@ -44,7 +44,7 @@ onMounted(fetchData)
       <el-table-column label="大小" width="120"><template #default="{ row }">{{ row.fileSize }} B</template></el-table-column>
       <el-table-column prop="createTime" label="删除时间" width="180" />
       <el-table-column label="操作" width="180">
-        <template #default="{ row }">
+        <template #default="{ row }: any">
           <el-button link type="primary" size="small" @click="handleRestore(row)">恢复</el-button>
           <el-button link type="danger" size="small" @click="handlePermanentDelete(row)">彻底删除</el-button>
         </template>
