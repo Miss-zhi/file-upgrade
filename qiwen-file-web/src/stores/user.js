@@ -1,9 +1,13 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { login as loginApi, register as registerApi, getUserInfo } from '_api/user'
-import { TOKEN_KEY } from '_api/http'
-import router from '@/router'
+import { TOKEN_KEY } from '_api/constants'
 import { ElMessage } from 'element-plus'
+
+// 延迟引用 router，避免循环依赖
+function getRouter() {
+  return import('@/router')
+}
 
 export const useUserStore = defineStore('user', () => {
   // ---- state ----
@@ -21,7 +25,7 @@ export const useUserStore = defineStore('user', () => {
         isLogin.value = true
         await fetchUserInfo()
         ElMessage.success('登录成功')
-        router.push('/home')
+        getRouter().then(m => m.default.push('/home'))
       } else {
         ElMessage.error(res.message || '登录失败')
       }
@@ -67,7 +71,7 @@ export const useUserStore = defineStore('user', () => {
     userInfo.value = null
     isLogin.value = false
     localStorage.removeItem(TOKEN_KEY)
-    router.push('/login')
+    getRouter().then(m => m.default.push('/login'))
   }
 
   return { isLogin, userInfo, token, login, register, fetchUserInfo, logout }

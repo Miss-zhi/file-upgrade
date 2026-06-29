@@ -79,9 +79,44 @@ springdoc:
 
 # ==================== UFOP 存储 ====================
 ufop:
+  # 存储类型: local | aliyun-oss | fast-dfs | minio | qiniu
   storage-type: local
-  local:
-    root-path: ./uploads
+
+  # 桶名称/根路径名
+  bucket-name: upload
+
+  # 本地存储路径
+  local-storage-path: ./uploads
+
+  # 阿里云 OSS（storage-type=aliyun-oss 时生效）
+  # aliyun:
+  #   oss:
+  #     endpoint: oss-cn-hangzhou.aliyuncs.com
+  #     access-key-id: your-access-key
+  #     access-key-secret: your-secret
+  #     bucket-name: your-bucket
+  #     object-name: qiwen/
+
+  # MinIO（storage-type=minio 时生效）
+  # minio:
+  #   endpoint: http://localhost:9000
+  #   access-key: minioadmin
+  #   secret-key: minioadmin
+  #   bucket-name: qiwen
+
+  # 七牛云 Kodo（storage-type=qiniu 时生效）
+  # qiniuyun:
+  #   kodo:
+  #     domain: http://your-domain.com
+  #     endpoint: s3-cn-east-1.qiniucs.com
+  #     access-key: your-access-key
+  #     secret-key: your-secret
+  #     bucket-name: your-bucket
+
+  # 缩略图配置
+  thumb-image:
+    width: 150
+    height: 150
 
 # ==================== 日志 ====================
 logging:

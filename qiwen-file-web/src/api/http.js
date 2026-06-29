@@ -1,9 +1,12 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
-import router from '@/router'
 import config from '@/config'
+import { TOKEN_KEY } from './constants'
 
-const TOKEN_KEY = 'qiwen-token'
+// 延迟引用 router，避免循环依赖
+function getRouter() {
+  return import('@/router')
+}
 
 // 创建 Axios 实例
 const http = axios.create({
@@ -51,7 +54,9 @@ http.interceptors.response.use(
       case 401:
         message = '登录已过期，请重新登录'
         localStorage.removeItem(TOKEN_KEY)
-        router.push('/login')
+        getRouter().then(routerModule => {
+          routerModule.default.push('/login')
+        })
         break
       case 403:
         message = '没有访问权限'
@@ -70,4 +75,3 @@ http.interceptors.response.use(
 )
 
 export default http
-export { TOKEN_KEY }

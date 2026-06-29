@@ -33,5 +33,6 @@ const routes = [
 ]
 
 const router = createRouter({ history: createWebHistory(), routes, scrollBehavior: () => ({ top: 0 }) })
-import './guards'
+import { setupGuards } from './guards'
+setupGuards(router)
 export default router

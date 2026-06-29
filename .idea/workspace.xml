@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="807da718-47d1-4550-9f05-c703305169ff" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/openspec/changes/docker-compose/.openspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/docker-compose/proposal.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/docker-compose/specs/docker-compose/spec.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/docker-compose/tasks.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file-web/src/api/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file-web/src/api/http.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file-web/src/router/guards.js" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file-web/src/router/guards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file-web/src/stores/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file-web/src/stores/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/UFOPFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/UFOPFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/config/UFOPConfigProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/config/UFOPConfigProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/util/UFOPUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/util/UFOPUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +58,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\factory" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -71,7 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1782641496053</updated>
       <workItem from="1782641497510" duration="10817000" />
-      <workItem from="1782693298771" duration="13958000" />
+      <workItem from="1782693298771" duration="17427000" />
     </task>
     <servers />
   </component>
