@@ -152,6 +152,28 @@ public class FileService extends ServiceImpl<FileBeanMapper, FileBean> implement
         fileBeanMapper.deleteById(fileId);
     }
 
+    @Override
+    @Transactional
+    public void batchDelete(List<String> fileIds, String userId) {
+        for (String id : fileIds) {
+            try { delete(id, userId); } catch (Exception e) { log.warn("批量删除跳过: id={}", id); }
+        }
+    }
+
+    @Override
+    @Transactional
+    public void batchMove(List<String> fileIds, String targetPath, String userId) {
+        String parent = targetPath.endsWith("/") ? targetPath : targetPath + "/";
+        for (String id : fileIds) {
+            FileBean file = fileBeanMapper.selectById(id);
+            if (file == null || !file.getUserId().equals(userId)) continue;
+            file.setFilePath(parent + file.getFileName());
+            file.setParentPath(parent);
+            file.setUpdateTime(LocalDateTime.now());
+            fileBeanMapper.updateById(file);
+        }
+    }
+
     private String getParentPath(String filePath) {
         int idx = filePath.lastIndexOf('/');
         return idx <= 0 ? "/" : filePath.substring(0, idx + 1);

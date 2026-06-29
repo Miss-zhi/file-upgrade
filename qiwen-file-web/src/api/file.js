@@ -18,8 +18,12 @@ export async function createFolder(path, folderName) {
   return http.post('/file/create-folder', null, { params: { path, folderName } })
 }
 
-export async function renameFile(id, newName) {
-  return http.post('/file/rename', { id, newName })
+export async function batchDeleteFiles(ids) {
+  return http.post('/file/batch-delete', { ids })
+}
+
+export async function batchMoveFiles(ids, targetPath) {
+  return http.post('/file/batch-move', { ids, targetPath })
 }
 
 export async function moveFile(id, targetPath) {

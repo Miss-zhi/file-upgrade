@@ -34,4 +34,10 @@ public interface IFileService {
 
     /** 彻底删除 */
     void permanentDelete(String fileId, String userId);
+
+    /** 批量删除 */
+    void batchDelete(List<String> fileIds, String userId);
+
+    /** 批量移动 */
+    void batchMove(List<String> fileIds, String targetPath, String userId);
 }

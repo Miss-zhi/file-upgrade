@@ -115,6 +115,23 @@ public class FileController {
         return RestResult.success();
     }
 
+    @Operation(summary = "批量删除")
+    @PostMapping("/batch-delete")
+    public RestResult<Void> batchDelete(@RequestBody Map<String, List<String>> body) {
+        fileService.batchDelete(body.get("ids"), getCurrentUserId());
+        return RestResult.success();
+    }
+
+    @Operation(summary = "批量移动")
+    @PostMapping("/batch-move")
+    public RestResult<Void> batchMove(@RequestBody Map<String, Object> body) {
+        @SuppressWarnings("unchecked")
+        List<String> ids = (List<String>) body.get("ids");
+        String targetPath = (String) body.get("targetPath");
+        fileService.batchMove(ids, targetPath, getCurrentUserId());
+        return RestResult.success();
+    }
+
     private String getCurrentUserId() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return (String) auth.getPrincipal();

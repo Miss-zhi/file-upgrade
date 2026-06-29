@@ -5,26 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="807da718-47d1-4550-9f05-c703305169ff" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/openspec/changes/file-recycle/.openspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/file-recycle/proposal.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/file-recycle/specs/file-recycle/spec.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/file-recycle/tasks.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/home-page/.openspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/home-page/proposal.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/home-page/specs/home-page/spec.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/home-page/tasks.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qiwen-file-web/src/api/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file-web/src/api/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qiwen-file-web/src/router/guards.js" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file-web/src/router/guards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qiwen-file-web/src/stores/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file-web/src/stores/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qiwen-file-web/src/views/Admin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file-web/src/views/Admin.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/api/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/api/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/config/jwt/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/config/jwt/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/config/security/JwtAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/config/security/JwtAuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/config/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/domain/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/domain/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/vo/user/UserAdminVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/vo/user/UserAdminVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/security-role/.openspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/security-role/design.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/security-role/proposal.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/security-role/specs/security-role/spec.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/security-role/tasks.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file-web/src/api/file.js" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file-web/src/api/file.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file-web/src/components/file/FileTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file-web/src/components/file/FileTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file-web/src/views/FileManager.vue" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file-web/src/views/FileManager.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/api/IFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/api/IFileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/service/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/file/service/FileService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1782641496053</updated>
       <workItem from="1782641497510" duration="10817000" />
-      <workItem from="1782693298771" duration="4932000" />
+      <workItem from="1782693298771" duration="6296000" />
     </task>
     <servers />
   </component>

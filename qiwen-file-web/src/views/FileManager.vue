@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useFileListStore } from '@/stores/fileList'
 import { ElMessageBox, ElMessage } from 'element-plus'
+import { batchDeleteFiles, batchMoveFiles } from '_api/file'
 import { createShare } from '_api/share'
 import AsideMenu from '_c/file/AsideMenu.vue'
 import FileTable from '_c/file/FileTable.vue'
@@ -17,6 +18,8 @@ import DeleteDialog from '_c/file/dialog/DeleteDialog.vue'
 
 const fileListStore = useFileListStore()
 const { files, currentPath, loading } = storeToRefs(fileListStore)
+
+const selectedFiles = ref<any[]>([])
 
 // 对话框引用
 const uploadRef = ref<InstanceType<typeof UploadDialog>>()
@@ -86,6 +89,20 @@ async function handleDeleteConfirm(id: string) {
 
 function handleShare(file: any) { shareRef.value?.open(file.filePath) }
 function handlePreview(file: any) { previewRef.value?.open(file) }
+
+async function handleBatchDelete() {
+  const ids = selectedFiles.value.map((f: any) => f.id)
+  await ElMessageBox.confirm(`确定删除选中的 ${ids.length} 个文件吗？`, '批量删除', { type: 'warning' })
+  const res: any = await batchDeleteFiles(ids)
+  if (res.success) { ElMessage.success('批量删除成功'); selectedFiles.value = []; fileListStore.fetchFiles(currentPath.value) }
+}
+
+async function handleBatchMove() {
+  const { value: targetPath } = await ElMessageBox.prompt('输入目标路径（如 /docs）', '批量移动')
+  const ids = selectedFiles.value.map((f: any) => f.id)
+  const res: any = await batchMoveFiles(ids, targetPath || '/')
+  if (res.success) { ElMessage.success('批量移动成功'); selectedFiles.value = []; fileListStore.fetchFiles(currentPath.value) }
+}
 async function handleShareConfirm(data: any) {
   const res: any = await createShare(data)
   if (res.success) {
@@ -136,6 +153,13 @@ onMounted(() => {
       </div>
 
       <!-- 文件表格 -->
+      <BatchToolbar
+        v-if="selectedFiles.length"
+        :count="selectedFiles.length"
+        @delete="handleBatchDelete"
+        @move="handleBatchMove"
+        @clear="selectedFiles = []"
+      />
       <FileTable
         :files="files"
         :loading="loading"
@@ -147,6 +171,7 @@ onMounted(() => {
         @download="handleDownload"
         @share="handleShare"
         @preview="handlePreview"
+        @selection-change="selectedFiles = $event"
       />
     </div>
 
