@@ -16,6 +16,10 @@ export async function deleteUser(id) {
   return http.delete(`/admin/user/${id}`)
 }
 
+export async function updateUserRole(id, role) {
+  return http.put(`/admin/user/${id}/role`, { role })
+}
+
 export async function getStats() {
   return http.get('/admin/stats')
 }

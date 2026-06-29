@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.qiwenshare.file.UFOPLocalTest" time="0.627" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.qiwenshare.file.UserRoleTest" time="3.613" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -66,14 +66,157 @@
     <property name="java.class.version" value="61.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[qiwen-file] "/>
   </properties>
-  <testcase name="testWriteAndRead" classname="com.qiwenshare.file.UFOPLocalTest" time="0.031">
-    <system-out><![CDATA[2026-06-29T10:27:24.490+08:00  INFO 10180 --- [qiwen-file] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.qiwenshare.file.UFOPLocalTest]: UFOPLocalTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-06-29T10:27:24.499+08:00  INFO 10180 --- [qiwen-file] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.qiwenshare.file.FileApplication for test class com.qiwenshare.file.UFOPLocalTest
+  <testcase name="testAdminAccessGranted" classname="com.qiwenshare.file.UserRoleTest" time="1.345">
+    <system-out><![CDATA[2026-06-29T10:27:25.134+08:00  INFO 10180 --- [qiwen-file] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.qiwenshare.file.UserRoleTest]: UserRoleTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-29T10:27:25.151+08:00  INFO 10180 --- [qiwen-file] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.qiwenshare.file.FileApplication for test class com.qiwenshare.file.UserRoleTest
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
+JDBC Connection [HikariProxyConnection@1819712728 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+==>  Preparing: SELECT COUNT(*) AS total FROM qiwen_user
+==> Parameters: 
+<==    Columns: TOTAL
+<==        Row: 0
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31ba0af0]
 ]]></system-out>
   </testcase>
-  <testcase name="testCopy" classname="com.qiwenshare.file.UFOPLocalTest" time="0.235"/>
-  <testcase name="testDownloadNotFound" classname="com.qiwenshare.file.UFOPLocalTest" time="0.022"/>
-  <testcase name="testUploadAndDownload" classname="com.qiwenshare.file.UFOPLocalTest" time="0.185"/>
-  <testcase name="testDelete" classname="com.qiwenshare.file.UFOPLocalTest" time="0.055"/>
-  <testcase name="testRename" classname="com.qiwenshare.file.UFOPLocalTest" time="0.015"/>
+  <testcase name="testUpdateRole" classname="com.qiwenshare.file.UserRoleTest" time="0.527">
+    <system-out><![CDATA[Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba]
+JDBC Connection [HikariProxyConnection@715295233 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE (username = ?)
+==> Parameters: roleuser3(String)
+<==      Total: 0
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba] from current transaction
+==>  Preparing: INSERT INTO qiwen_user ( id, username, password, email, nickname, status, role, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 2071420246573268992(String), roleuser3(String), $2a$10$zCPwP9QTKBvZs6K65N37we.QEQY22pnakG42GyQgfzT74GyuPE1H6(String), role3@test.com(String), roleuser3(String), 1(Integer), USER(String), 2026-06-29T10:27:26.846967200(LocalDateTime), 2026-06-29T10:27:26.846967200(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba] from current transaction
+==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE (username = ?)
+==> Parameters: roleuser3(String)
+<==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, STATUS, ROLE, CREATE_TIME, UPDATE_TIME
+<==        Row: 2071420246573268992, roleuser3, $2a$10$zCPwP9QTKBvZs6K65N37we.QEQY22pnakG42GyQgfzT74GyuPE1H6, role3@test.com, null, roleuser3, null, 1, USER, 2026-06-29 10:27:26.846967, 2026-06-29 10:27:26.846967
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba] from current transaction
+==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE id=?
+==> Parameters: 2071420246573268992(String)
+<==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, STATUS, ROLE, CREATE_TIME, UPDATE_TIME
+<==        Row: 2071420246573268992, roleuser3, $2a$10$zCPwP9QTKBvZs6K65N37we.QEQY22pnakG42GyQgfzT74GyuPE1H6, role3@test.com, null, roleuser3, null, 1, USER, 2026-06-29 10:27:26.846967, 2026-06-29 10:27:26.846967
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba] from current transaction
+==>  Preparing: UPDATE qiwen_user SET username=?, password=?, email=?, nickname=?, status=?, role=?, create_time=?, update_time=? WHERE id=?
+==> Parameters: roleuser3(String), $2a$10$zCPwP9QTKBvZs6K65N37we.QEQY22pnakG42GyQgfzT74GyuPE1H6(String), role3@test.com(String), roleuser3(String), 1(Integer), ADMIN(String), 2026-06-29T10:27:26.846967(LocalDateTime), 2026-06-29T10:27:26.883870900(LocalDateTime), 2071420246573268992(String)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba] from current transaction
+==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE id=?
+==> Parameters: 2071420246573268992(String)
+<==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, STATUS, ROLE, CREATE_TIME, UPDATE_TIME
+<==        Row: 2071420246573268992, roleuser3, $2a$10$zCPwP9QTKBvZs6K65N37we.QEQY22pnakG42GyQgfzT74GyuPE1H6, role3@test.com, null, roleuser3, null, 1, ADMIN, 2026-06-29 10:27:26.846967, 2026-06-29 10:27:26.883871
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba] from current transaction
+==>  Preparing: UPDATE qiwen_user SET username=?, password=?, email=?, nickname=?, status=?, role=?, create_time=?, update_time=? WHERE id=?
+==> Parameters: roleuser3(String), $2a$10$zCPwP9QTKBvZs6K65N37we.QEQY22pnakG42GyQgfzT74GyuPE1H6(String), role3@test.com(String), roleuser3(String), 1(Integer), USER(String), 2026-06-29T10:27:26.846967(LocalDateTime), 2026-06-29T10:27:26.984603600(LocalDateTime), 2071420246573268992(String)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba] from current transaction
+==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE id=?
+==> Parameters: 2071420246573268992(String)
+<==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, STATUS, ROLE, CREATE_TIME, UPDATE_TIME
+<==        Row: 2071420246573268992, roleuser3, $2a$10$zCPwP9QTKBvZs6K65N37we.QEQY22pnakG42GyQgfzT74GyuPE1H6, role3@test.com, null, roleuser3, null, 1, USER, 2026-06-29 10:27:26.846967, 2026-06-29 10:27:26.984604
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6be68eba]
+]]></system-out>
+  </testcase>
+  <testcase name="testDefaultRoleIsUser" classname="com.qiwenshare.file.UserRoleTest" time="0.417">
+    <system-out><![CDATA[Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5150ba5a]
+JDBC Connection [HikariProxyConnection@1069892822 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE (username = ?)
+==> Parameters: roleuser1(String)
+<==      Total: 0
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5150ba5a]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5150ba5a] from current transaction
+==>  Preparing: INSERT INTO qiwen_user ( id, username, password, email, nickname, status, role, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 2071420248821415936(String), roleuser1(String), $2a$10$YBgYD26PfrASPVGWHyGgL.cMw3IlEZeMtFwPORK/OxNCEyfPPrB3O(String), role1@test.com(String), roleuser1(String), 1(Integer), USER(String), 2026-06-29T10:27:27.436408300(LocalDateTime), 2026-06-29T10:27:27.436408300(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5150ba5a]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5150ba5a] from current transaction
+==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE (username = ?)
+==> Parameters: roleuser1(String)
+<==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, STATUS, ROLE, CREATE_TIME, UPDATE_TIME
+<==        Row: 2071420248821415936, roleuser1, $2a$10$YBgYD26PfrASPVGWHyGgL.cMw3IlEZeMtFwPORK/OxNCEyfPPrB3O, role1@test.com, null, roleuser1, null, 1, USER, 2026-06-29 10:27:27.436408, 2026-06-29 10:27:27.436408
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5150ba5a]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5150ba5a]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5150ba5a]
+]]></system-out>
+  </testcase>
+  <testcase name="testUserAccessDenied" classname="com.qiwenshare.file.UserRoleTest" time="0.029"/>
+  <testcase name="testUpdateInvalidRole" classname="com.qiwenshare.file.UserRoleTest" time="0.268">
+    <system-out><![CDATA[Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d2035c2]
+JDBC Connection [HikariProxyConnection@583568364 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE (username = ?)
+==> Parameters: roleuser4(String)
+<==      Total: 0
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d2035c2]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d2035c2] from current transaction
+==>  Preparing: INSERT INTO qiwen_user ( id, username, password, email, nickname, status, role, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 2071420250666909696(String), roleuser4(String), $2a$10$qaI.KIHxl84fcBfvGQe3HO13YD8dzQSEkfrY1oOqW7GoGHvEnndVC(String), role4@test.com(String), roleuser4(String), 1(Integer), USER(String), 2026-06-29T10:27:27.782492900(LocalDateTime), 2026-06-29T10:27:27.782492900(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d2035c2]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d2035c2] from current transaction
+==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE (username = ?)
+==> Parameters: roleuser4(String)
+<==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, STATUS, ROLE, CREATE_TIME, UPDATE_TIME
+<==        Row: 2071420250666909696, roleuser4, $2a$10$qaI.KIHxl84fcBfvGQe3HO13YD8dzQSEkfrY1oOqW7GoGHvEnndVC, role4@test.com, null, roleuser4, null, 1, USER, 2026-06-29 10:27:27.782493, 2026-06-29 10:27:27.782493
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d2035c2]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d2035c2] from current transaction
+==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE id=?
+==> Parameters: 2071420250666909696(String)
+<==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, STATUS, ROLE, CREATE_TIME, UPDATE_TIME
+<==        Row: 2071420250666909696, roleuser4, $2a$10$qaI.KIHxl84fcBfvGQe3HO13YD8dzQSEkfrY1oOqW7GoGHvEnndVC, role4@test.com, null, roleuser4, null, 1, USER, 2026-06-29 10:27:27.782493, 2026-06-29 10:27:27.782493
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d2035c2]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d2035c2]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d2035c2]
+]]></system-out>
+  </testcase>
+  <testcase name="testLoginTokenHasRole" classname="com.qiwenshare.file.UserRoleTest" time="0.929">
+    <system-out><![CDATA[Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15bb7acd]
+JDBC Connection [HikariProxyConnection@1041410699 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE (username = ?)
+==> Parameters: roleuser2(String)
+<==      Total: 0
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15bb7acd]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15bb7acd] from current transaction
+==>  Preparing: INSERT INTO qiwen_user ( id, username, password, email, nickname, status, role, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
+==> Parameters: 2071420251845509120(String), roleuser2(String), $2a$10$5XkqYk9OTXY1S74cJADRyu76cehf9tVad9X.nMOJO4JMGq4is7r6.(String), role2@test.com(String), roleuser2(String), 1(Integer), USER(String), 2026-06-29T10:27:28.063760800(LocalDateTime), 2026-06-29T10:27:28.063760800(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15bb7acd]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15bb7acd] from current transaction
+==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE (username = ?)
+==> Parameters: roleuser2(String)
+<==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, STATUS, ROLE, CREATE_TIME, UPDATE_TIME
+<==        Row: 2071420251845509120, roleuser2, $2a$10$5XkqYk9OTXY1S74cJADRyu76cehf9tVad9X.nMOJO4JMGq4is7r6., role2@test.com, null, roleuser2, null, 1, USER, 2026-06-29 10:27:28.063761, 2026-06-29 10:27:28.063761
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15bb7acd]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15bb7acd]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15bb7acd]
+]]></system-out>
+  </testcase>
 </testsuite>

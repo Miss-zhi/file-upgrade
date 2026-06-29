@@ -8,6 +8,7 @@ import com.qiwenshare.file.dto.user.UserQueryDTO;
 import com.qiwenshare.file.dto.user.UserUpdateDTO;
 import com.qiwenshare.file.service.SysConfigService;
 import com.qiwenshare.file.service.StatsService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import com.qiwenshare.file.util.RestResult;
 import com.qiwenshare.file.vo.user.UserAdminVO;
 import io.swagger.v3.oas.annotations.Operation;
@@ -25,6 +26,7 @@ import java.util.Map;
 @Tag(name = "管理端", description = "用户管理")
 @RestController
 @RequestMapping("/admin")
+@PreAuthorize("hasRole('ADMIN')")
 @RequiredArgsConstructor
 public class AdminController {
 
@@ -85,6 +87,13 @@ public class AdminController {
     @PutMapping("/config")
     public RestResult<Void> saveConfig(@RequestBody Map<String, String> config) {
         sysConfigService.saveConfig(config);
+        return RestResult.success();
+    }
+
+    @Operation(summary = "分配用户角色")
+    @PutMapping("/user/{id}/role")
+    public RestResult<Void> updateRole(@PathVariable String id, @RequestBody Map<String, String> body) {
+        userService.updateRole(id, body.get("role"));
         return RestResult.success();
     }
 }

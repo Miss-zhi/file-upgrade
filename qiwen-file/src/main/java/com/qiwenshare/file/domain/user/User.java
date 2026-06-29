@@ -43,6 +43,9 @@ public class User {
     /** 状态（1=启用, 0=禁用） */
     private Integer status;
 
+    /** 角色：ADMIN / USER */
+    private String role = "USER";
+
     /** 创建时间 */
     private LocalDateTime createTime;
 

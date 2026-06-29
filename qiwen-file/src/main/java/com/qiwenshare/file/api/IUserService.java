@@ -27,4 +27,7 @@ public interface IUserService {
 
     /** 切换用户启用/禁用状态 */
     void toggleStatus(String id, boolean enabled);
+
+    /** 更新用户角色 */
+    void updateRole(String userId, String role);
 }

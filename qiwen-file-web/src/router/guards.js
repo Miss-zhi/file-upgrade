@@ -12,6 +12,14 @@ router.beforeEach((to, _from, next) => {
     return next('/home')
   }
 
+  // 管理员路由检查
+  if (to.meta.admin) {
+    const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}')
+    if (userInfo.role !== 'ADMIN') {
+      return next('/home')
+    }
+  }
+
   // 未登录访问需要认证的页面 → 跳转登录
   if (!token && !noAuth) {
     return next({ path: LOGIN_PATH, query: { redirect: to.fullPath } })

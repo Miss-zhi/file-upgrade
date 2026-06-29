@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import { getUserList, updateUser, toggleUserStatus, deleteUser } from '_api/admin'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import UserEditDialog from '_c/admin/UserEditDialog.vue'
+import { updateUserRole } from '_api/admin'
 
 interface UserItem {
   id: string
@@ -11,6 +12,7 @@ interface UserItem {
   phone: string
   nickname: string
   status: number
+  role: string
   createTime: string
 }
 
@@ -79,6 +81,17 @@ async function handleDelete(user: UserItem) {
   }
 }
 
+async function handleToggleRole(user: UserItem) {
+  const newRole = user.role === 'ADMIN' ? 'USER' : 'ADMIN'
+  const action = newRole === 'ADMIN' ? '提升为管理员' : '降为普通用户'
+  await ElMessageBox.confirm(`确定${action} "${user.username}" 吗？`, '确认操作')
+  const res: any = await updateUserRole(user.id, newRole)
+  if (res.success) {
+    ElMessage.success('角色已更新')
+    fetchData()
+  }
+}
+
 onMounted(fetchData)
 </script>
 
@@ -104,6 +117,13 @@ onMounted(fetchData)
       <el-table-column prop="email" label="邮箱" width="200" />
       <el-table-column prop="phone" label="手机号" width="150" />
       <el-table-column prop="nickname" label="昵称" width="150" />
+      <el-table-column label="角色" width="100">
+        <template #default="{ row }: any">
+          <el-tag :type="row.role === 'ADMIN' ? 'danger' : 'info'" size="small">
+            {{ row.role || 'USER' }}
+          </el-tag>
+        </template>
+      </el-table-column>
       <el-table-column label="状态" width="100" align="center">
         <template #default="{ row }: any">
           <el-switch
@@ -117,6 +137,9 @@ onMounted(fetchData)
         <template #default="{ row }: any">
           <el-button link type="primary" size="small" @click="handleEdit(row)">编辑</el-button>
           <el-button link type="danger" size="small" @click="handleDelete(row)">删除</el-button>
+          <el-button link type="warning" size="small" @click="handleToggleRole(row)">
+            {{ row.role === 'ADMIN' ? '降为普通用户' : '提升为管理员' }}
+          </el-button>
         </template>
       </el-table-column>
     </el-table>

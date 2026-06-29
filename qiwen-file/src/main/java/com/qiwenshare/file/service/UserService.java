@@ -45,7 +45,7 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
         if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new QiwenException(400, "用户名或密码错误");
         }
-        return jwtUtil.generateToken(user.getId());
+        return jwtUtil.generateToken(user.getId(), user.getRole());
     }
 
     @Override
@@ -63,7 +63,8 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
         user.setPassword(passwordEncoder.encode(password));
         user.setEmail(email);
         user.setNickname(username);
-        user.setStatus(1);  // 默认启用
+        user.setStatus(1);
+        user.setRole("USER");  // 默认启用
         user.setCreateTime(LocalDateTime.now());
         user.setUpdateTime(LocalDateTime.now());
 
@@ -114,6 +115,18 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
         User user = userMapper.selectById(id);
         if (user == null) throw new QiwenException(404, "用户不存在");
         user.setStatus(enabled ? 1 : 0);
+        user.setUpdateTime(LocalDateTime.now());
+        userMapper.updateById(user);
+    }
+
+    @Override
+    @Transactional
+    public void updateRole(String userId, String role) {
+        User user = userMapper.selectById(userId);
+        if (user == null) throw new QiwenException(404, "用户不存在");
+        if (!"ADMIN".equals(role) && !"USER".equals(role))
+            throw new QiwenException(400, "无效角色，仅支持 ADMIN 或 USER");
+        user.setRole(role);
         user.setUpdateTime(LocalDateTime.now());
         userMapper.updateById(user);
     }

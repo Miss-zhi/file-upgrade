@@ -50,6 +50,12 @@ export const useUserStore = defineStore('user', () => {
       const res = await getUserInfo()
       if (res.success) {
         userInfo.value = res.data
+        isLogin.value = true
+        localStorage.setItem('userInfo', JSON.stringify(res.data))
+        // 首次登录后根据角色初始化
+        if (userInfo.value.role === 'ADMIN') {
+          // 管理员登录后不做额外操作
+        }
       }
     } catch {
       // 静默失败

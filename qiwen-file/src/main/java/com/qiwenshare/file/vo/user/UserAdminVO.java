@@ -37,6 +37,9 @@ public class UserAdminVO {
     @Schema(description = "创建时间")
     private String createTime;
 
+    @Schema(description = "角色 ADMIN/USER")
+    private String role;
+
     public static UserAdminVO fromEntity(User user) {
         return UserAdminVO.builder()
                 .id(user.getId())
@@ -46,6 +49,7 @@ public class UserAdminVO {
                 .nickname(user.getNickname())
                 .avatar(user.getAvatar())
                 .status(user.getStatus())
+                .role(user.getRole())
                 .createTime(user.getCreateTime() != null ? user.getCreateTime().toString() : "")
                 .build();
     }

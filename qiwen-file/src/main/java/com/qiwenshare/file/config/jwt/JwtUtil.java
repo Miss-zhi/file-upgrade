@@ -6,6 +6,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
@@ -26,12 +27,13 @@ public class JwtUtil {
     /**
      * 生成 Token
      */
-    public String generateToken(String userId) {
+    public String generateToken(String userId, String role) {
         Date now = new Date();
         Date expiration = new Date(now.getTime() + jwtProperties.getExpiration() * 1000);
 
         return Jwts.builder()
                 .subject(userId)
+                .claim("role", role != null ? role : "USER")
                 .issuedAt(now)
                 .expiration(expiration)
                 .signWith(getSigningKey())
