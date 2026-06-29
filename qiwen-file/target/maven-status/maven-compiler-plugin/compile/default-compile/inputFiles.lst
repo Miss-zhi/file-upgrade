@@ -8,6 +8,7 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\dto\user\UserQueryD
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\SysConfigMapper.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\vo\share\ShareVO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\mybatisplus\MyBatisPlusConfig.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\domain\task\UploadTask.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\domain\file\FileBean.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\FilePreviewController.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\UFOPFactory.java
@@ -21,6 +22,7 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\domain\share\ShareF
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\StatsService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\FileApplication.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\OperationLogService.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\api\IFiletransferService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\SysConfigService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\vo\user\UserVO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\util\DateUtil.java
@@ -43,10 +45,12 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Renamer.j
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\domain\file\FileVersion.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\FileBeanMapper.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\RedisConfig.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\UploadTaskMapper.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\api\IFileService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\ShareFileService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Uploader.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Reader.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\FiletransferService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Writer.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\api\IFileVersionService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Downloader.java
@@ -60,6 +64,7 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\LocalStor
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\OperationLogMapper.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\config\UFOPConfigProperties.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\api\IUserService.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\FiletransferController.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\exception\QiwenException.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\exception\UFOPException.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\aop\WebLogAspect.java

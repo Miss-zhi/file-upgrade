@@ -8,10 +8,13 @@ com\qiwenshare\ufop\operation\LocalStorageRenamer.class
 com\qiwenshare\ufop\operation\Renamer.class
 com\qiwenshare\file\service\SysConfigService.class
 com\qiwenshare\file\config\jwt\JwtProperties.class
+com\qiwenshare\file\domain\task\UploadTask.class
 com\qiwenshare\file\util\RestResult.class
 com\qiwenshare\file\api\IFileVersionService.class
+com\qiwenshare\file\mapper\UploadTaskMapper.class
 com\qiwenshare\file\config\onlyoffice\OnlyOfficeProperties.class
 com\qiwenshare\file\config\RedisConfig.class
+com\qiwenshare\file\controller\FiletransferController.class
 com\qiwenshare\file\service\FileService.class
 com\qiwenshare\file\dto\share\CreateShareDTO.class
 com\qiwenshare\file\config\mybatisplus\MyBatisPlusConfig.class
@@ -57,6 +60,7 @@ com\qiwenshare\ufop\operation\LocalStorageWriter.class
 com\qiwenshare\file\api\IShareFileService.class
 com\qiwenshare\ufop\operation\LocalStorageReader.class
 com\qiwenshare\file\domain\share\ShareFile.class
+com\qiwenshare\file\api\IFiletransferService.class
 com\qiwenshare\file\controller\ShareController.class
 com\qiwenshare\ufop\config\UFOPConfigProperties.class
 com\qiwenshare\file\controller\SearchController.class
@@ -76,6 +80,7 @@ com\qiwenshare\ufop\operation\LocalStorageCopier.class
 com\qiwenshare\file\controller\HomeController.class
 com\qiwenshare\file\aop\WebLogAspect.class
 com\qiwenshare\file\controller\AdminController.class
+com\qiwenshare\file\service\FiletransferService.class
 com\qiwenshare\file\util\DateUtil.class
 com\qiwenshare\file\aop\MyLog.class
 com\qiwenshare\file\domain\user\User.class
