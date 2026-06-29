@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="807da718-47d1-4550-9f05-c703305169ff" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/openspec/changes/upgrade-rbac/.openspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/upgrade-rbac/design.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/upgrade-rbac/proposal.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/upgrade-rbac/specs/upgrade-rbac/spec.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openspec/changes/upgrade-rbac/tasks.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/ufop-remote/.openspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/ufop-remote/design.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/ufop-remote/proposal.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/ufop-remote/specs/ufop-remote/spec.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openspec/changes/ufop-remote/tasks.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/UFOPFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/qiwen-file/src/main/java/com/qiwenshare/ufop/UFOPFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1782641496053</updated>
       <workItem from="1782641497510" duration="10817000" />
-      <workItem from="1782693298771" duration="10761000" />
+      <workItem from="1782693298771" duration="11793000" />
     </task>
     <servers />
   </component>

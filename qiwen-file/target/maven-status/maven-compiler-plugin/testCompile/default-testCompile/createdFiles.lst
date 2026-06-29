@@ -4,6 +4,7 @@ com\qiwenshare\file\UserRoleTest.class
 com\qiwenshare\file\FiletransferTest.class
 com\qiwenshare\file\FileVersionTest.class
 com\qiwenshare\file\RbacTest.class
+com\qiwenshare\file\UfopPreviewTest.class
 com\qiwenshare\file\UserServiceTest.class
 com\qiwenshare\file\FileServiceTest.class
 com\qiwenshare\file\FileRecycleTest.class

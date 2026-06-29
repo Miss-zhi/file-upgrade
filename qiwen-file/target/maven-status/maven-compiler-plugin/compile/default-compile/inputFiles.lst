@@ -5,6 +5,7 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\FileTypeMapp
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\openapi\OpenApiConfig.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\LocalStorageUploader.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\vo\share\ShareVO.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\preview\Previewer.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\mybatisplus\MyBatisPlusConfig.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\domain\task\UploadTask.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\FilePreviewController.java
@@ -24,11 +25,16 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\vo\user\UserVO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\download\product\FastDFSDownloader.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\api\IShareFileService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\upload\product\QiniuyunKodoUploader.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\preview\ThumbImage.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\aop\MyLog.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\config\jwt\JwtProperties.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\domain\user\Permission.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\preview\product\MinioPreviewer.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\preview\product\QiniuyunKodoPreviewer.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\mapper\UserRoleMapper.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\download\product\QiniuyunKodoDownloader.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\preview\PreviewFile.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\preview\product\FastDFSPreviewer.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\delete\product\AliyunOSSDeleter.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\dto\user\RegisterDTO.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\FileController.java
@@ -68,6 +74,7 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\download\
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\LocalStorageWriter.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\FileVersionController.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\controller\UserController.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\preview\product\LocalStoragePreviewer.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\LocalStorageDeleter.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\delete\product\MinioDeleter.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\rename\product\AliyunOSSRenamer.java
@@ -108,6 +115,7 @@ E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Reader.ja
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\api\INoticeService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\service\FiletransferService.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\Writer.java
+E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\preview\product\AliyunOSSPreviewer.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\domain\config\SysConfig.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\ufop\operation\LocalStorageRenamer.java
 E:\file-upgrade\qiwen-file\src\main\java\com\qiwenshare\file\api\IUserService.java

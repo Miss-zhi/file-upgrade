@@ -3,6 +3,8 @@ package com.qiwenshare.ufop;
 import com.qiwenshare.ufop.config.UFOPConfigProperties;
 import com.qiwenshare.ufop.constant.StorageType;
 import com.qiwenshare.ufop.operation.*;
+import com.qiwenshare.ufop.operation.preview.*;
+import com.qiwenshare.ufop.operation.preview.product.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +23,7 @@ public class UFOPFactory {
     private final LocalStorageWriter writer;
     private final LocalStorageRenamer renamer;
     private final LocalStorageCopier copier;
+    private final LocalStoragePreviewer previewer;
 
     public Uploader getUploader() { return uploader; }
     public Downloader getDownloader() { return downloader; }
@@ -29,4 +32,5 @@ public class UFOPFactory {
     public Writer getWriter() { return writer; }
     public Renamer getRenamer() { return renamer; }
     public Copier getCopier() { return copier; }
+    public Previewer getPreviewer() { return previewer; }
 }
