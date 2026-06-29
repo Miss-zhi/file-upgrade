@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.qiwenshare.file.UserRoleTest" time="2.283" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.qiwenshare.file.UserRoleTest" time="1.794" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CN"/>
     <property name="sun.boot.library.path" value="C:\Users\Administrator\.jdks\ms-17.0.18\bin"/>
-    <property name="sun.java.command" value="C:\Users\Administrator\AppData\Local\Temp\surefire13444220214438727916\surefirebooter-20260629131333368_3.jar C:\Users\Administrator\AppData\Local\Temp\surefire13444220214438727916 2026-06-29T13-13-32_939-jvmRun1 surefire-20260629131333368_1tmp surefire_0-20260629131333368_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Administrator\AppData\Local\Temp\surefire12816692176461943148\surefirebooter-20260629133648307_3.jar C:\Users\Administrator\AppData\Local\Temp\surefire12816692176461943148 2026-06-29T13-36-47_708-jvmRun1 surefire-20260629133648307_1tmp surefire_0-20260629133648307_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="E:\file-upgrade\qiwen-file\target\test-classes;E:\file-upgrade\qiwen-file\target\classes;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-web\3.2.5\spring-boot-starter-web-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter\3.2.5\spring-boot-starter-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot\3.2.5\spring-boot-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-logging\3.2.5\spring-boot-starter-logging-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\ch\qos\logback\logback-classic\1.4.14\logback-classic-1.4.14.jar;D:\Maven\apache-maven-3.9.6\repository\ch\qos\logback\logback-core\1.4.14\logback-core-1.4.14.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\slf4j\jul-to-slf4j\2.0.13\jul-to-slf4j-2.0.13.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-json\3.2.5\spring-boot-starter-json-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.4\jackson-datatype-jdk8-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.4\jackson-datatype-jsr310-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.4\jackson-module-parameter-names-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-tomcat\3.2.5\spring-boot-starter-tomcat-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.20\tomcat-embed-core-10.1.20.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.20\tomcat-embed-websocket-10.1.20.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-web\6.1.6\spring-web-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-beans\6.1.6\spring-beans-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\io\micrometer\micrometer-observation\1.12.5\micrometer-observation-1.12.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\micrometer\micrometer-commons\1.12.5\micrometer-commons-1.12.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-webmvc\6.1.6\spring-webmvc-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-context\6.1.6\spring-context-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-expression\6.1.6\spring-expression-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-security\3.2.5\spring-boot-starter-security-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-aop\6.1.6\spring-aop-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\security\spring-security-config\6.2.4\spring-security-config-6.2.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\security\spring-security-web\6.2.4\spring-security-web-6.2.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.2.5\spring-boot-starter-data-jpa-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-jdbc\3.2.5\spring-boot-starter-jdbc-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-jdbc\6.1.6\spring-jdbc-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\hibernate\orm\hibernate-core\6.4.4.Final\hibernate-core-6.4.4.Final.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;D:\Maven\apache-maven-3.9.6\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\classmate\1.6.0\classmate-1.6.0.jar;D:\Maven\apache-maven-3.9.6\repository\net\bytebuddy\byte-buddy\1.14.13\byte-buddy-1.14.13.jar;D:\Maven\apache-maven-3.9.6\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;D:\Maven\apache-maven-3.9.6\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\data\spring-data-jpa\3.2.5\spring-data-jpa-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\data\spring-data-commons\3.2.5\spring-data-commons-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-orm\6.1.6\spring-orm-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-tx\6.1.6\spring-tx-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-aspects\6.1.6\spring-aspects-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-data-redis\3.2.5\spring-boot-starter-data-redis-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\lettuce\lettuce-core\6.3.2.RELEASE\lettuce-core-6.3.2.RELEASE.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-common\4.1.109.Final\netty-common-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-handler\4.1.109.Final\netty-handler-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-resolver\4.1.109.Final\netty-resolver-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-buffer\4.1.109.Final\netty-buffer-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-transport-native-unix-common\4.1.109.Final\netty-transport-native-unix-common-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-codec\4.1.109.Final\netty-codec-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\netty\netty-transport\4.1.109.Final\netty-transport-4.1.109.Final.jar;D:\Maven\apache-maven-3.9.6\repository\io\projectreactor\reactor-core\3.6.5\reactor-core-3.6.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\data\spring-data-redis\3.2.5\spring-data-redis-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\data\spring-data-keyvalue\3.2.5\spring-data-keyvalue-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-oxm\6.1.6\spring-oxm-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-context-support\6.1.6\spring-context-support-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-validation\3.2.5\spring-boot-starter-validation-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.20\tomcat-embed-el-10.1.20.jar;D:\Maven\apache-maven-3.9.6\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-aop\3.2.5\spring-boot-starter-aop-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\aspectj\aspectjweaver\1.9.22\aspectjweaver-1.9.22.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus-spring-boot3-starter\3.5.6\mybatis-plus-spring-boot3-starter-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus\3.5.6\mybatis-plus-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus-core\3.5.6\mybatis-plus-core-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus-annotation\3.5.6\mybatis-plus-annotation-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus-extension\3.5.6\mybatis-plus-extension-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\mybatis\mybatis\3.5.16\mybatis-3.5.16.jar;D:\Maven\apache-maven-3.9.6\repository\com\github\jsqlparser\jsqlparser\4.9\jsqlparser-4.9.jar;D:\Maven\apache-maven-3.9.6\repository\org\mybatis\mybatis-spring\3.0.3\mybatis-spring-3.0.3.jar;D:\Maven\apache-maven-3.9.6\repository\com\baomidou\mybatis-plus-spring-boot-autoconfigure\3.5.6\mybatis-plus-spring-boot-autoconfigure-3.5.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.5\spring-boot-autoconfigure-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\jsonwebtoken\jjwt-api\0.12.5\jjwt-api-0.12.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\jsonwebtoken\jjwt-impl\0.12.5\jjwt-impl-0.12.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\jsonwebtoken\jjwt-jackson\0.12.5\jjwt-jackson-0.12.5.jar;D:\Maven\apache-maven-3.9.6\repository\co\elastic\clients\elasticsearch-java\8.12.2\elasticsearch-java-8.12.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\elasticsearch\client\elasticsearch-rest-client\8.10.4\elasticsearch-rest-client-8.10.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\httpcomponents\httpcore\4.4.16\httpcore-4.4.16.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\httpcomponents\httpasyncclient\4.1.5\httpasyncclient-4.1.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\httpcomponents\httpcore-nio\4.4.16\httpcore-nio-4.4.16.jar;D:\Maven\apache-maven-3.9.6\repository\commons-codec\commons-codec\1.16.1\commons-codec-1.16.1.jar;D:\Maven\apache-maven-3.9.6\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\json\jakarta.json-api\2.1.3\jakarta.json-api-2.1.3.jar;D:\Maven\apache-maven-3.9.6\repository\org\eclipse\parsson\parsson\1.0.5\parsson-1.0.5.jar;D:\Maven\apache-maven-3.9.6\repository\io\opentelemetry\opentelemetry-api\1.31.0\opentelemetry-api-1.31.0.jar;D:\Maven\apache-maven-3.9.6\repository\io\opentelemetry\opentelemetry-context\1.31.0\opentelemetry-context-1.31.0.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\core\jackson-databind\2.15.3\jackson-databind-2.15.3.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.4\jackson-annotations-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\core\jackson-core\2.15.4\jackson-core-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springdoc\springdoc-openapi-starter-webmvc-ui\2.5.0\springdoc-openapi-starter-webmvc-ui-2.5.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\springdoc\springdoc-openapi-starter-webmvc-api\2.5.0\springdoc-openapi-starter-webmvc-api-2.5.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\springdoc\springdoc-openapi-starter-common\2.5.0\springdoc-openapi-starter-common-2.5.0.jar;D:\Maven\apache-maven-3.9.6\repository\io\swagger\core\v3\swagger-core-jakarta\2.2.21\swagger-core-jakarta-2.2.21.jar;D:\Maven\apache-maven-3.9.6\repository\org\apache\commons\commons-lang3\3.13.0\commons-lang3-3.13.0.jar;D:\Maven\apache-maven-3.9.6\repository\io\swagger\core\v3\swagger-annotations-jakarta\2.2.21\swagger-annotations-jakarta-2.2.21.jar;D:\Maven\apache-maven-3.9.6\repository\io\swagger\core\v3\swagger-models-jakarta\2.2.21\swagger-models-jakarta-2.2.21.jar;D:\Maven\apache-maven-3.9.6\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-yaml\2.15.4\jackson-dataformat-yaml-2.15.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\webjars\swagger-ui\5.13.0\swagger-ui-5.13.0.jar;D:\Maven\apache-maven-3.9.6\repository\cn\hutool\hutool-all\5.8.28\hutool-all-5.8.28.jar;D:\Maven\apache-maven-3.9.6\repository\org\projectlombok\lombok\1.18.32\lombok-1.18.32.jar;D:\Maven\apache-maven-3.9.6\repository\com\mysql\mysql-connector-j\8.3.0\mysql-connector-j-8.3.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-starter-test\3.2.5\spring-boot-starter-test-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-test\3.2.5\spring-boot-test-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.2.5\spring-boot-test-autoconfigure-3.2.5.jar;D:\Maven\apache-maven-3.9.6\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;D:\Maven\apache-maven-3.9.6\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;D:\Maven\apache-maven-3.9.6\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;D:\Maven\apache-maven-3.9.6\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\awaitility\awaitility\4.2.1\awaitility-4.2.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;D:\Maven\apache-maven-3.9.6\repository\org\mockito\mockito-core\5.7.0\mockito-core-5.7.0.jar;D:\Maven\apache-maven-3.9.6\repository\net\bytebuddy\byte-buddy-agent\1.14.13\byte-buddy-agent-1.14.13.jar;D:\Maven\apache-maven-3.9.6\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;D:\Maven\apache-maven-3.9.6\repository\org\mockito\mockito-junit-jupiter\5.7.0\mockito-junit-jupiter-5.7.0.jar;D:\Maven\apache-maven-3.9.6\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;D:\Maven\apache-maven-3.9.6\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-core\6.1.6\spring-core-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-jcl\6.1.6\spring-jcl-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\spring-test\6.1.6\spring-test-6.1.6.jar;D:\Maven\apache-maven-3.9.6\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\security\spring-security-test\6.2.4\spring-security-test-6.2.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\security\spring-security-core\6.2.4\spring-security-core-6.2.4.jar;D:\Maven\apache-maven-3.9.6\repository\org\springframework\security\spring-security-crypto\6.2.4\spring-security-crypto-6.2.4.jar;D:\Maven\apache-maven-3.9.6\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -34,7 +34,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="FILE_LOG_CHARSET" value="GBK"/>
     <property name="java.awt.headless" value="true"/>
-    <property name="surefire.real.class.path" value="C:\Users\Administrator\AppData\Local\Temp\surefire13444220214438727916\surefirebooter-20260629131333368_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Administrator\AppData\Local\Temp\surefire12816692176461943148\surefirebooter-20260629133648307_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.18+8-LTS"/>
@@ -53,7 +53,7 @@
     <property name="user.dir" value="E:\file-upgrade\qiwen-file"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="7300"/>
+    <property name="PID" value="6500"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="CONSOLE_LOG_CHARSET" value="GBK"/>
     <property name="native.encoding" value="GBK"/>
@@ -66,157 +66,157 @@
     <property name="java.class.version" value="61.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[qiwen-file] "/>
   </properties>
-  <testcase name="testAdminAccessGranted" classname="com.qiwenshare.file.UserRoleTest" time="0.567">
-    <system-out><![CDATA[2026-06-29T13:14:42.450+08:00  INFO 7300 --- [qiwen-file] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.qiwenshare.file.UserRoleTest]: UserRoleTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-06-29T13:14:42.469+08:00  INFO 7300 --- [qiwen-file] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.qiwenshare.file.FileApplication for test class com.qiwenshare.file.UserRoleTest
+  <testcase name="testAdminAccessGranted" classname="com.qiwenshare.file.UserRoleTest" time="0.374">
+    <system-out><![CDATA[2026-06-29T13:37:58.441+08:00  INFO 6500 --- [qiwen-file] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.qiwenshare.file.UserRoleTest]: UserRoleTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-29T13:37:58.454+08:00  INFO 6500 --- [qiwen-file] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.qiwenshare.file.FileApplication for test class com.qiwenshare.file.UserRoleTest
 Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@24a1ccb]
-JDBC Connection [HikariProxyConnection@1495226693 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2b16efeb]
+JDBC Connection [HikariProxyConnection@1134633052 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: SELECT COUNT(*) AS total FROM qiwen_user
 ==> Parameters: 
 <==    Columns: TOTAL
 <==        Row: 0
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@24a1ccb]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@24a1ccb]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@24a1ccb]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2b16efeb]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2b16efeb]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2b16efeb]
 ]]></system-out>
   </testcase>
-  <testcase name="testUpdateRole" classname="com.qiwenshare.file.UserRoleTest" time="0.266">
+  <testcase name="testUpdateRole" classname="com.qiwenshare.file.UserRoleTest" time="0.253">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795]
-JDBC Connection [HikariProxyConnection@1416657656 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b]
+JDBC Connection [HikariProxyConnection@840412214 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE (username = ?)
 ==> Parameters: roleuser3(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b] from current transaction
 ==>  Preparing: INSERT INTO qiwen_user ( id, username, password, email, nickname, status, role, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071462342847963136(String), roleuser3(String), $2a$10$VOHSDdOH8oMJaLnxoFqI7OvOtfiDysUsGWR/x0.H9fPeZiWI5Xo1G(String), role3@test.com(String), roleuser3(String), 1(Integer), USER(String), 2026-06-29T13:14:43.294568500(LocalDateTime), 2026-06-29T13:14:43.294568500(LocalDateTime)
+==> Parameters: 2071468197127475200(String), roleuser3(String), $2a$10$pYWJwlTT6b9a4VLoTYIcvuREQ6CpCLASMAIHtgdoK6dB49QrkKStu(String), role3@test.com(String), roleuser3(String), 1(Integer), USER(String), 2026-06-29T13:37:59.079016(LocalDateTime), 2026-06-29T13:37:59.079016(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b] from current transaction
 ==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE (username = ?)
 ==> Parameters: roleuser3(String)
 <==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, STATUS, ROLE, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071462342847963136, roleuser3, $2a$10$VOHSDdOH8oMJaLnxoFqI7OvOtfiDysUsGWR/x0.H9fPeZiWI5Xo1G, role3@test.com, null, roleuser3, null, 1, USER, 2026-06-29 13:14:43.294569, 2026-06-29 13:14:43.294569
+<==        Row: 2071468197127475200, roleuser3, $2a$10$pYWJwlTT6b9a4VLoTYIcvuREQ6CpCLASMAIHtgdoK6dB49QrkKStu, role3@test.com, null, roleuser3, null, 1, USER, 2026-06-29 13:37:59.079016, 2026-06-29 13:37:59.079016
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b] from current transaction
 ==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE id=?
-==> Parameters: 2071462342847963136(String)
+==> Parameters: 2071468197127475200(String)
 <==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, STATUS, ROLE, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071462342847963136, roleuser3, $2a$10$VOHSDdOH8oMJaLnxoFqI7OvOtfiDysUsGWR/x0.H9fPeZiWI5Xo1G, role3@test.com, null, roleuser3, null, 1, USER, 2026-06-29 13:14:43.294569, 2026-06-29 13:14:43.294569
+<==        Row: 2071468197127475200, roleuser3, $2a$10$pYWJwlTT6b9a4VLoTYIcvuREQ6CpCLASMAIHtgdoK6dB49QrkKStu, role3@test.com, null, roleuser3, null, 1, USER, 2026-06-29 13:37:59.079016, 2026-06-29 13:37:59.079016
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b] from current transaction
 ==>  Preparing: UPDATE qiwen_user SET username=?, password=?, email=?, nickname=?, status=?, role=?, create_time=?, update_time=? WHERE id=?
-==> Parameters: roleuser3(String), $2a$10$VOHSDdOH8oMJaLnxoFqI7OvOtfiDysUsGWR/x0.H9fPeZiWI5Xo1G(String), role3@test.com(String), roleuser3(String), 1(Integer), ADMIN(String), 2026-06-29T13:14:43.294569(LocalDateTime), 2026-06-29T13:14:43.301548300(LocalDateTime), 2071462342847963136(String)
+==> Parameters: roleuser3(String), $2a$10$pYWJwlTT6b9a4VLoTYIcvuREQ6CpCLASMAIHtgdoK6dB49QrkKStu(String), role3@test.com(String), roleuser3(String), 1(Integer), ADMIN(String), 2026-06-29T13:37:59.079016(LocalDateTime), 2026-06-29T13:37:59.088987400(LocalDateTime), 2071468197127475200(String)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b] from current transaction
 ==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE id=?
-==> Parameters: 2071462342847963136(String)
+==> Parameters: 2071468197127475200(String)
 <==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, STATUS, ROLE, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071462342847963136, roleuser3, $2a$10$VOHSDdOH8oMJaLnxoFqI7OvOtfiDysUsGWR/x0.H9fPeZiWI5Xo1G, role3@test.com, null, roleuser3, null, 1, ADMIN, 2026-06-29 13:14:43.294569, 2026-06-29 13:14:43.301548
+<==        Row: 2071468197127475200, roleuser3, $2a$10$pYWJwlTT6b9a4VLoTYIcvuREQ6CpCLASMAIHtgdoK6dB49QrkKStu, role3@test.com, null, roleuser3, null, 1, ADMIN, 2026-06-29 13:37:59.079016, 2026-06-29 13:37:59.088987
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795] from current transaction
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b] from current transaction
 ==>  Preparing: UPDATE qiwen_user SET username=?, password=?, email=?, nickname=?, status=?, role=?, create_time=?, update_time=? WHERE id=?
-==> Parameters: roleuser3(String), $2a$10$VOHSDdOH8oMJaLnxoFqI7OvOtfiDysUsGWR/x0.H9fPeZiWI5Xo1G(String), role3@test.com(String), roleuser3(String), 1(Integer), USER(String), 2026-06-29T13:14:43.294569(LocalDateTime), 2026-06-29T13:14:43.306534300(LocalDateTime), 2071462342847963136(String)
+==> Parameters: roleuser3(String), $2a$10$pYWJwlTT6b9a4VLoTYIcvuREQ6CpCLASMAIHtgdoK6dB49QrkKStu(String), role3@test.com(String), roleuser3(String), 1(Integer), USER(String), 2026-06-29T13:37:59.079016(LocalDateTime), 2026-06-29T13:37:59.103947900(LocalDateTime), 2071468197127475200(String)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b] from current transaction
 ==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE id=?
-==> Parameters: 2071462342847963136(String)
+==> Parameters: 2071468197127475200(String)
 <==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, STATUS, ROLE, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071462342847963136, roleuser3, $2a$10$VOHSDdOH8oMJaLnxoFqI7OvOtfiDysUsGWR/x0.H9fPeZiWI5Xo1G, role3@test.com, null, roleuser3, null, 1, USER, 2026-06-29 13:14:43.294569, 2026-06-29 13:14:43.306534
+<==        Row: 2071468197127475200, roleuser3, $2a$10$pYWJwlTT6b9a4VLoTYIcvuREQ6CpCLASMAIHtgdoK6dB49QrkKStu, role3@test.com, null, roleuser3, null, 1, USER, 2026-06-29 13:37:59.079016, 2026-06-29 13:37:59.103948
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79863795]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50a80d6b]
 ]]></system-out>
   </testcase>
-  <testcase name="testDefaultRoleIsUser" classname="com.qiwenshare.file.UserRoleTest" time="0.265">
+  <testcase name="testDefaultRoleIsUser" classname="com.qiwenshare.file.UserRoleTest" time="0.162">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d6a32d4]
-JDBC Connection [HikariProxyConnection@204961345 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f28f20]
+JDBC Connection [HikariProxyConnection@1936782171 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE (username = ?)
 ==> Parameters: roleuser1(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d6a32d4]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d6a32d4] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f28f20]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f28f20] from current transaction
 ==>  Preparing: INSERT INTO qiwen_user ( id, username, password, email, nickname, status, role, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071462343800070144(String), roleuser1(String), $2a$10$Q4zZ7McXALS9g8ovhDLAF.LqmF4tQyF0hwgLJ3ecINTWUfklrx0Ue(String), role1@test.com(String), roleuser1(String), 1(Integer), USER(String), 2026-06-29T13:14:43.577808700(LocalDateTime), 2026-06-29T13:14:43.577808700(LocalDateTime)
+==> Parameters: 2071468198226382848(String), roleuser1(String), $2a$10$rIzz8UOhJ7CnkrbJZbtsou9Tkdb3XrhBeQiPcjxOvsZ0.0sdfjdhi(String), role1@test.com(String), roleuser1(String), 1(Integer), USER(String), 2026-06-29T13:37:59.271498800(LocalDateTime), 2026-06-29T13:37:59.271498800(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d6a32d4]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d6a32d4] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f28f20]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f28f20] from current transaction
 ==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE (username = ?)
 ==> Parameters: roleuser1(String)
 <==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, STATUS, ROLE, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071462343800070144, roleuser1, $2a$10$Q4zZ7McXALS9g8ovhDLAF.LqmF4tQyF0hwgLJ3ecINTWUfklrx0Ue, role1@test.com, null, roleuser1, null, 1, USER, 2026-06-29 13:14:43.577809, 2026-06-29 13:14:43.577809
+<==        Row: 2071468198226382848, roleuser1, $2a$10$rIzz8UOhJ7CnkrbJZbtsou9Tkdb3XrhBeQiPcjxOvsZ0.0sdfjdhi, role1@test.com, null, roleuser1, null, 1, USER, 2026-06-29 13:37:59.271499, 2026-06-29 13:37:59.271499
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d6a32d4]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d6a32d4]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d6a32d4]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f28f20]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f28f20]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f28f20]
 ]]></system-out>
   </testcase>
-  <testcase name="testUserAccessDenied" classname="com.qiwenshare.file.UserRoleTest" time="0.031"/>
-  <testcase name="testUpdateInvalidRole" classname="com.qiwenshare.file.UserRoleTest" time="0.331">
+  <testcase name="testUserAccessDenied" classname="com.qiwenshare.file.UserRoleTest" time="0.015"/>
+  <testcase name="testUpdateInvalidRole" classname="com.qiwenshare.file.UserRoleTest" time="0.249">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49702efb]
-JDBC Connection [HikariProxyConnection@1775896575 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d5d552d]
+JDBC Connection [HikariProxyConnection@1068981284 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE (username = ?)
 ==> Parameters: roleuser4(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49702efb]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49702efb] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d5d552d]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d5d552d] from current transaction
 ==>  Preparing: INSERT INTO qiwen_user ( id, username, password, email, nickname, status, role, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071462345066749952(String), roleuser4(String), $2a$10$A9okwRhef7osTg1OFQziv./rYHPZoyuweKxw95Gh6YxSqMJMTzGI6(String), role4@test.com(String), roleuser4(String), 1(Integer), USER(String), 2026-06-29T13:14:43.938844(LocalDateTime), 2026-06-29T13:14:43.938844(LocalDateTime)
+==> Parameters: 2071468198951997440(String), roleuser4(String), $2a$10$/7Ze9pIwEYd.q3XwUwnDPuzJjktD.UgWHjhuJFebKtCrP2IhEfZmu(String), role4@test.com(String), roleuser4(String), 1(Integer), USER(String), 2026-06-29T13:37:59.523824900(LocalDateTime), 2026-06-29T13:37:59.524822(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49702efb]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49702efb] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d5d552d]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d5d552d] from current transaction
 ==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE (username = ?)
 ==> Parameters: roleuser4(String)
 <==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, STATUS, ROLE, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071462345066749952, roleuser4, $2a$10$A9okwRhef7osTg1OFQziv./rYHPZoyuweKxw95Gh6YxSqMJMTzGI6, role4@test.com, null, roleuser4, null, 1, USER, 2026-06-29 13:14:43.938844, 2026-06-29 13:14:43.938844
+<==        Row: 2071468198951997440, roleuser4, $2a$10$/7Ze9pIwEYd.q3XwUwnDPuzJjktD.UgWHjhuJFebKtCrP2IhEfZmu, role4@test.com, null, roleuser4, null, 1, USER, 2026-06-29 13:37:59.523825, 2026-06-29 13:37:59.524822
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49702efb]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49702efb] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d5d552d]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d5d552d] from current transaction
 ==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE id=?
-==> Parameters: 2071462345066749952(String)
+==> Parameters: 2071468198951997440(String)
 <==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, STATUS, ROLE, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071462345066749952, roleuser4, $2a$10$A9okwRhef7osTg1OFQziv./rYHPZoyuweKxw95Gh6YxSqMJMTzGI6, role4@test.com, null, roleuser4, null, 1, USER, 2026-06-29 13:14:43.938844, 2026-06-29 13:14:43.938844
+<==        Row: 2071468198951997440, roleuser4, $2a$10$/7Ze9pIwEYd.q3XwUwnDPuzJjktD.UgWHjhuJFebKtCrP2IhEfZmu, role4@test.com, null, roleuser4, null, 1, USER, 2026-06-29 13:37:59.523825, 2026-06-29 13:37:59.524822
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49702efb]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49702efb]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49702efb]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d5d552d]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d5d552d]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d5d552d]
 ]]></system-out>
   </testcase>
-  <testcase name="testLoginTokenHasRole" classname="com.qiwenshare.file.UserRoleTest" time="0.776">
+  <testcase name="testLoginTokenHasRole" classname="com.qiwenshare.file.UserRoleTest" time="0.681">
     <system-out><![CDATA[Creating a new SqlSession
-Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c7ba702]
-JDBC Connection [HikariProxyConnection@118400814 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@127b9bed]
+JDBC Connection [HikariProxyConnection@873799261 wrapping conn0: url=jdbc:h2:mem:qiwen_file_test user=SA] will be managed by Spring
 ==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE (username = ?)
 ==> Parameters: roleuser2(String)
 <==      Total: 0
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c7ba702]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c7ba702] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@127b9bed]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@127b9bed] from current transaction
 ==>  Preparing: INSERT INTO qiwen_user ( id, username, password, email, nickname, status, role, create_time, update_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
-==> Parameters: 2071462346459258880(String), roleuser2(String), $2a$10$C12..8wCZbG.I.6yXI/MaeWkCW0mLCB45rNkAVI6rGfYSY26eQRH6(String), role2@test.com(String), roleuser2(String), 1(Integer), USER(String), 2026-06-29T13:14:44.100411100(LocalDateTime), 2026-06-29T13:14:44.100411100(LocalDateTime)
+==> Parameters: 2071468200000573440(String), roleuser2(String), $2a$10$Q8ywy2AgD5RPHuQC/xrK1uPiwZoR0jyXBO6SWoBtb3VWN43E9wEka(String), role2@test.com(String), roleuser2(String), 1(Integer), USER(String), 2026-06-29T13:37:59.699355700(LocalDateTime), 2026-06-29T13:37:59.699355700(LocalDateTime)
 <==    Updates: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c7ba702]
-Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c7ba702] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@127b9bed]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@127b9bed] from current transaction
 ==>  Preparing: SELECT id,username,password,email,phone,nickname,avatar,status,role,create_time,update_time FROM qiwen_user WHERE (username = ?)
 ==> Parameters: roleuser2(String)
 <==    Columns: ID, USERNAME, PASSWORD, EMAIL, PHONE, NICKNAME, AVATAR, STATUS, ROLE, CREATE_TIME, UPDATE_TIME
-<==        Row: 2071462346459258880, roleuser2, $2a$10$C12..8wCZbG.I.6yXI/MaeWkCW0mLCB45rNkAVI6rGfYSY26eQRH6, role2@test.com, null, roleuser2, null, 1, USER, 2026-06-29 13:14:44.100411, 2026-06-29 13:14:44.100411
+<==        Row: 2071468200000573440, roleuser2, $2a$10$Q8ywy2AgD5RPHuQC/xrK1uPiwZoR0jyXBO6SWoBtb3VWN43E9wEka, role2@test.com, null, roleuser2, null, 1, USER, 2026-06-29 13:37:59.699356, 2026-06-29 13:37:59.699356
 <==      Total: 1
-Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c7ba702]
-Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c7ba702]
-Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c7ba702]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@127b9bed]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@127b9bed]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@127b9bed]
 ]]></system-out>
   </testcase>
 </testsuite>

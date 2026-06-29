@@ -7,3 +7,4 @@ com\qiwenshare\file\RbacTest.class
 com\qiwenshare\file\UserServiceTest.class
 com\qiwenshare\file\FileServiceTest.class
 com\qiwenshare\file\FileRecycleTest.class
+com\qiwenshare\file\UfopRemoteTest.class

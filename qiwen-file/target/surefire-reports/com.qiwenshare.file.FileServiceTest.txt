@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.qiwenshare.file.FileServiceTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 12.19 s -- in com.qiwenshare.file.FileServiceTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 9.842 s -- in com.qiwenshare.file.FileServiceTest
