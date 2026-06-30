@@ -1,8 +1,0 @@
-- [ ] 创建 `.github/workflows/cd.yml` 流水线文件
-- [ ] 配置 `build-backend` job：Docker 构建后端镜像
-- [ ] 配置 `build-frontend` job：Docker 构建前端镜像
-- [ ] 配置 `push-images` job：标记镜像 → 登录私有仓库 → 推送
-- [ ] 配置 `deploy` job：SSH 连接 → scp compose → docker compose up
-- [ ] 配置 `workflow_dispatch` 手动触发和 skip_deploy 参数
-- [ ] 验证 YAML 语法正确
-- [ ] 编写 Secrets 配置说明文档
