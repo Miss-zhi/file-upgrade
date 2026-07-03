@@ -1,0 +1,125 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: qiwenshare-backend
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/qiwenshare?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: root123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 5000ms
+
+  elasticsearch:
+    uris: http://localhost:9200
+    username:
+    password:
+    connection-timeout: 5s
+    socket-timeout: 30s
+
+search:
+  index-name: filesearch
+  default-page-size: 20
+
+jwt:
+  secret: dGhpcy1pcy1hLXZlcnktbG9uZy1zZWNyZXQta2V5LWZvci1qd3QtdG9rZW4tc2lnbmluZy0yNTYtYml0
+  access-token-ttl: 900
+  refresh-token-ttl: 604800
+  clock-skew-seconds: 30
+
+auth:
+  login-fail-max: 5
+  lock-duration-minutes: 15
+
+storage:
+  # 存储后端类型：local / minio / aliyun / qiniu / fastdfs
+  type: local
+  local:
+    base-path: ./data/files
+  # MinIO 配置（storage.type=minio 时激活）
+  # minio:
+  #   endpoint: http://localhost:9000
+  #   access-key: minioadmin
+  #   secret-key: minioadmin
+  #   bucket: qiwenshare
+  #   presigned-url-expiry: 3600  # 预签名 URL 过期时间（秒）
+  # Aliyun OSS 配置（storage.type=aliyun 时激活）
+  # aliyun:
+  #   endpoint: oss-cn-hangzhou.aliyuncs.com
+  #   access-key-id: your-access-key-id
+  #   access-key-secret: your-access-key-secret
+  #   bucket: qiwenshare
+  # Qiniu 配置（storage.type=qiniu 时激活）
+  # qiniu:
+  #   access-key: your-access-key
+  #   secret-key: your-secret-key
+  #   bucket: qiwenshare
+  #   domain: https://cdn.example.com
+  #   expire-seconds: 3600  # 上传/下载 token 过期时间（秒）
+  # FastDFS 配置（storage.type=fastdfs 时激活）
+  # fastdfs:
+  #   tracker-servers: 192.168.1.100:22122,192.168.1.101:22122
+  #   connect-timeout: 5
+  #   group: group1
+
+async:
+  file:
+    core-pool-size: 4
+    max-pool-size: 8
+    queue-capacity: 100
+  search:
+    core-pool-size: 2
+    max-pool-size: 4
+    queue-capacity: 200
+
+onlyoffice:
+  server-url: http://localhost:8090
+  api-url: http://localhost:8090/web-apps/apps/api/documents/api.js
+  converter-url: http://localhost:8090/ConvertService.ashx
+  command-url: http://localhost:8090/CommandService.ashx
+  jwt:
+    secret: ${ONLYOFFICE_JWT_SECRET:your-onlyoffice-jwt-secret-must-be-long-enough-256bits}
+    header: Authorization
+  max-file-size: 52428800
+  ssl-verify: false
+  callback-base-url: http://localhost:8080/api/v1/document/callback
+  # OnlyOffice 容器下载文件时的后端地址（本地存储时构建下载 URL 用）
+  # 必须是 OnlyOffice 容器能访问到的地址，不能写 localhost（容器内 localhost 是它自己）
+  preview-base-url: http://localhost:8080
+  max-version-count: 10
+  document-token-ttl: 14400
+  callback-token-ttl: 1800
+
+logging:
+  level:
+    com.qiwenshare: DEBUG
+    org.springframework.security: DEBUG

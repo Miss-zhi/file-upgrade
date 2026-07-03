@@ -1,0 +1,66 @@
+# ============================================================
+# 开发环境配置 — 所有基础设施运行在远程服务器 Docker 中
+# 激活方式: 设置环境变量 SPRING_PROFILES_ACTIVE=dev
+#          或启动参数 --spring.profiles.active=dev
+# ============================================================
+
+# ---- 服务器地址 ----
+# 只需设置这一个环境变量，所有服务地址自动拼接
+# Windows CMD:   set DEV_SERVER=你的服务器IP
+# PowerShell:    $env:DEV_SERVER="你的服务器IP"
+# IDEA Run Config: Environment variables -> DEV_SERVER=你的服务器IP
+dev:
+  server: ${DEV_SERVER:218.244.155.44}
+
+spring:
+  # ---- MySQL ----
+  datasource:
+    url: jdbc:mysql://${dev.server}:3306/qiwenshare?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+    username: qiwenshare
+    password: qiwenshare123
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 2
+
+  # ---- JPA ----
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  # ---- Redis ----
+  data:
+    redis:
+      host: ${dev.server}
+      port: 6379
+      password: redis123
+
+  # ---- Elasticsearch ----
+  elasticsearch:
+    uris: http://${dev.server}:9200
+
+# ---- OnlyOffice ----
+onlyoffice:
+  server-url: http://${dev.server}:8021
+  api-url: http://${dev.server}:8021/web-apps/apps/api/documents/api.js
+  converter-url: http://${dev.server}:8021/ConvertService.ashx
+  command-url: http://${dev.server}:8021/CommandService.ashx
+  # 这两个 URL 必须是 OnlyOffice 容器能访问到的地址
+  # 本地开发时 Spring Boot 跑在你的 Windows 上，OnlyOffice 在远程服务器
+  # SSH 反向隧道: 服务器 18080 → 本地 8080（已开通）
+  # Docker 容器通过 bridge gateway 172.17.0.1:18080 访问隧道端口
+  callback-base-url: ${OO_CALLBACK_BASE_URL:http://172.17.0.1:18080/api/v1/document/callback}
+  preview-base-url: ${OO_PREVIEW_BASE_URL:http://172.17.0.1:18080}
+
+# ---- CORS ----
+cors:
+  allowed-origins: http://localhost:5173,http://localhost:5174,http://localhost:5175
+
+# ---- 开发日志 ----
+logging:
+  level:
+    com.qiwenshare: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

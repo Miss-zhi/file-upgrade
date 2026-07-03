@@ -1,0 +1,5 @@
+com.qiwenshare.storage.impl.local.LocalStorageAutoConfiguration
+com.qiwenshare.storage.impl.minio.MinioStorageAutoConfiguration
+com.qiwenshare.storage.impl.aliyun.AliyunOssStorageAutoConfiguration
+com.qiwenshare.storage.impl.qiniu.QiniuStorageAutoConfiguration
+com.qiwenshare.storage.impl.fastdfs.FastDfsStorageAutoConfiguration

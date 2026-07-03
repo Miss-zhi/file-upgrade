@@ -1,0 +1,60 @@
+spring:
+  datasource:
+    url: jdbc:tc:mysql:8:///qiwenshare_test
+    username: test
+    password: test
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  elasticsearch:
+    uris: http://localhost:9200
+
+search:
+  index-name: filesearch-test
+  default-page-size: 20
+
+async:
+  search:
+    core-pool-size: 1
+    max-pool-size: 2
+    queue-capacity: 50
+
+jwt:
+  secret: dGVzdC1zZWNyZXQta2V5LWZvci1qdW5pdC10ZXN0aW5nLW11c3QtYmUtbG9uZy1lbm91Z2gtaGVyZQ==
+  access-token-ttl: 900
+  refresh-token-ttl: 604800
+  clock-skew-seconds: 30
+
+auth:
+  login-fail-max: 5
+  lock-duration-minutes: 15
+
+onlyoffice:
+  server-url: http://localhost:8090
+  api-url: http://localhost:8090/web-apps/apps/api/documents/api.js
+  jwt:
+    secret: test-onlyoffice-jwt-secret-must-be-long-enough-for-testing
+    header: Authorization
+  max-file-size: 52428800
+  ssl-verify: false
+  callback-base-url: http://localhost:8080/api/v1/document/callback
+  max-version-count: 10
+  document-token-ttl: 14400
+  callback-token-ttl: 1800
+
+logging:
+  level:
+    com.qiwenshare: DEBUG

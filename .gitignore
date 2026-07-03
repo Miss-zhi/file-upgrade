@@ -1,0 +1,17 @@
+# Docker
+.env
+docker/mysql-init/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Build
+target/
+node_modules/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db

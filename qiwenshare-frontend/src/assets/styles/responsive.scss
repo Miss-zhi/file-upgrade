@@ -1,0 +1,145 @@
+// ============================================================
+// responsive.scss — 响应式断点和移动端样式覆盖
+// 从旧项目 mediaScreenXs.styl 迁移
+// ============================================================
+
+// 移动端布局覆盖（≤768px）
+@media screen and (max-width: $breakpoint-xs) {
+  // Header 高度调整
+  .app-header {
+    height: auto;
+    min-height: $header-height;
+
+    .header-logo {
+      height: 24px;
+      margin: 12px 8px;
+    }
+
+    .header-menu {
+      display: none;
+    }
+  }
+
+  // Sidebar 切换为 absolute 定位
+  .app-aside {
+    position: absolute;
+    z-index: 100;
+    height: 100%;
+  }
+
+  // Dialog 宽度与圆角
+  .el-dialog {
+    width: 80% !important;
+    max-width: 80% !important;
+    border-radius: 8px !important;
+  }
+
+  // 文件列表模式适配
+  .file-list-container {
+    padding: 0 8px;
+  }
+
+  // 上传组件适配
+  .upload-area {
+    width: 100%;
+  }
+
+  // 文件管理主区域间距缩减
+  .file-main {
+    padding: 0 8px;
+  }
+
+  // 工具栏移动端：搜索框缩小
+  .operation-menu {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px 0;
+
+    .search-input {
+      width: 100% !important;
+      order: 10;
+    }
+  }
+
+  // 网格视图移动端：缩小间距
+  .file-grid {
+    justify-content: flex-start;
+
+    .file-grid-item {
+      margin: 0 8px 8px 0;
+    }
+  }
+
+  // 上传面板移动端：全宽
+  .upload-panel {
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  // 右键菜单移动端：底部弹出
+  .context-menu {
+    left: 8px !important;
+    right: 8px;
+    width: auto !important;
+    min-width: 0;
+  }
+
+  // 分享页移动端
+  .share-container {
+    padding: 16px;
+  }
+
+  .share-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .share-actions {
+    flex-direction: column;
+  }
+
+  .extract-code-area {
+    flex-direction: column;
+    gap: 8px;
+
+    .el-input {
+      width: 100% !important;
+    }
+  }
+
+  // 时间线视图移动端
+  .timeline-group {
+    gap: 8px;
+  }
+
+  // 分页移动端
+  .el-pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  // Message/Notification 移动端宽度
+  .el-message {
+    width: 80% !important;
+    max-width: 480px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .el-notification {
+    width: 80% !important;
+    max-width: 480px !important;
+  }
+
+  // DatePicker 移动端宽度
+  .el-picker__popper {
+    min-width: 350px !important;
+  }
+
+  // 时间线图标隐藏
+  .timeline-icon {
+    display: none;
+  }
+}

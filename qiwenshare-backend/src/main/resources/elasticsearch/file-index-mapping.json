@@ -1,0 +1,29 @@
+{
+  "properties": {
+    "userFileId": { "type": "long" },
+    "userId":     { "type": "long" },
+    "fileName":   { "type": "text", "analyzer": "ik_max_word", "search_analyzer": "ik_smart" },
+    "extendName": { "type": "keyword" },
+    "filePath":   { "type": "keyword" },
+    "fileSize":   { "type": "long" },
+    "isDir":      { "type": "integer" },
+    "uploadTime": { "type": "date" },
+    "modifyTime": { "type": "date" }
+  }
+}
+{
+  "mappings": {
+    "properties": {
+      "userFileId": { "type": "long" },
+      "userId":     { "type": "long" },
+      "fileName":   { "type": "text", "analyzer": "ik_max_word", "search_analyzer": "ik_smart" },
+      "extendName": { "type": "keyword" },
+      "filePath":   { "type": "keyword" },
+      "fileSize":   { "type": "long" },
+      "isDir":      { "type": "integer" },
+      "content":    { "type": "text", "analyzer": "ik_max_word", "search_analyzer": "ik_smart" },
+      "uploadTime": { "type": "date" },
+      "modifyTime": { "type": "date" }
+    }
+  }
+}

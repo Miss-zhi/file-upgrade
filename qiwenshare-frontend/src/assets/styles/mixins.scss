@@ -1,0 +1,43 @@
+// ============================================================
+// mixins.scss — 通用 Mixin
+// 从旧项目 mixins.styl 迁移
+// ============================================================
+
+@use 'sass:color';
+
+/// 自定义 WebKit 滚动条样式
+@mixin setScrollbar($width, $trackColor, $thumbColor) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $trackColor;
+    border-radius: $width / 2;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $thumbColor;
+    border-radius: $width / 2;
+
+    &:hover {
+      background: color.adjust($thumbColor, $lightness: -10%);
+    }
+  }
+}
+
+/// 多行文本溢出省略
+@mixin setEllipsis($lines) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @if $lines == 1 {
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
+}

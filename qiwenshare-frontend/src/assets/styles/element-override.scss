@@ -1,0 +1,36 @@
+// ============================================================
+// element-override.scss — Element Plus 样式覆盖与 CSS 变量主题
+// ============================================================
+
+@use 'sass:color';
+
+// Element Plus CSS 变量主题覆盖
+:root {
+  --el-color-primary: #{$primary};
+  --el-color-success: #{$success};
+  --el-color-warning: #{$warning};
+  --el-color-danger: #{$danger};
+  --el-color-info: #{$info};
+  --el-color-primary-light-3: #{color.adjust($primary, $lightness: 15%)};
+  --el-color-primary-light-5: #{color.adjust($primary, $lightness: 25%)};
+  --el-color-primary-light-7: #{color.adjust($primary, $lightness: 35%)};
+  --el-color-primary-light-8: #{color.adjust($primary, $lightness: 40%)};
+  --el-color-primary-light-9: #{$primary-hover};
+  --el-color-primary-dark-2: #{color.adjust($primary, $lightness: -10%)};
+}
+
+// Element Plus 组件样式覆盖
+.el-dialog {
+  margin-top: 9vh !important;
+}
+
+.el-avatar {
+  img {
+    width: 100%;
+  }
+}
+
+.el-input__inner,
+.el-textarea__inner {
+  font-family: inherit;
+}
