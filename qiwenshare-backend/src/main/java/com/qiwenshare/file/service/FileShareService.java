@@ -95,10 +95,14 @@ public class FileShareService {
                 + (userFile.getExtendName() != null && !userFile.getExtendName().isEmpty()
                         ? "." + userFile.getExtendName() : "");
 
+        // 计算是否已过期：无 expireTime 表示永久有效，否则比较当前时间
+        boolean isExpired = shareFile.getExpireTime() != null
+                && shareFile.getExpireTime().isBefore(LocalDateTime.now());
+
         return new ShareInfoVO(
                 shareFile.getShareId(), shareFile.getUserFileId(),
                 shareFile.getShareCode(), shareFile.getExtractCode(),
-                shareFile.getExpireTime(), fullName, fileSize,
+                shareFile.getExpireTime(), isExpired, fullName, fileSize,
                 shareFile.getViewCount(), shareFile.getCreateTime()
         );
     }
@@ -328,10 +332,14 @@ public class FileShareService {
                             ? "." + userFile.getExtendName() : "");
         }
 
+        // 计算是否已过期：无 expireTime 表示永久有效，否则比较当前时间
+        boolean isExpired = shareFile.getExpireTime() != null
+                && shareFile.getExpireTime().isBefore(LocalDateTime.now());
+
         return new ShareInfoVO(
                 shareFile.getShareId(), shareFile.getUserFileId(),
                 shareFile.getShareCode(), shareFile.getExtractCode(),
-                shareFile.getExpireTime(), fullName, fileSize,
+                shareFile.getExpireTime(), isExpired, fullName, fileSize,
                 shareFile.getViewCount(), shareFile.getCreateTime()
         );
     }

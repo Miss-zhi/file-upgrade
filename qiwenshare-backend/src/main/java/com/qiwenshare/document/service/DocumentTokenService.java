@@ -95,7 +95,7 @@ public class DocumentTokenService {
                     .parseSignedClaims(token)
                     .getPayload();
         } catch (Exception e) {
-            log.debug("OnlyOffice JWT 验证失败: {}", e.getMessage());
+            log.warn("OnlyOffice JWT 验证失败: {} - {}", e.getClass().getSimpleName(), e.getMessage());
             return null;
         }
     }

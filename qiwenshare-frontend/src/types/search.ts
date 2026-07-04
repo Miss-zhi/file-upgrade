@@ -4,6 +4,7 @@ export interface SearchResultVO {
   fileName: string
   extendName: string
   filePath: string
+  fileType: number // 0=文件夹，1=文件
   fileSize: number
   uploadTime: string
   modifyTime: string
@@ -30,4 +31,11 @@ export interface SearchResponse {
 export interface SearchHealthVO {
   available: boolean
   status: string
+}
+
+/** OnlyOffice 文档服务健康检查（对应后端 DocumentHealthVO） */
+export interface DocumentHealthVO {
+  status: string // 'UP' | 'DOWN'
+  serverUrl: string
+  error: string | null
 }

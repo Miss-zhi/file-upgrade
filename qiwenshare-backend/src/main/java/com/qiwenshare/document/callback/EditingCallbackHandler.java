@@ -2,6 +2,7 @@ package com.qiwenshare.document.callback;
 
 import com.qiwenshare.document.service.OnlyOfficeCommandClient;
 import lombok.extern.slf4j.Slf4j;
+import java.util.concurrent.CompletableFuture;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -36,13 +37,15 @@ public class EditingCallbackHandler implements CallbackStatusHandler {
             boolean hasDisconnect = body.actions().stream()
                     .anyMatch(action -> action.type() == 0);
             if (hasDisconnect && body.key() != null) {
-                log.info("检测到用户断开，触发 forcesave: userFileId={}, key={}",
+                log.info("检测到用户断开，异步触发 forcesave: userFileId={}, key={}",
                         context.getUserFileId(), body.key());
-                boolean success = commandClient.forcesave(body.key());
-                if (!success) {
-                    log.warn("forcesave 调用失败: userFileId={}, key={}",
-                            context.getUserFileId(), body.key());
-                }
+                CompletableFuture.runAsync(() -> {
+                    boolean success = commandClient.forcesave(body.key());
+                    if (!success) {
+                        log.warn("forcesave 调用失败: userFileId={}, key={}",
+                                context.getUserFileId(), body.key());
+                    }
+                });
             }
         }
     }

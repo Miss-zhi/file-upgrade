@@ -1,4 +1,10 @@
+# ============================================================
+# 生产环境配置 — 所有敏感值通过环境变量注入
+# 激活方式: SPRING_PROFILES_ACTIVE=prod
+# ============================================================
+
 spring:
+  # ---- MySQL ----
   datasource:
     url: ${DB_URL}
     username: ${DB_USERNAME}
@@ -7,20 +13,57 @@ spring:
       maximum-pool-size: 20
       minimum-idle: 10
 
+  # ---- JPA ----
+  jpa:
+    show-sql: false
+
+  # ---- Redis ----
   data:
     redis:
       host: ${REDIS_HOST}
       port: ${REDIS_PORT:6379}
       password: ${REDIS_PASSWORD:}
 
+  # ---- Elasticsearch ----
+  elasticsearch:
+    uris: ${ES_URIS:http://elasticsearch:9200}
+    username: ${ES_USERNAME:}
+    password: ${ES_PASSWORD:}
+
+# ---- JWT ----
 jwt:
   secret: ${JWT_SECRET}
 
+# ---- Auth ----
 auth:
-  cookie-secure: true
-  cookie-same-site: None
+  cookie-secure: ${COOKIE_SECURE:true}
+  cookie-same-site: ${COOKIE_SAME_SITE:None}
 
+# ---- CORS ----
+cors:
+  allowed-origins: ${CORS_ALLOWED_ORIGINS}
+
+# ---- Storage ----
+storage:
+  type: ${STORAGE_TYPE:local}
+  local:
+    base-path: ${STORAGE_LOCAL_PATH:/data/qiwenshare/files}
+
+# ---- OnlyOffice ----
+onlyoffice:
+  server-url: ${OO_SERVER_URL}
+  internal-server-url: ${OO_INTERNAL_SERVER_URL:${OO_SERVER_URL}}
+  api-url: ${OO_API_URL:${OO_SERVER_URL}/web-apps/apps/api/documents/api.js}
+  converter-url: ${OO_CONVERTER_URL:${OO_SERVER_URL}/ConvertService.ashx}
+  command-url: ${OO_COMMAND_URL:${OO_SERVER_URL}/coauthoring/CommandService.ashx}
+  callback-base-url: ${OO_CALLBACK_BASE_URL}
+  preview-base-url: ${OO_PREVIEW_BASE_URL}
+  jwt:
+    secret: ${ONLYOFFICE_JWT_SECRET}
+
+# ---- 生产日志 ----
 logging:
   level:
     com.qiwenshare: INFO
     org.springframework.security: WARN
+    org.hibernate.SQL: WARN

@@ -110,7 +110,11 @@ onMounted(fetchShareInfo)
         <h2 class="share-title">{{ shareInfo.fileName }}</h2>
         <div class="share-meta">
           <span>大小：{{ formatFileSize(shareInfo.fileSize) }}</span>
-          <span v-if="shareInfo.expireTime">有效期至：{{ shareInfo.expireTime }}</span>
+          <span v-if="shareInfo.expireTime">
+            有效期至：{{ shareInfo.expireTime }}
+            <el-tag v-if="shareInfo.isExpired" type="danger" size="small" style="margin-left: 8px">已过期</el-tag>
+            <el-tag v-else type="success" size="small" style="margin-left: 8px">有效</el-tag>
+          </span>
           <span v-else>永久有效</span>
           <span>浏览：{{ shareInfo.viewCount }} 次</span>
         </div>

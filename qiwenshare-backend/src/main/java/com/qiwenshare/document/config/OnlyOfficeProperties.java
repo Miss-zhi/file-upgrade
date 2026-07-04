@@ -66,8 +66,8 @@ public class OnlyOfficeProperties {
     /** 文档 token 有效期（秒），默认 4 小时 */
     private long documentTokenTtl = 4 * 3600L;
 
-    /** 回调 token 有效期（秒），默认 30 分钟 */
-    private long callbackTokenTtl = 30 * 60L;
+    /** 回调 token 有效期（秒），默认 8 小时（编辑会话可能持续数小时） */
+    private long callbackTokenTtl = 8 * 3600L;
 
     @PostConstruct
     public void validate() {

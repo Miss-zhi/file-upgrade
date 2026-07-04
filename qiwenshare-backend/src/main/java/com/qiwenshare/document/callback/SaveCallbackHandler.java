@@ -28,7 +28,8 @@ public class SaveCallbackHandler implements CallbackStatusHandler {
     public void handle(CallbackContext context) {
         String downloadUrl = context.getBody().url();
         if (downloadUrl == null || downloadUrl.isBlank()) {
-            log.warn("保存回调缺少 url: userFileId={}", context.getUserFileId());
+            log.warn("保存回调缺少下载 URL: userFileId={}, key={}",
+                    context.getUserFileId(), context.getBody().key());
             context.markError();
             return;
         }

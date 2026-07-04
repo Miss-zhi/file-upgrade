@@ -44,17 +44,47 @@ onMounted(async () => {
     await nextTick()
 
     if ((window as any).DocsAPI && editorContainer.value) {
-      docEditor = new (window as any).DocsAPI.DocEditor('editor-container', {
-        ...config,
-        width: '100%',
-        height: '100%',
-      })
+      try {
+        docEditor = new (window as any).DocsAPI.DocEditor('editor-container', stripNulls({
+          ...config,
+          width: '100%',
+          height: '100%',
+        }))
+      } catch (err) {
+        console.error('[OfficePreview] DocEditor 创建失败:', err)
+        error.value = '文档编辑器初始化失败'
+      }
+    } else {
+      if (!(window as any).DocsAPI) {
+        console.error('[OfficePreview] DocsAPI 未定义')
+        error.value = 'OnlyOffice API 加载异常'
+      }
     }
   } catch (e: any) {
     error.value = e?.message || '加载文档预览失败'
     loading.value = false
   }
 })
+
+/**
+ * 递归移除对象中的 null 值。
+ *
+ * OnlyOffice DocsAPI 内部的 extend() 做递归深合并时，
+ * 遇到 null 会因 typeof null === 'object' 而崩溃，
+ * 因此传给 DocEditor 之前必须剔除所有 null 字段。
+ */
+function stripNulls(obj: Record<string, any>): Record<string, any> {
+  const result: Record<string, any> = {}
+  for (const [key, value] of Object.entries(obj)) {
+    if (value === null || value === undefined) continue
+    if (typeof value === 'object' && !Array.isArray(value)) {
+      result[key] = stripNulls(value)
+    } else {
+      result[key] = value
+    }
+  }
+  return result
+}
 
 function loadScript(url: string): Promise<void> {
   return new Promise((resolve, reject) => {
@@ -76,7 +106,7 @@ function loadScript(url: string): Promise<void> {
     <div v-else-if="error" class="error-state">
       <el-result icon="error" :title="error" />
     </div>
-    <div v-else id="editor-container" class="editor-container" />
+    <div v-else id="editor-container" ref="editorContainer" class="editor-container" />
   </div>
 </template>
 

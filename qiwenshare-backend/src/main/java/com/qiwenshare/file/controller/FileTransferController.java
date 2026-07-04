@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,6 +30,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/filetransfer")
 @RequiredArgsConstructor
+@Slf4j
 public class FileTransferController {
 
     private final FileUploadService fileUploadService;
@@ -56,9 +58,12 @@ public class FileTransferController {
     /**
      * 秒传。
      *
+     * <p>任何失败（未命中 hash、同名冲突、配额不足）都降级为普通上传回退信号，
+     * 不再向上传抛出异常，避免阻断前端上传流程。</p>
+     *
      * @param dto            秒传请求体
      * @param authentication 当前认证信息
-     * @return 上传结果
+     * @return 上传结果（data 为 null 表示秒传未成功，前端应走普通上传）
      */
     @PostMapping("/upload/speed")
     public RestResult<UploadFileVO> speedUpload(
@@ -67,13 +72,13 @@ public class FileTransferController {
         Long userId = Long.parseLong(authentication.getName());
         try {
             UploadFileVO result = fileUploadService.speedUpload(dto, userId);
+            if (result == null) {
+                return RestResult.success("秒传未命中，请走普通上传", null);
+            }
             return RestResult.success(result);
         } catch (FileModuleException e) {
-            if (e.getErrorCode() == FileErrorCode.FILE_NOT_FOUND) {
-                // 秒传失败，需要普通上传
-                return RestResult.success("需要普通上传", null);
-            }
-            throw e;
+            log.info("秒传降级为普通上传: code={}, msg={}", e.getErrorCode(), e.getMessage());
+            return RestResult.success("秒传失败，请走普通上传", null);
         }
     }
 

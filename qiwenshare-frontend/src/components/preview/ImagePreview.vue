@@ -83,7 +83,7 @@ const mainAreaStyle = computed(() => ({
           <span class="total-text">/ {{ total }}</span>
         </div>
         <div class="tip-right">
-          <el-tooltip effect="dark" placement="bottom">
+          <el-tooltip effect="dark" placement="bottom" popper-style="z-index: 10000">
             <template #content>
               <div style="line-height: 1.8">
                 1. 点击图片以外的区域可退出预览<br />

@@ -160,6 +160,11 @@ public class FileDownloadService {
                 + (userFile.getExtendName() != null && !userFile.getExtendName().isEmpty()
                         ? "." + userFile.getExtendName() : "");
 
+        // OnlyOffice Document Server 会缓存已下载的文件，加 no-cache 头确保每次取最新内容
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        response.setHeader("Pragma", "no-cache");
+        response.setHeader("Expires", "0");
+
         handleFullDownload(response, storagePath, fileSize, fullFileName);
     }
 

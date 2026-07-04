@@ -14,6 +14,9 @@ public enum DocumentErrorCode {
     /** 无权限访问文档 */
     DOC_ACCESS_DENIED(403, "无权访问该文档"),
 
+    /** 文件记录不存在或无关联文件（如文件夹） */
+    DOC_FILE_NOT_FOUND(404, "文件不存在或不可预览"),
+
     /** 文件大小超过 OnlyOffice 限制 */
     DOC_FILE_TOO_LARGE(413, "文件大小超过文档服务限制"),
 

@@ -214,8 +214,9 @@ export function useUploadManager() {
 
   /**
    * 批量上传多个文件。
+   * @param onAllComplete 所有文件上传完成后的回调（无论成功失败）
    */
-  async function uploadFiles(files: File[], filePath: string): Promise<void> {
+  async function uploadFiles(files: File[], filePath: string, onAllComplete?: () => void): Promise<void> {
     uploading.value = true
     try {
       // 并发控制上传
@@ -225,6 +226,7 @@ export function useUploadManager() {
       })
     } finally {
       uploading.value = false
+      onAllComplete?.()
     }
   }
 

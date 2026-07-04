@@ -58,7 +58,7 @@ export function useSearch() {
       userFileId: item.userFileId,
       fileName: item.fileName,
       filePath: item.filePath,
-      fileType: 1, // 搜索结果均为文件
+      fileType: item.fileType, // 使用后端返回的 fileType（0=文件夹，1=文件）
       fileSize: item.fileSize,
       extendName: item.extendName,
       uploadTime: item.uploadTime,
@@ -92,7 +92,7 @@ export function useSearch() {
       const res = await searchFiles({
         keyword: trimmed,
         page: 0,
-        size: pageSize.value,
+        size: fileListStore.pageSize,
         sortBy: sortBy.value || undefined,
         sortOrder: sortOrder.value || undefined,
       })
@@ -136,7 +136,7 @@ export function useSearch() {
       const res = await searchFiles({
         keyword: keyword.value,
         page,
-        size: pageSize.value,
+        size: fileListStore.pageSize,
         sortBy: sortBy.value || undefined,
         sortOrder: sortOrder.value || undefined,
       })
@@ -176,7 +176,7 @@ export function useSearch() {
       const res = await searchFiles({
         keyword: keyword.value,
         page: 0,
-        size: pageSize.value,
+        size: fileListStore.pageSize,
         sortBy: prop,
         sortOrder: SORT_ORDER_MAP[order] || order,
       })

@@ -17,6 +17,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.util.HexFormat;
 
 /**
  * 文档编辑服务。
@@ -85,13 +88,16 @@ public class DocumentEditService {
 
         String extension = userFile.getExtendName() != null ? userFile.getExtendName().toLowerCase() : "";
 
-        // 检查格式是否可编辑
+        // 检查格式是否可直接编辑（仅 OOXML 等 OnlyOffice 原生可保存的格式）
         boolean isEditable = onlyOfficeProperties.getEditedExtensions().contains(extension);
-        boolean isConvertible = onlyOfficeProperties.getConvertExtensions().contains(extension);
 
-        if (!isEditable && !isConvertible) {
-            // 不可编辑也不可转换，降级为预览
-            log.info("文件格式不支持编辑，降级为预览: userFileId={}, extension={}", userFileId, extension);
+        if (!isEditable) {
+            // 非直接可编辑格式（如 .doc, .xls, .ppt, .rtf, .odt 等旧/转换格式），
+            // 降级为预览模式。OnlyOffice 6.x 无法原生保存旧 Office 二进制格式，
+            // 强制 edit 模式会导致 status=2 保存回调永不发送（"文件无法保存"）。
+            // 与旧项目 DefaultEditorConfigConfigurer 行为一致。
+            log.info("文件格式不在可编辑列表 {} 中，降级为预览: userFileId={}, extension={}",
+                    onlyOfficeProperties.getEditedExtensions(), userFileId, extension);
             PreviewConfigVO previewConfig = documentPreviewService.buildPreviewConfig(userFileId, userId);
             EditConfigVO editConfig = new EditConfigVO();
             editConfig.setDocserviceApiUrl(previewConfig.getDocserviceApiUrl());
@@ -114,7 +120,7 @@ public class DocumentEditService {
             cowApplied = true;
         }
 
-        // 构建编辑配置
+        // 构建编辑配置（仅 editable 格式到达此处，mode 固定为 "edit"）
         PreviewConfigVO previewConfig = documentPreviewService.buildConfig(userFile, fileBean, "edit", userId);
 
         EditConfigVO editConfig = new EditConfigVO();
@@ -156,9 +162,24 @@ public class DocumentEditService {
         // 创建新 FileBean（不在此处 save，由 saveCowCopy 事务内 save）
         FileBean copy = new FileBean();
         copy.setFileSize(original.getFileSize());
-        copy.setFileHash(original.getFileHash());
+        // COW 副本是独立物理文件，hash 必须唯一（避免 uk_file_hash_size 约束冲突）
+        // 用新路径的 SHA-256 作为占位 hash，后续 OnlyOffice callback 保存时会更新为实际内容 hash
+        copy.setFileHash(computeCowHash(newPath));
         copy.setStorageType(original.getStorageType());
         copy.setStoragePath(newPath);
         return copy;
+    }
+
+    /**
+     * 为 COW 副本计算唯一 hash（基于存储路径的 SHA-256）。
+     */
+    private String computeCowHash(String storagePath) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(("cow:" + storagePath).getBytes(StandardCharsets.UTF_8));
+            return HexFormat.of().formatHex(hash);
+        } catch (Exception e) {
+            throw new IllegalStateException("SHA-256 计算失败", e);
+        }
     }
 }

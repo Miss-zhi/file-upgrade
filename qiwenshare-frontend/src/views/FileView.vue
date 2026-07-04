@@ -16,7 +16,7 @@ import { useVideoPreview } from '@/composables/useVideoPreview'
 import { useAudioPreview } from '@/composables/useAudioPreview'
 import { useCodePreview } from '@/composables/useCodePreview'
 import { useMarkdownPreview } from '@/composables/useMarkdownPreview'
-import { UploadFilled } from '@element-plus/icons-vue'
+import { UploadFilled, Close } from '@element-plus/icons-vue'
 import { usePreviewRouter, toPreviewFileItem } from '@/composables/usePreviewRouter'
 import { useSearch } from '@/composables/useSearch'
 
@@ -99,17 +99,23 @@ const unzipVisible = ref(false)
 const unzipFile = ref<FileInfo | null>(null)
 
 // ---- 拖拽上传 ----
+// 用计数器解决 dragenter/dragleave 在子元素间移动时频繁触发导致遮罩闪烁的问题
 
-const isDragOver = ref(false)
+let dragCounter = 0
 
 function handleDragEnter(): void {
-  isDragOver.value = true
-  uploadFileStore.showUploadMask = true
+  dragCounter++
+  if (dragCounter === 1) {
+    uploadFileStore.showUploadMask = true
+  }
 }
 
 function handleDragLeave(): void {
-  isDragOver.value = false
-  uploadFileStore.showUploadMask = false
+  dragCounter--
+  if (dragCounter <= 0) {
+    dragCounter = 0
+    uploadFileStore.showUploadMask = false
+  }
 }
 
 function handleDragOver(e: DragEvent): void {
@@ -118,11 +124,11 @@ function handleDragOver(e: DragEvent): void {
 
 function handleDrop(e: DragEvent): void {
   e.preventDefault()
-  isDragOver.value = false
+  dragCounter = 0
   uploadFileStore.showUploadMask = false
   const files = e.dataTransfer?.files
   if (files && files.length > 0) {
-    uploadManager.uploadFiles(Array.from(files), currentFilePath.value)
+    uploadManager.uploadFiles(Array.from(files), currentFilePath.value, refreshFileList)
   }
 }
 
@@ -291,7 +297,7 @@ function triggerFileUpload(): void {
   input.multiple = true
   input.onchange = () => {
     if (input.files) {
-      uploadManager.uploadFiles(Array.from(input.files), currentFilePath.value)
+      uploadManager.uploadFiles(Array.from(input.files), currentFilePath.value, refreshFileList)
     }
   }
   input.click()
@@ -303,7 +309,7 @@ function triggerFolderUpload(): void {
   input.webkitdirectory = true
   input.onchange = () => {
     if (input.files) {
-      uploadManager.uploadFiles(Array.from(input.files), currentFilePath.value)
+      uploadManager.uploadFiles(Array.from(input.files), currentFilePath.value, refreshFileList)
     }
   }
   input.click()
@@ -344,10 +350,8 @@ function handleBatchShare(): void {
 /** 复制分享链接到剪贴板 */
 async function handleCopyShareLink(file: FileInfo): Promise<void> {
   try {
-    // 从我的分享列表中找到对应的分享记录
-    const { getMyShares } = await import('@/api/file')
-    const shares = await getMyShares()
-    const share = shares.find((s) => s.userFileId === file.userFileId)
+    // 从 shareList 中找到对应的分享记录
+    const share = fileListStore.shareList.find((s) => s.userFileId === file.userFileId)
     if (!share) {
       ElMessage.warning('未找到该文件的分享记录')
       return
@@ -366,10 +370,8 @@ async function handleCopyShareLink(file: FileInfo): Promise<void> {
 /** 取消分享 */
 async function handleCancelShare(file: FileInfo): Promise<void> {
   try {
-    // 从我的分享列表中找到对应的分享记录
-    const { getMyShares } = await import('@/api/file')
-    const shares = await getMyShares()
-    const share = shares.find((s) => s.userFileId === file.userFileId)
+    // 从 shareList 中找到对应的分享记录
+    const share = fileListStore.shareList.find((s) => s.userFileId === file.userFileId)
     if (!share) {
       ElMessage.warning('未找到该文件的分享记录')
       return
@@ -399,7 +401,21 @@ function handlePageChange(page: number): void {
       fileType: currentFileType.value,
       filePath: currentFilePath.value,
       page,
-      size: 20,
+      size: fileListStore.pageSize,
+    })
+  }
+}
+
+function handleSizeChange(size: number): void {
+  fileListStore.pageSize = size
+  if (search.isSearch.value) {
+    search.searchPageChange(0)
+  } else {
+    fileListStore.fetchFileList({
+      fileType: currentFileType.value,
+      filePath: currentFilePath.value,
+      page: 0,
+      size,
     })
   }
 }
@@ -414,7 +430,7 @@ function handleSortChange(prop: string, order: string): void {
       fileType: currentFileType.value,
       filePath: currentFilePath.value,
       page: 0,
-      size: 20,
+      size: fileListStore.pageSize,
       order: prop,
       sort: order,
     })
@@ -491,7 +507,7 @@ function handlePaste(e: ClipboardEvent): void {
   }
   if (imageFiles.length > 0) {
     e.preventDefault()
-    uploadManager.uploadFiles(imageFiles, currentFilePath.value)
+    uploadManager.uploadFiles(imageFiles, currentFilePath.value, refreshFileList)
   }
 }
 </script>
@@ -558,13 +574,17 @@ function handlePaste(e: ClipboardEvent): void {
           :current-page="fileListStore.currentPage"
           :total="fileListStore.total"
           @page-change="handlePageChange"
+          @size-change="handleSizeChange"
         />
       </el-main>
     </el-container>
 
     <!-- 拖拽上传遮罩 -->
-    <div v-if="uploadFileStore.showUploadMask" class="upload-mask">
+    <div v-if="uploadFileStore.showUploadMask" class="upload-mask" @click.self="uploadFileStore.showUploadMask = false">
       <div class="upload-mask-content">
+        <el-button class="upload-mask-close" text size="large" @click="uploadFileStore.showUploadMask = false">
+          <el-icon :size="20"><Close /></el-icon>
+        </el-button>
         <el-icon :size="48"><UploadFilled /></el-icon>
         <p>截图粘贴或将文件拖拽至此区域上传</p>
       </div>
@@ -668,6 +688,18 @@ function handlePaste(e: ClipboardEvent): void {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.upload-mask-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: #909399;
+  font-size: 20px;
+
+  &:hover {
+    color: #409eff;
+  }
 }
 
 .upload-mask-content {

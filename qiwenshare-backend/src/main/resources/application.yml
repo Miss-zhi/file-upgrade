@@ -105,7 +105,7 @@ onlyoffice:
   server-url: http://localhost:8090
   api-url: http://localhost:8090/web-apps/apps/api/documents/api.js
   converter-url: http://localhost:8090/ConvertService.ashx
-  command-url: http://localhost:8090/CommandService.ashx
+  command-url: http://localhost:8090/coauthoring/CommandService.ashx
   jwt:
     secret: ${ONLYOFFICE_JWT_SECRET:your-onlyoffice-jwt-secret-must-be-long-enough-256bits}
     header: Authorization
@@ -117,7 +117,7 @@ onlyoffice:
   preview-base-url: http://localhost:8080
   max-version-count: 10
   document-token-ttl: 14400
-  callback-token-ttl: 1800
+  callback-token-ttl: 28800
 
 logging:
   level:

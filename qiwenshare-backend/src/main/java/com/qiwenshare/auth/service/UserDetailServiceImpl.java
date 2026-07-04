@@ -115,30 +115,39 @@ public class UserDetailServiceImpl implements UserDetailsService {
     }
 
     private List<String> loadPermKeysFromDb(Long userPkId) {
-        // 查用户角色绑定
+        // 1. 查用户角色绑定
         List<UserRole> userRoles = userRoleRepository.findByUserId(userPkId);
         List<Integer> roleIds = userRoles.stream()
                 .map(UserRole::getRoleId)
                 .toList();
 
-        // 查可用角色
-        Set<String> roleNames = new HashSet<>();
-        for (Integer roleId : roleIds) {
-            Role role = roleRepository.findById(roleId).orElse(null);
-            if (role != null && role.getAvailable() == 1) {
-                roleNames.add(role.getRoleName());
-            }
+        if (roleIds.isEmpty()) {
+            return List.of();
         }
 
-        // 查角色权限
+        // 2. 批量查可用角色（1 条 SQL），同时收集可用角色 ID
+        List<Role> availableRoles = roleRepository.findAllById(roleIds).stream()
+                .filter(r -> r.getAvailable() == 1)
+                .toList();
+
+        Set<String> roleNames = availableRoles.stream()
+                .map(Role::getRoleName)
+                .collect(Collectors.toSet());
+
+        List<Integer> availableRoleIds = availableRoles.stream()
+                .map(Role::getRoleId)
+                .toList();
+
+        // 3. 批量查角色权限 + 权限详情（2 条 SQL）
         Set<String> permKeys = new HashSet<>();
-        for (Integer roleId : roleIds) {
-            List<RolePermission> rolePerms = rolePermissionRepository.findByRoleId(roleId);
-            for (RolePermission rp : rolePerms) {
-                Permission perm = permissionRepository.findById(rp.getPermissionId()).orElse(null);
-                if (perm != null) {
-                    permKeys.add(perm.getPermKey());
-                }
+        if (!availableRoleIds.isEmpty()) {
+            List<RolePermission> rps = rolePermissionRepository.findByRoleIdIn(availableRoleIds);
+            Set<Integer> permIds = rps.stream()
+                    .map(RolePermission::getPermissionId)
+                    .collect(Collectors.toSet());
+            if (!permIds.isEmpty()) {
+                permissionRepository.findAllById(permIds)
+                        .forEach(p -> permKeys.add(p.getPermKey()));
             }
         }
 

@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { useFileListStore } from '@/stores/fileList'
 import { useCommonStore } from '@/stores/common'
 import { FileType } from '@/types/file'
-import type { FileInfo } from '@/types/file'
+import type { FileInfo, ShareInfo } from '@/types/file'
 import { formatFileSize, getFileIconSrc, isVideoFile, isFolder } from '@/utils/file'
 
 const fileListStore = useFileListStore()
@@ -54,6 +54,9 @@ const showDeleteTime = computed(() =>
   props.fileType === FileType.RECYCLE,
 )
 
+/** 是否显示分享专属列（过期时间、提取码） */
+const isShareView = computed(() => props.fileType === FileType.SHARE)
+
 /** 表格高度 */
 const tableHeight = computed(() => {
   if (props.fileType === FileType.RECYCLE) return 'calc(100vh - 211px)'
@@ -91,6 +94,11 @@ function sortMethod(a: FileInfo, b: FileInfo): number {
   const aIsDir = isFolder(a.fileType) ? 0 : 1
   const bIsDir = isFolder(b.fileType) ? 0 : 1
   return aIsDir - bIsDir
+}
+
+/** 根据 userFileId 获取对应的 ShareInfo */
+function getShareInfo(userFileId: number): ShareInfo | undefined {
+  return fileListStore.shareList.find((s) => s.userFileId === userFileId)
 }
 </script>
 
@@ -200,6 +208,38 @@ function sortMethod(a: FileInfo, b: FileInfo): number {
       label="删除日期"
       width="160"
     />
+
+    <!-- 分享专属列：过期时间 -->
+    <el-table-column
+      v-if="isShareView"
+      label="过期时间"
+      width="180"
+    >
+      <template #default="{ row }">
+        <span v-if="getShareInfo(row.userFileId)?.expireTime">
+          {{ getShareInfo(row.userFileId)?.expireTime }}
+          <el-tag
+            v-if="getShareInfo(row.userFileId)?.isExpired"
+            type="danger"
+            size="small"
+            style="margin-left: 4px"
+          >已过期</el-tag>
+          <el-tag v-else type="success" size="small" style="margin-left: 4px">有效</el-tag>
+        </span>
+        <span v-else>永久有效</span>
+      </template>
+    </el-table-column>
+
+    <!-- 分享专属列：提取码 -->
+    <el-table-column
+      v-if="isShareView"
+      label="提取码"
+      width="100"
+    >
+      <template #default="{ row }">
+        <span>{{ getShareInfo(row.userFileId)?.extractCode || '-' }}</span>
+      </template>
+    </el-table-column>
 
     <!-- 更多（移动端） -->
     <el-table-column

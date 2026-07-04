@@ -1,6 +1,6 @@
 import client from './client'
 import type { RestResult } from '@/types/api'
-import type { SearchResponse, SearchRequestDTO, SearchHealthVO } from '@/types/search'
+import type { SearchResponse, SearchRequestDTO, SearchHealthVO, DocumentHealthVO } from '@/types/search'
 
 /** 全文搜索文件 */
 export async function searchFiles(params: SearchRequestDTO): Promise<SearchResponse> {
@@ -18,4 +18,10 @@ export async function getSearchHealth(): Promise<SearchHealthVO> {
 export async function rebuildSearchIndex(): Promise<void> {
   const { data } = await client.post<RestResult<null>>('/search/admin/rebuild')
   if (data.code !== 0) throw new Error(data.message)
+}
+
+/** 检查 OnlyOffice 文档服务健康状态（管理员） */
+export async function getDocumentHealth(): Promise<DocumentHealthVO> {
+  const { data } = await client.get<RestResult<DocumentHealthVO>>('/admin/document/health')
+  return data.data
 }

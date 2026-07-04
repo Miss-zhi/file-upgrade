@@ -49,6 +49,7 @@ export interface ShareInfo {
   shareCode: string
   extractCode: string | null
   expireTime: string | null
+  isExpired: boolean // 是否已过期
   fileName: string
   fileSize: number
   viewCount: number

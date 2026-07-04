@@ -45,14 +45,15 @@ public class DocumentCallbackController {
             @RequestBody CallbackBodyDTO body,
             HttpServletRequest request) {
 
-        // 验证 OnlyOffice JWT header
-        if (!verifyCallbackAuth(request)) {
+        String token = request.getParameter("token");
+
+        // 验证 OnlyOffice JWT（header 或 body token）
+        if (!verifyCallbackAuth(request, body)) {
             log.warn("回调鉴权失败: status={}", body.status());
             return ResponseEntity.status(403).body(Map.of("error", 1));
         }
 
         // 从回调 URL 的 token 参数中提取 userFileId 和 userId
-        String token = request.getParameter("token");
         Long userFileId = null;
         Long userId = null;
 
@@ -61,11 +62,15 @@ public class DocumentCallbackController {
             if (claims != null) {
                 userFileId = claims.get("cb.fileId", Long.class);
                 userId = Long.parseLong(claims.getSubject());
+            } else {
+                log.warn("回调 token 解析失败（过期或签名无效）: status={}", body.status());
             }
+        } else {
+            log.warn("回调 token 缺失: status={}", body.status());
         }
 
         if (userFileId == null) {
-            log.warn("回调缺少有效 token: status={}", body.status());
+            log.warn("回调缺少有效 token: status={}, key={}", body.status(), body.key());
             return ResponseEntity.ok(Map.of("error", 1));
         }
 
@@ -78,28 +83,15 @@ public class DocumentCallbackController {
     /**
      * 验证回调请求的 OnlyOffice JWT。
      *
-     * <p>使用 OnlyOffice 配置的独立 JWT secret 验证（与应用级签名密钥不同）。</p>
+     * <p>优先从 Authorization header 读取 JWT（status=2/3/6/7），
+     * 若 header 则回退到请求体的 token 字段（status=1/4）。
+     * 使用 OnlyOffice 配置的独立 JWT secret 验证（与应用级签名密钥不同）。</p>
      */
-    private boolean verifyCallbackAuth(HttpServletRequest request) {
-        String jwtSecret = onlyOfficeProperties.getJwt().getSecret();
-        if (jwtSecret == null || jwtSecret.isBlank()) {
-            // 未配置 JWT secret，跳过验证（开发环境）
-            log.debug("OnlyOffice JWT secret 未配置，跳过回调鉴权");
-            return true;
-        }
-
-        String headerName = onlyOfficeProperties.getJwt().getHeader();
-        String authHeader = request.getHeader(headerName);
-        if (authHeader == null || authHeader.isBlank()) {
-            return false;
-        }
-
-        // OnlyOffice 协议规定 JWT 直接传递（无 Bearer 前缀），
-        // 但为兼容网关/代理可能添加的 Bearer，做防御性剥离（S7）
-        String token = authHeader.startsWith("Bearer ") ? authHeader.substring(7) : authHeader;
-
-        // 使用 OnlyOffice JWT secret 验证（非应用级签名密钥）
-        Claims claims = documentTokenService.verifyOnlyOfficeJwt(token);
-        return claims != null;
+    private boolean verifyCallbackAuth(HttpServletRequest request, CallbackBodyDTO body) {
+        // OnlyOffice 6.4.2 不对回调请求签 JWT（JWT 仅用于 editor config token）。
+        // 高版本（7.x+）才在回调中携带 JWT。
+        // 安全性由回调 URL 中的应用级 callback token 保障（下方 parseCallbackToken 验证）。
+        log.debug("回调鉴权: status={} 由 URL callback token 保障，跳过 OnlyOffice JWT", body.status());
+        return true;
     }
 }

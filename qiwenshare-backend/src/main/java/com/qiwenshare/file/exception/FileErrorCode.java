@@ -33,6 +33,7 @@ public enum FileErrorCode {
     FOLDER_NOT_FOUND(404, "文件夹不存在"),
     MOVE_TO_SELF(400, "不能将文件夹移动到自身或其子目录下"),
     FILE_UPDATE_FAILED(500, "文件内容修改失败"),
+    TEMPLATE_LOAD_FAILED(500, "新建文件失败：模板文件缺失或读取失败"),
 
     // 回收站错误
     RECOVERY_CONFLICT(409, "原路径存在同名文件，无法恢复"),

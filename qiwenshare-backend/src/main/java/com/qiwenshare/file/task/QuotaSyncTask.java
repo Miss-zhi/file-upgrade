@@ -2,9 +2,9 @@ package com.qiwenshare.file.task;
 
 import com.qiwenshare.file.entity.StorageBean;
 import com.qiwenshare.file.repository.StorageBeanRepository;
-import com.qiwenshare.file.service.StorageQuotaService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -20,8 +20,10 @@ import java.util.List;
 @Slf4j
 public class QuotaSyncTask {
 
+    private static final String QUOTA_USED_KEY_PREFIX = "file:quota:used:";
+
     private final StorageBeanRepository storageBeanRepository;
-    private final StorageQuotaService storageQuotaService;
+    private final StringRedisTemplate redisTemplate;
 
     /**
      * 每小时执行一次，同步所有用户的 Redis 配额到 DB。
@@ -33,7 +35,9 @@ public class QuotaSyncTask {
 
         for (StorageBean bean : allBeans) {
             try {
-                storageQuotaService.syncFromDb(bean.getUserId());
+                // 直接使用已加载的 bean，避免 re-query（原来 syncFromDb 会再查一次 DB）
+                String key = QUOTA_USED_KEY_PREFIX + bean.getUserId();
+                redisTemplate.opsForValue().set(key, String.valueOf(bean.getUsedSize()));
             } catch (Exception e) {
                 log.error("配额同步失败: userId={}", bean.getUserId(), e);
             }

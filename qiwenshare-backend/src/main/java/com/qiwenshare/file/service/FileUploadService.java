@@ -52,26 +52,32 @@ public class FileUploadService {
     private final ApplicationEventPublisher eventPublisher;
 
     /**
-     * 秒传：检查文件 hash 是否已存在，复用 FileBean。
+     * 秒传探测：检查文件 hash + size 是否已有可复用的 FileBean。
+     *
+     * <p>命中 → 创建新 UserFile 并返回上传结果。
+     * 未命中 → 返回 {@code null}，由调用方（Controller）响应 null 引导前端走普通上传。
+     * 不再抛异常，避免任何秒传失败场景阻断前端上传流程。</p>
      *
      * @param dto    秒传请求
      * @param userId 用户 ID
-     * @return 上传结果
+     * @return 命中时返回 UploadFileVO；未命中返回 null
      */
     @Transactional(rollbackFor = Exception.class)
     public UploadFileVO speedUpload(SpeedUploadDTO dto, Long userId) {
-        // 检查同名文件
-        checkDuplicate(userId, dto.filePath(), dto.fileName());
-
-        // 检查文件 hash 是否已存在
         return fileBeanRepository.findByFileHashAndFileSize(dto.fileHash(), dto.fileSize())
                 .map(existingBean -> {
-                    // 复用 FileBean，创建新 UserFile
+                    // 命中：复用 FileBean，但仍需做同名检查（秒传命中 + 同名存在时直接失败）
+                    try {
+                        checkDuplicate(userId, dto.filePath(), dto.fileName());
+                    } catch (FileModuleException e) {
+                        // 同名冲突：抛出让 Controller 转为普通上传回退信号
+                        throw e;
+                    }
                     UserFile userFile = createUserFile(userId, dto.filePath(), dto.fileName(), existingBean.getFileId());
                     userFileRepository.save(userFile);
                     return new UploadFileVO(userFile.getUserFileId(), dto.fileName(), dto.fileSize(), dto.fileHash(), true);
                 })
-                .orElseThrow(() -> new FileModuleException(FileErrorCode.FILE_NOT_FOUND));
+                .orElse(null);
     }
 
     /**

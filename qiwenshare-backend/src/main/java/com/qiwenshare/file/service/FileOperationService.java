@@ -27,9 +27,11 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HexFormat;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -75,7 +77,7 @@ public class FileOperationService {
                     userId, dto.filePath(), 0, pageable);
         }
 
-        return page.map(this::toFileListVO);
+        return toFileListVOBatch(page);
     }
 
     /**
@@ -95,7 +97,7 @@ public class FileOperationService {
         PageRequest pageable = PageRequest.of(page, size, Sort.by("uploadTime").descending());
         Page<UserFile> result = userFileRepository.findByUserIdAndDeleteStatusAndExtendNameIn(
                 userId, 0, extensions, pageable);
-        return result.map(this::toFileListVO);
+        return toFileListVOBatch(result);
     }
 
     /**
@@ -288,8 +290,19 @@ public class FileOperationService {
         return folder.getUserFileId();
     }
 
+    /** 新建 Office 文档时使用的模板映射（classpath:static/template/）。 */
+    private static final Map<String, String> TEMPLATE_MAP = Map.of(
+            "docx", "static/template/Word.docx",
+            "xlsx", "static/template/Excel.xlsx",
+            "pptx", "static/template/PowerPoint.pptx"
+    );
+
     /**
-     * 创建空文件。
+     * 创建文件。
+     *
+     * <p>对 Office 文档（docx/xlsx/pptx）使用 classpath 下的模板文件上传到存储后端，
+     * 生成真实的 FileBean，确保新建的文件可被 OnlyOffice 正常打开和编辑。
+     * 其他扩展名仍走空文件逻辑（fileId=null），前端可引导用户后续上传内容。</p>
      *
      * @param dto    创建文件请求
      * @param userId 用户 ID
@@ -309,15 +322,124 @@ public class FileOperationService {
         // 检查同名文件
         checkDuplicate(userId, dto.filePath(), nameWithoutExt, extendName, 1);
 
+        String templatePath = TEMPLATE_MAP.get(extendName.toLowerCase());
+        Long fileBeanId = null;
+
+        if (templatePath != null) {
+            // 从 classpath 读取模板字节
+            byte[] templateBytes;
+            try (InputStream is = getClass().getClassLoader().getResourceAsStream(templatePath)) {
+                if (is == null) {
+                    log.error("模板文件缺失: {}", templatePath);
+                    throw new FileModuleException(FileErrorCode.TEMPLATE_LOAD_FAILED);
+                }
+                templateBytes = is.readAllBytes();
+            } catch (FileModuleException e) {
+                throw e;
+            } catch (Exception e) {
+                log.error("读取模板文件失败: {}", templatePath, e);
+                throw new FileModuleException(FileErrorCode.TEMPLATE_LOAD_FAILED);
+            }
+
+            if (templateBytes.length == 0) {
+                log.error("模板文件为空: {}", templatePath);
+                throw new FileModuleException(FileErrorCode.TEMPLATE_LOAD_FAILED);
+            }
+
+            long fileSize = templateBytes.length;
+            String fileHash = calculateHash(new ByteArrayInputStream(templateBytes));
+
+            // 配额校验 + 预扣
+            storageQuotaService.checkQuota(userId, fileSize);
+            storageQuotaService.preDeduct(userId, fileSize);
+
+            try {
+                // 文件去重：如 hash+size 已存在则复用 FileBean
+                FileBean fileBean = fileBeanRepository.findByFileHashAndFileSize(fileHash, fileSize)
+                        .orElseGet(() -> {
+                            String storagePath = generateStoragePath(fileName);
+                            try (InputStream is = new ByteArrayInputStream(templateBytes)) {
+                                storageFactory.getBackend().upload(is, storagePath, fileSize);
+                            } catch (Exception e) {
+                                log.error("上传模板到存储后端失败: {}", templatePath, e);
+                                throw new FileModuleException(FileErrorCode.UPLOAD_STORAGE_ERROR);
+                            }
+                            FileBean newBean = new FileBean();
+                            newBean.setFileSize(fileSize);
+                            newBean.setFileHash(fileHash);
+                            newBean.setStorageType(storageFactory.getActiveType());
+                            newBean.setStoragePath(storagePath);
+                            return fileBeanRepository.save(newBean);
+                        });
+                fileBeanId = fileBean.getFileId();
+
+                // 确认配额（预扣量 = 实际量）
+                storageQuotaService.confirmQuota(userId, fileSize, fileSize);
+            } catch (FileModuleException e) {
+                storageQuotaService.releaseQuota(userId, fileSize);
+                throw e;
+            } catch (Exception e) {
+                storageQuotaService.releaseQuota(userId, fileSize);
+                log.error("创建模板文件失败: fileName={}", fileName, e);
+                throw new FileModuleException(FileErrorCode.UPLOAD_STORAGE_ERROR);
+            }
+        } else {
+            log.debug("扩展名 {} 无对应模板，创建空文件记录: fileName={}", extendName, fileName);
+        }
+
         UserFile userFile = new UserFile();
         userFile.setUserId(userId);
-        userFile.setFileId(null); // 空文件无 FileBean
+        userFile.setFileId(fileBeanId);
         userFile.setFileName(nameWithoutExt);
         userFile.setExtendName(extendName);
         userFile.setFilePath(dto.filePath());
         userFile.setFileType(1);
         userFile = userFileRepository.save(userFile);
+
+        // 事务提交后发布文件变更事件（仅当实际写入了存储）
+        if (fileBeanId != null) {
+            Long userFileId = userFile.getUserFileId();
+            FileChangedEvent event = new FileChangedEvent(this, userFileId, FileChangedEvent.ChangeType.CREATED);
+            if (org.springframework.transaction.support.TransactionSynchronizationManager.isSynchronizationActive()) {
+                org.springframework.transaction.support.TransactionSynchronizationManager.registerSynchronization(
+                        new org.springframework.transaction.support.TransactionSynchronization() {
+                            @Override
+                            public void afterCommit() {
+                                eventPublisher.publishEvent(event);
+                            }
+                        });
+            } else {
+                eventPublisher.publishEvent(event);
+            }
+        }
+
         return userFile.getUserFileId();
+    }
+
+    private String generateStoragePath(String fileName) {
+        String datePath = java.time.LocalDate.now()
+                .format(java.time.format.DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+        return datePath + "/" + java.util.UUID.randomUUID().toString().replace("-", "") + "_" + fileName;
+    }
+
+    private String calculateHash(InputStream inputStream) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] buffer = new byte[8192];
+            int bytesRead;
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                digest.update(buffer, 0, bytesRead);
+            }
+            inputStream.close();
+            byte[] hashBytes = digest.digest();
+            StringBuilder sb = new StringBuilder();
+            for (byte b : hashBytes) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (Exception e) {
+            throw new FileModuleException(FileErrorCode.UPLOAD_STORAGE_ERROR);
+        }
     }
 
     /**
@@ -533,20 +655,42 @@ public class FileOperationService {
         }
     }
 
-    private FileListVO toFileListVO(UserFile userFile) {
-        Long fileSize = 0L;
-        if (userFile.getFileId() != null && userFile.getFileType() == 1) {
-            fileSize = fileBeanRepository.findById(userFile.getFileId())
-                    .map(FileBean::getFileSize)
-                    .orElse(0L);
+    /**
+     * 批量转换 UserFile 为 FileListVO，一次查询获取所有 FileBean 避免 N+1。
+     */
+    private Page<FileListVO> toFileListVOBatch(Page<UserFile> page) {
+        List<UserFile> userFiles = page.getContent();
+
+        // 批量获取所有文件的 FileBean（1 条 SQL 代替 N 条）
+        Set<Long> fileIds = userFiles.stream()
+                .filter(f -> f.getFileId() != null && f.getFileType() == 1)
+                .map(UserFile::getFileId)
+                .collect(Collectors.toSet());
+
+        Map<Long, FileBean> fileBeanMap = new HashMap<>();
+        if (!fileIds.isEmpty()) {
+            fileBeanRepository.findAllById(fileIds)
+                    .forEach(fb -> fileBeanMap.put(fb.getFileId(), fb));
         }
-        String fullName = userFile.getFileName()
-                + (userFile.getExtendName() != null && !userFile.getExtendName().isEmpty()
-                        ? "." + userFile.getExtendName() : "");
-        return new FileListVO(
-                userFile.getUserFileId(), fullName, userFile.getFilePath(),
-                userFile.getFileType(), fileSize, userFile.getExtendName(),
-                userFile.getUploadTime(), userFile.getModifyTime(), userFile.getDeleteStatus()
-        );
+
+        List<FileListVO> voList = userFiles.stream().map(userFile -> {
+            Long fileSize = 0L;
+            if (userFile.getFileId() != null && userFile.getFileType() == 1) {
+                FileBean fileBean = fileBeanMap.get(userFile.getFileId());
+                if (fileBean != null) {
+                    fileSize = fileBean.getFileSize();
+                }
+            }
+            String fullName = userFile.getFileName()
+                    + (userFile.getExtendName() != null && !userFile.getExtendName().isEmpty()
+                            ? "." + userFile.getExtendName() : "");
+            return new FileListVO(
+                    userFile.getUserFileId(), fullName, userFile.getFilePath(),
+                    userFile.getFileType(), fileSize, userFile.getExtendName(),
+                    userFile.getUploadTime(), userFile.getModifyTime(), userFile.getDeleteStatus()
+            );
+        }).collect(Collectors.toList());
+
+        return new org.springframework.data.domain.PageImpl<>(voList, page.getPageable(), page.getTotalElements());
     }
 }

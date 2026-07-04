@@ -19,6 +19,7 @@ import java.time.ZoneOffset;
 import java.util.HashMap;
 import java.util.HexFormat;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * 文档预览服务。
@@ -54,6 +55,11 @@ public class DocumentPreviewService {
             throw new DocumentModuleException(DocumentErrorCode.DOC_ACCESS_DENIED);
         }
 
+        // 文件夹或无关联文件的记录不能预览
+        if (userFile.getFileId() == null) {
+            throw new DocumentModuleException(DocumentErrorCode.DOC_FILE_NOT_FOUND);
+        }
+
         // 查询 FileBean
         FileBean fileBean = fileBeanRepository.findById(userFile.getFileId())
                 .orElseThrow(() -> new DocumentModuleException(DocumentErrorCode.DOC_ACCESS_DENIED));
@@ -63,15 +69,12 @@ public class DocumentPreviewService {
             throw new DocumentModuleException(DocumentErrorCode.DOC_FILE_TOO_LARGE);
         }
 
-        String extension = userFile.getExtendName() != null ? userFile.getExtendName().toLowerCase() : "";
-
-        // 判断是否有编辑权限
-        boolean canEdit = filePermissionService.canEdit(userId, userFileId);
-        boolean isEditable = onlyOfficeProperties.getEditedExtensions().contains(extension);
-        String mode = (canEdit && isEditable) ? "edit" : "view";
+        // 预览端点始终以 view 模式打开（只读）。
+        // 编辑模式由 /api/v1/document/edit 端点（DocumentEditService）单独处理。
+        // 与旧项目行为一致：预览 = 只读，编辑 = 可编辑。
 
         // 构建配置
-        return buildConfig(userFile, fileBean, mode, userId);
+        return buildConfig(userFile, fileBean, "view", userId);
     }
 
     /**
@@ -80,13 +83,22 @@ public class DocumentPreviewService {
     protected PreviewConfigVO buildConfig(UserFile userFile, FileBean fileBean, String mode, Long userId) {
         String extension = userFile.getExtendName() != null ? userFile.getExtendName().toLowerCase() : "";
 
-        // 文档 key = SHA-256(userFileId + ":" + modifyTime.toEpochMilli()) 取前 16 位十六进制
-        // 使用 toEpochMilli() 保证毫秒级稳定精度，SHA-256 保证唯一性
+        // 文档 key
+        // OnlyOffice 会按 key 缓存文档状态（包括下载失败），所以 view 模式加随机后缀防止缓存
+        // edit 模式保持同一文件同一 key 以支持多人协作
         long epochMillis = fileBean.getModifyTime() != null
                 ? fileBean.getModifyTime().toInstant(ZoneOffset.UTC).toEpochMilli()
                 : 0L;
         String keyInput = userFile.getUserFileId() + ":" + epochMillis;
-        String documentKey = computeStableKey(keyInput);
+        String baseKey = computeStableKey(keyInput);
+        String documentKey;
+        if ("edit".equals(mode)) {
+            documentKey = baseKey;
+        } else {
+            // view 模式：加 UUID 后缀（16 + 1 + 3 = 20 字符，OnlyOffice 上限 20）
+            String uniqueSuffix = UUID.randomUUID().toString().replace("-", "").substring(0, 3);
+            documentKey = baseKey + "_" + uniqueSuffix;
+        }
 
         // 文件下载 URL
         String fileUrl = storageFactory.getBackend().getPreviewUrl(fileBean.getStoragePath());
@@ -101,7 +113,8 @@ public class DocumentPreviewService {
             String token = documentTokenService.generateDocumentToken(
                     String.valueOf(userId), userFile.getUserFileId(), action);
             fileUrl = previewBaseUrl + "/api/v1/document/download/"
-                    + userFile.getUserFileId() + "?token=" + token;
+                    + userFile.getUserFileId() + "?token=" + token
+                    + "&_cb=" + System.currentTimeMillis();
         }
 
         // DocumentType 判断
@@ -152,13 +165,31 @@ public class DocumentPreviewService {
         vo.setEditorConfig(editorConfig);
 
         // 生成 Editor Config token —— 必须用 OnlyOffice JWT secret 签名
-        // Document Server 用此 token 验证编辑器请求来源，密钥不匹配会导致文档无法打开
+        // Document Server 用此 token 验证编辑器请求来源，token 声明必须与 config 结构一致
+        // （旧项目 DefaultFileConfigurer 签名为 {type, documentType, document, editorConfig}）
+        Map<String, Object> documentForToken = new HashMap<>();
+        documentForToken.put("title", userFile.getFileName() + (extension.isEmpty() ? "" : "." + extension));
+        documentForToken.put("url", fileUrl);
+        documentForToken.put("fileType", extension);
+        documentForToken.put("key", documentKey);
+        documentForToken.put("permissions", docConfig.getPermissions());
+
+        Map<String, Object> editorConfigForToken = new HashMap<>();
+        editorConfigForToken.put("mode", mode);
+        editorConfigForToken.put("lang", "zh-CN");
+        if ("edit".equals(mode) && editorConfig.getCallbackUrl() != null) {
+            editorConfigForToken.put("callbackUrl", editorConfig.getCallbackUrl());
+        }
+        Map<String, Object> userForToken = new HashMap<>();
+        userForToken.put("id", String.valueOf(userId));
+        userForToken.put("name", "User " + userId);
+        editorConfigForToken.put("user", userForToken);
+
         Map<String, Object> tokenPayload = new HashMap<>();
-        tokenPayload.put("key", documentKey);
-        tokenPayload.put("title", userFile.getFileName() + (extension.isEmpty() ? "" : "." + extension));
-        tokenPayload.put("url", fileUrl);
-        tokenPayload.put("fileType", extension);
-        tokenPayload.put("permissions", docConfig.getPermissions());
+        tokenPayload.put("document", documentForToken);
+        tokenPayload.put("editorConfig", editorConfigForToken);
+        tokenPayload.put("documentType", docType);
+
         String configToken = documentTokenService.generateEditorConfigToken(tokenPayload);
         vo.setToken(configToken != null ? configToken : "");
 

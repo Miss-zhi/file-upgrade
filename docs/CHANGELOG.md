@@ -43,6 +43,11 @@
 | 2026-07-01 | Issue: CallbackManagerTest 缺 SaveCallbackHandler dispatch 测试（status=2/6 核心保存路径零覆盖） | 核心业务路径必须有 dispatch 测试覆盖 | docs/TESTING.md |
 | 2026-07-01 | Issue: DocumentEditServiceTest COW 测试未 verify storageBackend.write() 被调用 | 涉及外部 IO 的测试必须 verify IO 方法被实际调用 | docs/TESTING.md |
 | 2026-07-01 | Issue: fastdfs-client:1.26.2 传递引入 mockito-all:1.9.5（compile scope），与 mockito-core:5.7.0 冲突，导致测试编译报"引用不明确"和"找不到符号" | 排除 fastdfs-client 中的 mockito-all 传递依赖，禁止同时静态导入 ArgumentMatchers.* 和 Mockito.* | docs/TESTING.md |
+| 2026-07-04 | Bug: DocumentEditService 对 .doc 等 convertExtensions 格式强制 mode="edit"，OnlyOffice 6.x 无法保存旧二进制格式，status=2 回调永不发送（"文件无法保存"） | 编辑端点仅对 editedExtensions（docx/xlsx/pptx/csv/txt）使用 edit 模式，其余格式降级为 view | docs/BACKEND.md |
+| 2026-07-04 | Bug: DocumentPreviewService.buildPreviewConfig() 对可编辑格式返回 mode=edit，导致预览按钮打开编辑器而非只读预览 | 预览端点始终以 view 模式打开，编辑由独立的 /edit 端点处理 | docs/BACKEND.md |
+| 2026-07-04 | Bug: FileOperationService.createFile 创建 fileId=null 的 0B 空文件，新建的 Word/Excel/PPT 在 OnlyOffice 中打不开（500） | 新建 Office 文档必须从 classpath:static/template/ 加载真实模板字节，上传到存储后端并创建 FileBean | docs/BACKEND.md |
+| 2026-07-04 | Bug: SpeedUploadDTO.fileSize 用 @Positive，0 字节文件秒传校验失败抛 VALIDATION_ERROR（400），前端上传流程阻断 | DTO 中表示大小的字段必须用 @PositiveOrZero 允许 0 字节文件 | docs/BACKEND.md |
+| 2026-07-04 | Bug: FileTransferController.speedUpload 仅捕获 FILE_NOT_FOUND 降级，UPLOAD_DUPLICATE/QUOTA_EXCEEDED 等异常向上抛导致前端 400/500 | 秒传端点对任何 FileModuleException 都返回 success(null) 引导前端走普通上传 | docs/BACKEND.md |
 
 ---
 

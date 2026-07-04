@@ -79,6 +79,18 @@ const router = createRouter({
           component: () => import('../views/admin/AdminSystemConfig.vue'),
           meta: { permission: 'admin:config-manage' },
         },
+        {
+          path: 'search-index',
+          name: 'adminSearchIndex',
+          component: () => import('../views/admin/AdminSearchIndex.vue'),
+          meta: { permission: 'admin:search-rebuild' },
+        },
+        {
+          path: 'document-health',
+          name: 'adminDocumentHealth',
+          component: () => import('../views/admin/AdminDocumentHealth.vue'),
+          meta: { permission: 'admin:document-health' },
+        },
       ],
     },
     {

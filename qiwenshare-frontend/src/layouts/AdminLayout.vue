@@ -14,6 +14,8 @@ const menuItems = [
   { label: '配额管理', routeName: 'adminQuota', permission: 'admin:quota-manage' },
   { label: '审计日志', routeName: 'adminLogs', permission: 'admin:log-view' },
   { label: '系统配置', routeName: 'adminConfig', permission: 'admin:config-manage' },
+  { label: '搜索索引', routeName: 'adminSearchIndex', permission: 'admin:search-rebuild' },
+  { label: '文档健康', routeName: 'adminDocumentHealth', permission: 'admin:document-health' },
 ]
 
 /** 当前激活的菜单项（基于路由名） */

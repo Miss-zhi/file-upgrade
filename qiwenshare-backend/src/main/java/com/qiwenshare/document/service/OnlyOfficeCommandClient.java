@@ -95,15 +95,16 @@ public class OnlyOfficeCommandClient {
                     requestBuilder.build(), HttpResponse.BodyHandlers.ofString());
 
             if (response.statusCode() == 200) {
-                log.info("forcesave 命令发送成功: key={}", documentKey);
+                log.info("forcesave 成功: key={}, response={}", documentKey, response.body());
                 return true;
             } else {
-                log.warn("forcesave 命令失败: status={}, body={}, key={}",
+                log.warn("forcesave 失败: status={}, body={}, key={}",
                         response.statusCode(), response.body(), documentKey);
                 return false;
             }
         } catch (Exception e) {
-            log.error("forcesave 命令异常: key={}", documentKey, e);
+            log.error("forcesave 异常: key={}, error={}",
+                    documentKey, e.getClass().getSimpleName() + ": " + e.getMessage(), e);
             return false;
         }
     }

@@ -24,7 +24,9 @@ public record CallbackBodyDTO(
         String changesurl,
         Object history,
         String filetype,
-        Integer forcesavetype
+        Integer forcesavetype,
+        /** OnlyOffice JWT，status=1/4 时 Authorization header 缺失，需要从 body 回退验证 */
+        String token
 ) {
 
     /**

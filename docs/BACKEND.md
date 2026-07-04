@@ -424,3 +424,87 @@ if (status == 1) {
     log.info("分发回调: status={}, userFileId={}", status, context.getUserFileId());
 }
 ```
+
+## OnlyOffice 编辑模式判定
+
+OnlyOffice 6.x 仅能原生保存 OOXML 格式（docx/xlsx/pptx/csv/txt），无法保存旧二进制格式（doc/xls/ppt）。
+对不支持原生保存的格式强制 edit 模式会导致 status=2 保存回调永不发送，用户看到"文件无法保存"。
+
+### 规则
+
+1. **预览端点（`/preview`）始终以 view 模式打开**——不管文件格式和权限。编辑由独立的 `/edit` 端点处理。
+2. **编辑端点（`/edit`）仅对 `editedExtensions` 中的格式使用 edit 模式**。`convertExtensions` 中的格式（doc/xls/ppt 等）降级为 view。
+
+```java
+// 禁止 — 对 convertible 格式强制 edit，OnlyOffice 无法保存 .doc
+if (!isEditable && !isConvertible) { /* 降级预览 */ }
+buildConfig(userFile, fileBean, "edit", userId);  // .doc 也被强制 edit！
+
+// 正确 — 仅 editedExtensions 使用 edit 模式
+if (!isEditable) { /* 降级预览 */ }
+buildConfig(userFile, fileBean, "edit", userId);  // 只有 docx/xlsx/pptx/csv/txt 到达此处
+```
+
+## 新建 Office 文档必须使用模板
+
+"新建 Word / Excel / PPT" 功能**必须**从 classpath 下的模板文件读取真实内容，上传到存储后端并创建 FileBean，再关联到 UserFile。禁止创建 fileId=null 的"空文件记录"。
+
+**原因**：fileId=null 或 fileSize=0 的文件在 OnlyOffice 编辑器打开时会报错（500 或 "Document cannot be opened"），因为 OnlyOffice 需要真实的 OOXML 字节流才能解析。
+
+### 模板映射
+
+```java
+// 禁止 — 创建空文件记录（fileId=null），OnlyOffice 无法打开
+userFile.setFileId(null);
+userFileRepository.save(userFile);  // ❌ 0B 空文件，预览 500，编辑失败
+
+// 正确 — 使用模板 + UFOP 上传
+private static final Map<String, String> TEMPLATE_MAP = Map.of(
+    "docx", "static/template/Word.docx",
+    "xlsx", "static/template/Excel.xlsx",
+    "pptx", "static/template/PowerPoint.pptx"
+);
+// 1. 读取模板字节
+byte[] templateBytes = classLoader.getResourceAsStream(templatePath).readAllBytes();
+// 2. 计算 SHA-256 hash，检查去重
+// 3. 上传到 StorageBackend
+// 4. 创建 FileBean（fileSize/hash/storagePath/storageType）
+// 5. 关联 UserFile.fileId = fileBean.getFileId()
+```
+
+### 模板文件位置
+
+模板必须放在 `src/main/resources/static/template/` 下，且必须是**有效的 OOXML ZIP 包**（不能是 0 字节占位文件）。
+Word.docx 如果上游模板缺失或为 0 字节，必须用 python-zipfile 手写最小 OOXML 结构生成（`[Content_Types].xml` + `_rels/.rels` + `word/document.xml` + `word/styles.xml`）。
+
+## 秒传端点必须优雅降级
+
+`/api/v1/filetransfer/upload/speed` 端点的唯一职责是"探测是否可复用现有 FileBean"。
+**所有失败场景**（hash 未命中、同名冲突、配额不足、参数校验通过但业务失败）都必须返回 `RestResult.success("...", null)`，引导前端走普通上传，**禁止**向上传抛出 FileModuleException 导致前端收到 400/500 而中断上传流程。
+
+```java
+// 禁止 — 仅处理 FILE_NOT_FOUND，其他异常向上抛，前端收到 400/500
+try {
+    UploadFileVO result = fileUploadService.speedUpload(dto, userId);
+    return RestResult.success(result);
+} catch (FileModuleException e) {
+    if (e.getErrorCode() == FileErrorCode.FILE_NOT_FOUND) {
+        return RestResult.success("需要普通上传", null);
+    }
+    throw e;  // ❌ UPLOAD_DUPLICATE / QUOTA_EXCEEDED 会让前端报错
+}
+
+// 正确 — 任何失败都降级为普通上传回退信号
+try {
+    UploadFileVO result = fileUploadService.speedUpload(dto, userId);
+    if (result == null) {
+        return RestResult.success("秒传未命中，请走普通上传", null);
+    }
+    return RestResult.success(result);
+} catch (FileModuleException e) {
+    log.info("秒传降级为普通上传: code={}, msg={}", e.getErrorCode(), e.getMessage());
+    return RestResult.success("秒传失败，请走普通上传", null);
+}
+```
+
+对应的 `SpeedUploadDTO.fileSize` 和 `ChunkUploadInitDTO.fileSize` 必须用 `@PositiveOrZero`（而非 `@Positive`），允许 0 字节文件通过秒传探测（0 字节 hash 几乎不会命中去重，会自然降级到普通上传）。

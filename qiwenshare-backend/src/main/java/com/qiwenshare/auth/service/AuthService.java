@@ -41,6 +41,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -152,9 +153,10 @@ public class AuthService {
         // 登录成功，清除失败计数
         redisTemplate.delete(failKey);
 
-        // 加载角色和权限
-        List<String> roles = loadRoleNames(user.getId());
-        List<String> permissions = loadPermKeys(user.getId());
+        // 加载角色和权限（批量查询，避免 N+1）
+        RolesAndPerms rap = loadRolesAndPerms(user.getId());
+        List<String> roles = rap.roleNames;
+        List<String> permissions = rap.permKeys;
 
         // 生成 token pair
         String accessToken = tokenService.generateAccessToken(user.getUserId(), roles);
@@ -268,8 +270,7 @@ public class AuthService {
             throw new AuthException(AuthErrorCode.AUTH_USER_DISABLED);
         }
 
-        List<String> roles = loadRoleNames(user.getId());
-        List<String> permissions = loadPermKeys(user.getId());
+        RolesAndPerms rap = loadRolesAndPerms(user.getId());
 
         // 手机号脱敏
         String maskedPhone = maskTelephone(user.getTelephone());
@@ -279,8 +280,8 @@ public class AuthService {
                 user.getUsername(),
                 maskedPhone,
                 user.getAvatar(),
-                roles,
-                permissions,
+                rap.roleNames,
+                rap.permKeys,
                 user.getRegisterTime()
         );
     }
@@ -445,34 +446,63 @@ public class AuthService {
         }
     }
 
-    private List<String> loadRoleNames(Long userPkId) {
+    /**
+     * 批量加载用户角色和权限（3 条 SQL 代替原来的 N+M 条）。
+     */
+    private RolesAndPerms loadRolesAndPerms(Long userPkId) {
+        // 1. 查用户角色绑定
         List<UserRole> userRoles = userRoleRepository.findByUserId(userPkId);
-        List<String> roles = new ArrayList<>();
-        for (UserRole ur : userRoles) {
-            Role role = roleRepository.findById(ur.getRoleId()).orElse(null);
-            if (role != null && role.getAvailable() == 1) {
-                roles.add(role.getRoleName());
+        List<Integer> roleIds = userRoles.stream().map(UserRole::getRoleId).toList();
+
+        if (roleIds.isEmpty()) {
+            return new RolesAndPerms(List.of(), List.of());
+        }
+
+        // 2. 批量查可用角色名（1 条 SQL）
+        Map<Integer, Role> roleMap = roleRepository.findAllById(roleIds).stream()
+                .filter(r -> r.getAvailable() == 1)
+                .collect(Collectors.toMap(Role::getRoleId, r -> r));
+
+        List<String> roleNames = roleIds.stream()
+                .filter(roleMap::containsKey)
+                .map(id -> roleMap.get(id).getRoleName())
+                .toList();
+
+        // 3. 批量查角色权限 + 权限详情（2 条 SQL）
+        List<Integer> availableRoleIds = roleIds.stream()
+                .filter(roleMap::containsKey)
+                .toList();
+
+        Set<String> permKeys = new HashSet<>();
+        if (!availableRoleIds.isEmpty()) {
+            List<RolePermission> rps = rolePermissionRepository.findByRoleIdIn(availableRoleIds);
+            Set<Integer> permIds = rps.stream()
+                    .map(RolePermission::getPermissionId)
+                    .collect(Collectors.toSet());
+            if (!permIds.isEmpty()) {
+                permissionRepository.findAllById(permIds)
+                        .forEach(p -> permKeys.add(p.getPermKey()));
             }
         }
-        return roles;
+
+        return new RolesAndPerms(roleNames, new ArrayList<>(permKeys));
     }
 
-    private List<String> loadPermKeys(Long userPkId) {
+    /**
+     * 仅加载角色名列表（用于 token 刷新，只需角色名）。
+     */
+    private List<String> loadRoleNames(Long userPkId) {
         List<UserRole> userRoles = userRoleRepository.findByUserId(userPkId);
-        Set<String> permKeys = new HashSet<>();
-        for (UserRole ur : userRoles) {
-            Role role = roleRepository.findById(ur.getRoleId()).orElse(null);
-            if (role == null || role.getAvailable() != 1) continue;
-            List<RolePermission> rps = rolePermissionRepository.findByRoleId(ur.getRoleId());
-            for (RolePermission rp : rps) {
-                Permission p = permissionRepository.findById(rp.getPermissionId()).orElse(null);
-                if (p != null) {
-                    permKeys.add(p.getPermKey());
-                }
-            }
-        }
-        return new ArrayList<>(permKeys);
+        if (userRoles.isEmpty()) return List.of();
+        List<Integer> roleIds = userRoles.stream().map(UserRole::getRoleId).toList();
+        return roleRepository.findAllById(roleIds).stream()
+                .filter(r -> r.getAvailable() == 1)
+                .map(Role::getRoleName)
+                .toList();
     }
+
+    /** 角色+权限的批量加载结果。 */
+    private record RolesAndPerms(List<String> roleNames, List<String> permKeys) {}
 
     private void setTokenCookies(HttpServletResponse response, String accessToken, String refreshToken) {
         ResponseCookie accessCookie = cookieUtils.buildCookie(

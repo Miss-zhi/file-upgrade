@@ -45,7 +45,7 @@ onlyoffice:
   server-url: http://${dev.server}:8021
   api-url: http://${dev.server}:8021/web-apps/apps/api/documents/api.js
   converter-url: http://${dev.server}:8021/ConvertService.ashx
-  command-url: http://${dev.server}:8021/CommandService.ashx
+  command-url: http://${dev.server}:8021/coauthoring/CommandService.ashx
   # 这两个 URL 必须是 OnlyOffice 容器能访问到的地址
   # 本地开发时 Spring Boot 跑在你的 Windows 上，OnlyOffice 在远程服务器
   # SSH 反向隧道: 服务器 18080 → 本地 8080（已开通）
@@ -57,10 +57,17 @@ onlyoffice:
 cors:
   allowed-origins: http://localhost:5173,http://localhost:5174,http://localhost:5175
 
+# ---- 存储 ----
+# IDEA 工作目录是 E:\file-upgrade\，相对路径 ./data/files 会解析到错误位置
+# 文件实际在 qiwenshare-backend/data/files/ 下，这里用绝对路径覆盖
+storage:
+  local:
+    base-path: E:/file-upgrade/qiwenshare-backend/data/files
+
 # ---- 开发日志 ----
 logging:
   level:
     com.qiwenshare: DEBUG
-    org.springframework.security: DEBUG
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    # SQL 只输出 show-sql 的单行格式，不再输出 Hibernate 格式化版本 + 参数绑定
+    org.hibernate.SQL: WARN
+    org.springframework.security: INFO

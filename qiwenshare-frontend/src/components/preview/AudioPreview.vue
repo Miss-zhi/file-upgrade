@@ -91,7 +91,7 @@ watch(currentLyricIndex, (idx) => {
 
       <!-- 右上角操作提示 + 关闭按钮 -->
       <div class="top-right-box">
-        <el-tooltip effect="dark" placement="bottom">
+        <el-tooltip effect="dark" placement="bottom" popper-style="z-index: 10000">
           <template #content>
             <div style="line-height: 2">
               操作提示: <br />

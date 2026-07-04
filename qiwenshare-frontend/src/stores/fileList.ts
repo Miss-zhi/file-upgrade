@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { FileViewMode, FileType } from '@/types/file'
 import { allColumnList } from '@/types/file'
-import type { FileInfo, PageResult } from '@/types/file'
+import type { FileInfo, PageResult, ShareInfo } from '@/types/file'
 import {
   getFileList,
   getFileListByCategory,
@@ -48,6 +48,11 @@ export const useFileListStore = defineStore('fileList', () => {
   const total = ref(0)
   const loading = ref(false)
   const currentPage = ref(0)
+  const pageSize = ref(20)
+
+  // ---- 分享列表（仅用于 SHARE 视图） ----
+
+  const shareList = ref<ShareInfo[]>([])
 
   // ---- 选择状态 ----
 
@@ -86,7 +91,7 @@ export const useFileListStore = defineStore('fileList', () => {
   }): Promise<void> {
     loading.value = true
     try {
-      const { fileType, filePath = '/', page = 0, size = 20, order, sort } = params
+      const { fileType, filePath = '/', page = 0, size = pageSize.value, order, sort } = params
       let result: PageResult<FileInfo>
 
       if (fileType === FileType.ALL) {
@@ -95,6 +100,7 @@ export const useFileListStore = defineStore('fileList', () => {
         result = await getRecycleList(page, size)
       } else if (fileType === FileType.SHARE) {
         const shares = await getMyShares()
+        shareList.value = shares
         // 将 ShareInfo[] 适配为 PageResult<FileInfo>
         result = {
           content: shares.map((s) => ({
@@ -139,6 +145,7 @@ export const useFileListStore = defineStore('fileList', () => {
     fileList.value = []
     total.value = 0
     currentPage.value = 0
+    shareList.value = []
   }
 
   /** 清空选择 */
@@ -160,6 +167,8 @@ export const useFileListStore = defineStore('fileList', () => {
     total,
     loading,
     currentPage,
+    pageSize,
+    shareList,
     fetchFileList,
     setFileList,
     clearFileList,

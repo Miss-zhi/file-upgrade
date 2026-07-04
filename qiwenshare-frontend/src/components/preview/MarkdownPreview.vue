@@ -72,7 +72,7 @@ watch(visible, (val) => {
           <span class="editor-title">在线预览{{ editable ? ' & 编辑' : '' }}</span>
         </div>
         <div class="tip-right">
-          <el-tooltip effect="dark" placement="bottom">
+          <el-tooltip effect="dark" placement="bottom" popper-style="z-index: 10000">
             <template #content>
               <div style="line-height: 1.8">
                 操作提示: <br />

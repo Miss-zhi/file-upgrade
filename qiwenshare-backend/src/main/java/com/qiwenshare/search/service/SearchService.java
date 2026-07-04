@@ -95,6 +95,7 @@ public class SearchService {
                         toString(source.get("fileName")),
                         toString(source.get("extendName")),
                         toString(source.get("filePath")),
+                        toInteger(source.get("isDir")), // isDir 字段实际存储的是 fileType
                         toLong(source.get("fileSize")),
                         toLocalDateTime(source.get("uploadTime")),
                         toLocalDateTime(source.get("modifyTime")),
@@ -120,13 +121,23 @@ public class SearchService {
         return BoolQuery.of(b -> b
                 // 权限隔离：必须匹配 userId
                 .filter(f -> f.term(t -> t.field("userId").value(userId)))
-                // 排除文件夹
-                .filter(f -> f.term(t -> t.field("isDir").value(0)))
+                // 排除文件夹（fileType=0是文件夹，fileType=1是文件）
+                .mustNot(mn -> mn.term(t -> t.field("isDir").value(0)))
                 // 文件名搜索（IK 分词已覆盖中文）
                 .should(s -> s.match(m -> m.field("fileName").query(keyword).boost(2.0f)))
                 .should(s -> s.match(m -> m.field("extendName").query(keyword).boost(1.0f)))
                 .minimumShouldMatch("1")
         )._toQuery();
+    }
+
+    private Integer toInteger(Object obj) {
+        if (obj == null) return 0;
+        if (obj instanceof Number) return ((Number) obj).intValue();
+        try {
+            return Integer.parseInt(obj.toString());
+        } catch (NumberFormatException e) {
+            return 0;
+        }
     }
 
     private Long toLong(Object obj) {

@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
  * @param fileName          文件名（可能包含高亮标签）
  * @param extendName        扩展名
  * @param filePath          文件路径
+ * @param fileType          文件类型（0=文件夹，1=文件）
  * @param fileSize          文件大小
  * @param uploadTime        上传时间
  * @param modifyTime        修改时间
@@ -19,6 +20,7 @@ public record SearchResultVO(
         String fileName,
         String extendName,
         String filePath,
+        Integer fileType,
         Long fileSize,
         LocalDateTime uploadTime,
         LocalDateTime modifyTime,

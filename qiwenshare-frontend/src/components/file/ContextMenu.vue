@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, computed, onMounted, onUnmounted, nextTick, watch } from 'vue'
 import {
   View, Delete, RefreshLeft, CopyDocument, Promotion,
   Edit, Share, Download, Files, Document, Link, CircleClose,
@@ -39,20 +39,33 @@ function handleAction(action: string): void {
 function adjustPosition(): void {
   if (!menuRef.value) return
   const menu = menuRef.value
+  
+  // 强制获取最新尺寸（确保 DOM 已完全渲染）
   const rect = menu.getBoundingClientRect()
   const viewportW = window.innerWidth
   const viewportH = window.innerHeight
+  const menuWidth = rect.width || 138
+  const menuHeight = rect.height || 200 // 默认高度估算
 
-  if (viewportW - props.x < 138) {
+  // 水平方向：右侧空间不足时向左展开
+  if (viewportW - props.x < menuWidth) {
     menu.style.left = 'auto'
     menu.style.right = `${viewportW - props.x}px`
+  } else {
+    // 重置为默认左对齐
+    menu.style.left = `${props.x}px`
+    menu.style.right = 'auto'
   }
 
-  const itemCount = menuItems.value.filter((i) => !i.divider).length
-  const menuHeight = itemCount * 36 + 10
+  // 垂直方向：底部空间不足时向上展开
   if (viewportH - props.y < menuHeight) {
-    menu.style.top = 'auto'
-    menu.style.bottom = `${viewportH - props.y}px`
+    // 向上展开：将菜单顶部设置为 (点击位置 - 菜单高度)
+    menu.style.top = `${props.y - menuHeight}px`
+    menu.style.bottom = 'auto'
+  } else {
+    // 正常向下展开
+    menu.style.top = `${props.y}px`
+    menu.style.bottom = 'auto'
   }
 }
 
@@ -170,7 +183,13 @@ function handleDocumentClick(e: MouseEvent): void {
 
 onMounted(() => {
   document.addEventListener('click', handleDocumentClick)
-  nextTick(adjustPosition)
+})
+
+// 监听 visible 变化，每次显示时重新调整位置
+watch(() => props.visible, (newVal) => {
+  if (newVal) {
+    nextTick(adjustPosition)
+  }
 })
 
 onUnmounted(() => {

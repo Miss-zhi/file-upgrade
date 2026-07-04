@@ -4,6 +4,7 @@ import com.qiwenshare.auth.filter.JwtAuthenticationFilter;
 import com.qiwenshare.auth.handler.AccessDeniedHandlerImpl;
 import com.qiwenshare.auth.handler.AuthEntryPoint;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -34,6 +35,9 @@ public class SecurityConfig {
     private final AccessDeniedHandlerImpl accessDeniedHandler;
     private final CorsConfigurationSource corsConfigurationSource;
 
+    @Value("${onlyoffice.server-url:}")
+    private String onlyOfficeServerUrl;
+
     /**
      * 配置 SecurityFilterChain。
      *
@@ -43,9 +47,22 @@ public class SecurityConfig {
      */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        // CSP 中的 OnlyOffice 地址从配置读取，未配置时留空（仅允许 self）
+        String oo = onlyOfficeServerUrl != null && !onlyOfficeServerUrl.isBlank() ? onlyOfficeServerUrl : "";
+        String csp = "default-src 'self'; "
+                + "script-src 'self' 'unsafe-eval' 'unsafe-inline'" + (oo.isEmpty() ? "" : " " + oo) + "; "
+                + "style-src 'self' 'unsafe-inline'; "
+                + "img-src 'self' data:; "
+                + "font-src 'self' data:; "
+                + "connect-src 'self' ws: wss:" + (oo.isEmpty() ? "" : " " + oo) + "; "
+                + "frame-src 'self'" + (oo.isEmpty() ? "" : " " + oo);
+
         http
             .csrf(AbstractHttpConfigurer::disable)
             .cors(cors -> cors.configurationSource(corsConfigurationSource))
+            .headers(headers -> headers
+                .contentSecurityPolicy(cspCfg -> cspCfg.policyDirectives(csp))
+            )
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
@@ -57,6 +74,7 @@ public class SecurityConfig {
                     "/api/v1/share/verifyshare",
                     "/api/v1/share/download/**",
                     "/api/v1/document/download/**",
+                    "/api/v1/document/callback",
                     "/api/v1/filetransfer/preview/**",
                     "/api/v1/param/**",
                     "/actuator/health",
