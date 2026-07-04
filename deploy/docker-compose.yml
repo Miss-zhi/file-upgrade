@@ -1,0 +1,201 @@
+# ============================================================
+# 奇文网盘 — Docker Compose 全栈部署
+# 使用方式:
+#   1. 复制 .env.example 为 .env 并填写实际值
+#   2. docker compose up -d
+# ============================================================
+
+services:
+  # ----------------------------------------------------------
+  # MySQL 8
+  # ----------------------------------------------------------
+  mysql:
+    image: mysql:8.0
+    container_name: qiwenshare-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: qiwenshare
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      TZ: Asia/Shanghai
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --default-authentication-plugin=caching_sha2_password
+      - --max-connections=200
+      - --innodb-buffer-pool-size=256M
+    ports:
+      - "127.0.0.1:3306:3306"   # 仅本地访问，不暴露到公网
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - qiwenshare
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  # ----------------------------------------------------------
+  # Redis 7
+  # ----------------------------------------------------------
+  redis:
+    image: redis:7-alpine
+    container_name: qiwenshare-redis
+    restart: unless-stopped
+    command: >
+      redis-server
+      --requirepass ${REDIS_PASSWORD}
+      --appendonly yes
+      --maxmemory 256mb
+      --maxmemory-policy allkeys-lru
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - qiwenshare
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ----------------------------------------------------------
+  # Elasticsearch 8（含 IK 中文分词插件）
+  # ----------------------------------------------------------
+  elasticsearch:
+    build:
+      context: .
+      dockerfile: Dockerfile.elasticsearch
+    container_name: qiwenshare-es
+    restart: unless-stopped
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - xpack.security.enabled=false
+      - TZ=Asia/Shanghai
+    ports:
+      - "127.0.0.1:9200:9200"
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+    networks:
+      - qiwenshare
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:9200/_cluster/health || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+
+  # ----------------------------------------------------------
+  # OnlyOffice Document Server
+  # ----------------------------------------------------------
+  onlyoffice:
+    image: onlyoffice/documentserver:8.2
+    container_name: qiwenshare-oo
+    restart: unless-stopped
+    environment:
+      - JWT_SECRET=${ONLYOFFICE_JWT_SECRET}
+      - JWT_HEADER=Authorization
+      - JWT_IN_BODY=true
+      - TZ=Asia/Shanghai
+    ports:
+      - "127.0.0.1:8021:80"
+    volumes:
+      - onlyoffice-data:/var/www/onlyoffice/Data
+      - onlyoffice-logs:/var/log/onlyoffice
+    networks:
+      - qiwenshare
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost/healthcheck || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 120s
+
+  # ----------------------------------------------------------
+  # 后端 Spring Boot
+  # ----------------------------------------------------------
+  backend:
+    build:
+      context: ../qiwenshare-backend
+      dockerfile: Dockerfile
+    container_name: qiwenshare-backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - DB_URL=jdbc:mysql://mysql:3306/qiwenshare?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+      - REDIS_HOST=redis
+      - ES_URIS=http://elasticsearch:9200
+      - OO_SERVER_URL=http://onlyoffice:80
+      - OO_INTERNAL_SERVER_URL=http://onlyoffice:80
+      - OO_API_URL=http://onlyoffice:80/web-apps/apps/api/documents/api.js
+      - OO_CONVERTER_URL=http://onlyoffice:80/ConvertService.ashx
+      - OO_COMMAND_URL=http://onlyoffice:80/coauthoring/CommandService.ashx
+      - OO_CALLBACK_BASE_URL=http://backend:8080/api/v1/document/callback
+      - OO_PREVIEW_BASE_URL=http://backend:8080
+      - CORS_ALLOWED_ORIGINS=${CORS_ALLOWED_ORIGINS}
+      - STORAGE_LOCAL_PATH=/data/qiwenshare/files
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - ${STORAGE_HOST_PATH:-./data/files}:/data/qiwenshare/files
+    networks:
+      - qiwenshare
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/actuator/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+
+  # ----------------------------------------------------------
+  # 前端 Nginx
+  # ----------------------------------------------------------
+  frontend:
+    build:
+      context: ../qiwenshare-frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: /api/v1
+        VITE_ONLYOFFICE_API_URL: /onlyoffice/web-apps/apps/api/documents/api.js
+    container_name: qiwenshare-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"   # 如果配置了 HTTPS
+    volumes:
+      - ./nginx-ssl:/etc/nginx/ssl:ro   # SSL 证书目录（可选）
+    networks:
+      - qiwenshare
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  mysql-data:
+    driver: local
+  redis-data:
+    driver: local
+  es-data:
+    driver: local
+  onlyoffice-data:
+    driver: local
+  onlyoffice-logs:
+    driver: local
+
+networks:
+  qiwenshare:
+    driver: bridge

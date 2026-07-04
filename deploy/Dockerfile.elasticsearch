@@ -1,0 +1,6 @@
+# Elasticsearch 8 + IK 中文分词插件
+FROM elasticsearch:8.13.0
+
+# 安装 IK 分析器（版本必须与 ES 版本匹配）
+RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install \
+    --batch https://github.com/infinilabs/analysis-ik/releases/download/v8.13.0/elasticsearch-analysis-ik-8.13.0.zip
