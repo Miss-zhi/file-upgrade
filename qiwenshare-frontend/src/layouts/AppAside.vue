@@ -43,13 +43,9 @@ const menuItems = [
   { label: '我的分享', fileType: FileType.SHARE, icon: 'Share' },
 ]
 
-/** admin 子菜单项 */
+/** admin 子菜单项（文件页侧栏仅保留入口，完整菜单见管理后台） */
 const adminMenuItems = [
   { label: '用户管理', route: '/admin/users', permission: 'admin:user-manage' },
-  { label: '角色管理', route: '/admin/roles', permission: 'admin:role-manage' },
-  { label: '配额管理', route: '/admin/quota', permission: 'admin:quota-manage' },
-  { label: '审计日志', route: '/admin/logs', permission: 'admin:log-view' },
-  { label: '系统配置', route: '/admin/config', permission: 'admin:config-manage' },
 ]
 
 /** 是否有任何一个 admin 权限 */
